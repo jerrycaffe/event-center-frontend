@@ -80,7 +80,7 @@ a {
 /* Showcase is the area with the large image */
 .showcase {
   height: 276px;
-  background: url('../img/christina-wocintechchat-com-xmjaWQxjvm0-unsplash\ 2.jpg') center center/cover;
+  background: url('../images//christina-wocintechchat-com-xmjaWQxjvm0-unsplash\ 2.jpg') center center/cover;
   display: flex;
   width: 100%;
 }
@@ -190,9 +190,6 @@ a {
   .btn{
     width: max-content;
       margin: 20px auto;
-  }
-  .desktop-nav{
-    flex-wrap: nowrap;
   }
  /* servicees is the area with cards */
  .services {
