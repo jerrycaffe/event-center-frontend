@@ -23,23 +23,9 @@
       </div>
       <!-- This is to the right side of the header, some parts are displayed for desktop and hidden for mobile and vice versa -->
       <div class="right-menu">
-        <div class="filter d-flex pointer">
-          <img src="img/fa-solid_sliders-h.svg" alt="filter page" />
-        
-          <!-- filter text is hidden for mobile and displayed for desktop -->
-          <span class="d-display m-display-none pointer">Filter</span>
-        </div>
+
 
         <!-- search bar displayed for desktop and hidden for mobile -->
-        
-        <div class="search-bar d-flex">
-          <input type="search" class="m-display-none d-display" />
-
-          <div class="search-tool m-display-none pointer">
-            <img src="img/search.svg" alt="search icon for mobile">
-          </div>
-          <img class="d-display-none pointer" src="img/noun_Search_3359351 1.svg" alt="search icon for desktop" class="d-display-none" />
-        </div>
         <!-- links are displayed in desktop and hidden in mobile -->
         <div class="desktop-nav m-display-none">
           <a href="#" class="nav-btn active">Home</a>
@@ -50,7 +36,8 @@
         <!-- login button displayed for desktop and hidden for mobile -->
         <a href="#" class="d-display m-display-none d-btn">Login</a>
         <!-- navigation icon displayed for mobile and hidden for desktop -->
-        <img class="pointer d-display-none" src="img/menubuttonofthreelines_79781 1.png" alt="menu icon for mobile" class="d-display-none" />
+        <img class="pointer d-display-none" src="img/menubuttonofthreelines_79781 1.png" alt="menu icon for mobile"
+          class="d-display-none" />
       </div>
     </div>
     <!-- End of Header -->
@@ -58,81 +45,125 @@
     <div class="content-wrap">
       <!-- Showcase -->
       <div class="showcase">
-        <div class="sign">
-          <a href="#" class="d-display-none t-display-none btn">
-            Sign up!
-          </a>
+        <div class="showcase-cover">
+          <div class="showcase-text">
+            <p class="big-text">
+              BOOK A VENUE FOR
+              YOUR EVENT
+            </p>
+            <p class="small-text">FIND YOUR IDEAL
+              VENUE INSTANTLY</p>
+          </div>
+
+          <form class="form-bg">
+            <div class="icon-input">
+              <i class="carlender-icon"></i>
+              <input type="text" placeholder="Date" />
+              <i class="drop-down"></i>
+            </div>
+
+            <div class="icon-input">
+              <i class="location-icon"></i>
+              <input class="text-input" type="text" placeholder="Lagos" />
+
+            </div>
+            <div class="icon-input">
+              <i class="group-icon"></i>
+              <input class="text-input" type="text" placeholder="Number of Guests" />
+              <i class="drop-down"></i>
+            </div>
+            <div class="icon-input">
+              <i class="confetti-icon"></i>
+              <input type="text" placeholder="Type of Event" />
+              <i class="drop-down"></i>
+            </div>
+            <button type="submit">Search</button>
+          </form>
 
         </div>
-        <div class="showcase-text">
-          <p class="leading-text">
-            Managing your reservations
-            has never
-            been easier
-          </p>
-          <p class="showcase-text2">Bookings helps
-            you manage reservations of all your event centers in one place.</p>
 
-          <a href="#" class="d-display t-display btn m-display-none">
-            Sign up!
-          </a>
-        </div>
       </div>
       <!-- end of show case -->
-      <!-- Services -->
-      <div class="services">
-        <div class="card pointer">
-          <div class="card-title">
-            Automatically accept applications
-          </div>
-          <div class="card-icon">
-            <img src="img/mdi_event_available.svg" alt="">
-          </div>
-          <div class="card-footer">
-            Get notified of new reservations.
-          </div>
-        </div>
-        <div class="card pointer">
-          <div class="card-title">
-            Manage payments better
-          </div>
-          <div class="card-icon">
-            <img src="img/mdi_payment.svg" alt="">
-          </div>
-          <div class="card-footer">
-            Customers can book for your event hall and make payment safely.
-          </div>
-        </div>
-        <div class="card pointer">
-          <div class="card-title">
-            Avoid double booking
-          </div>
-          <div class="card-icon">
-            <img src="img/mdi_collections_bookmark.svg" alt="">
-          </div>
-          <div class="card-footer">
-            Bookings automatically shows only available event halls.
-          </div>
-        </div>
+      <!-- page contents -->
+      <div class="page-contents">
+        <h2 class="title">MAGNITUDE EVENT CENTER</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type text. when an unknown printer took a galley of type and scrambled it to make a
+          type text.
+        </p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text</p>
 
+        <div class="page-contents-img">
+          <img src="./img/hallimage.png" alt="">
+        </div>
       </div>
-      <!-- end of services -->
-    
+      <div class="services">
+        <h3 class="title">MAGNITUDE EVENT CENTER</h3>
+
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/wedding.png" alt="" />
+          </div>
+          <h3 class="card-caption">WEDDING</h3>
+          <p>Your dream wedding needs the perfect venue. We care about you, it is our duty to provide you the
+            opportunity
+            of having a memorable wedding ceremony.</p>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/reuinion.png" alt="" />
+          </div>
+          <h3 class="card-caption">BIRTHDAY</h3>
+          <p>Let us put you in the spotlight by providing a venue for you to celebrate your new age. You deserve an
+            accolade for reaching such a wonderful milestone</p>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="./img/artist.png" alt="" />
+          </div>
+          <h3 class="card-caption">CONCERT</h3>
+          <p>Your fans deserve to feel the sound
+            of your new beat, let us provide a
+            venue worthy of such connection.
+            Trust us to bring you closer to
+            your fans.</p>
+        </div>
+      </div>
+      <div class="news-offer">
+        <span class="small-text">
+
+          NEWS & OFFERS
+        </span>
+        <form action="">
+          <input class="input-subscribe" type="text" placeholder="Enter Your Email" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <!-- end of page contents -->
+
       <!-- Footer -->
-      <div class="footer">
-        <div class="footer-col">
-          <p><a href="#">Contact us</a></p>
-          <p><a href="#">FAQ</a></p>
+      <footer>
+        <div class="footer-cat">
+
+
+          <div class="footer-col">
+            <p></p><a href="#">Contact us</a></p>
+            <p><a href="#">FAQ</a></p>
+          </div>
+          <div class="footer-col">
+            <p><a href="#">Privacy policy</a></p>
+            <p> <a href="#">Terms & Conditions</a></p>
+          </div>
+          <div class="footer-col">
+            <p><a href="#">Admin Login </a></p>
+            <p><a href="#">All rights reserved.</a></p>
+          </div>
         </div>
-        <div class="footer-col">
-          <p><a href="#">Privacy policy</a></p>
-          <p> <a href="#">Terms & Conditions</a></p>
-        </div>
-        <div class="footer-col">
-          <p><a href="#">All rights reserved. </a></p>
-          <p><a href="#">Bookings. 2020</a></p>
-        </div>
-      </div>
+        <p class="footer-copy">&copy; Magnitude. 2020</p>
+      </footer>
       <!-- end of footer -->
     </div>
     <!-- End of content wrap -->

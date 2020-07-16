@@ -18,7 +18,7 @@
 /* The header is the top static display */
 .header {
   width: 100%;
-  height: 60px;
+  height: 68px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,11 +29,7 @@
 }
 
 /* beginning of style for the right sde of the top header */
-.right-menu {
-  display: flex;
-  justify-content: space-between;
-  width: 100px;
-}
+
 /* Header ends here */
 
 /* general styles for hiding some of the contents meant for desktop view in mobile view */
@@ -53,17 +49,15 @@ a {
   text-decoration: none;
   color: #ffffff;
 }
+
 /* the styles for the button */
-.btn {
-  color: #F4F4F4;
-  background: #1D48B7;
-  border-radius: 5px;
-  padding: 10px 35px;
-}
+
+
 /* cursor effect enables the mouse change on hover on the item */
-.pointer{
+.pointer {
   cursor: pointer;
 }
+
 /* end of generic styles */
 
 
@@ -77,98 +71,172 @@ a {
   position: relative;
   top: 60px;
 }
+
 /* Showcase is the area with the large image */
 .showcase {
-  height: 276px;
-  background: url('../img/christina-wocintechchat-com-xmjaWQxjvm0-unsplash\ 2.jpg') center center/cover;
-  display: flex;
+  height: 576px;
+  background: url('../img/homeBg.png') center center/cover;
   width: 100%;
 }
-/* to the left side of the showcase area we have the sign session where a sign in button is displayed on mobile and hidding for desktop */
 
-.sign {
-  flex-basis: 50%;
-  text-align: center;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 10px 0;
-}
-
-/* The right sight side of the showcase where there are texts */
-.showcase-text {
-  width: 50%;
+.showcase-cover {
+  width: 100%;
   height: 100%;
-  background: rgba(24, 24, 24, .6);
-  padding: 40px 0 10px 10px;
-}
-
-/* The first text to the right side of the showcase */
-.leading-text {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-  color: #F4F4F4;
-}
-
-/* the second text below the show case right hand */
-.showcase-text2 {
-  font-size: 16px;
-  color: #BFB7B7;
-  padding: 15px 0 0 0;
-}
-
-/* end of showcase styles */
-
-/* The area that tells people the services we render */
-.services {
-  background: #F4F4F4;
-  padding: 20px 20px;
-}
-
-/* each layout with services */
-.card {
   text-align: center;
-  background: #FFFFFF;
-  border: 1px solid #E9E9E9;
-  box-shadow: 0px 4px 4px rgba(36, 36, 36, 0.25);
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.big-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.showcase-text {
+  color: #FFFFFF;
+  padding: 0 40px;
+  margin-bottom: 30px;
+}
+
+.small-text {
+  padding: 10px 30px;
+  font-size: 18px;
+
+}
+
+form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  margin-top: 10px;
-  height: 146px;
+  padding: 10px;
 }
 
-/* the card title */
-.card-title {
-  font-size: 25px;
+.form-bg {
+  background: #000000;
 }
-/* small image below the card title */
-.card-icon {
+
+input {
+  font-size: 17px;
+  border: none;
+}
+
+.icon-input {
+  width: 275px;
+  height: 48px;
+  background: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.carlender-icon {
+  content: url('../img//calendar.svg')
+}
+
+.location-icon {
+  content: url('../img/locations.svg')
+}
+
+.group-icon {
+  content: url('../img/groups.svg')
+}
+
+.confetti-icon {
+  content: url('../img/confetti.svg')
+}
+
+.drop-down {
+  content: url('../img//dropdown.svg');
+  cursor: pointer;
+}
+
+button {
+  font-size: 16px;
+  color: #ffffff;
+  background: #1D48B7;
+  padding: 15px;
   margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
-/* the ending note on the card */
-.card-footer {
-  font-size: 15px;
-  color: #4E4E4E;
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.page-contents {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services {
+  background: #E7F2FE;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+.page-contents-img {
+  display: flex;
+  width: 100%;
+  margin: 30px auto;
+}
+
+.card-caption {
+  margin: 20px;
+}
+
+.card {
+  background: #ffffff;
+  width: 88%;
+  margin: 20px 0;
+}
+
+.card p {
+  margin: 20px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.news-offer {
+  padding: 20px 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.input-subscribe {
+  border: solid 1px;
+  height: 48px;
+  border-radius: 5px;
+  padding-left: 20px;
 }
 
 /* at the bottom of the page */
-.footer {
-  width: 100%;
-  height: 84px;
+footer {
   background: #1D48B7;
-  font-size: 12px;
-  line-height: 15px;
-  color: #FFFFFF;
+  height: 106px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+
+}
+
+.footer-cat {
+  display: flex;
   justify-content: space-around;
 }
 
@@ -177,45 +245,21 @@ a {
   padding: 10px 0;
 }
 
+.footer-copy {
+  text-align: center;
+  padding: 10px 0;
+}
+
 /* End of mobile styles */
 
-@media (min-width: 481px) and (max-width: 767px){
-  .showcase{
-    height: 600px;
-  }
-  .t-display-none{
-    display: none;
-  }
-  .t-display{
-    display: flex;
-  }
-  .btn{
-    width: max-content;
-      margin: 20px auto;
-  }
- /* servicees is the area with cards */
- .services {
-  background: rgba(255, 255, 25, 0);
-  display: flex;
-  justify-content: space-evenly;
-  top: -95px;
-  position: relative;
-}
-.card {
-  width: 29vw;
-  height: auto;
-  justify-content: space-evenly;
-}
-
-.card-title{
-  font-size: 18px;
-}
+@media (min-width: 481px) and (max-width: 767px) {
+ 
 }
 
 
 /* Styling for the desktop */
 @media only screen and (min-width: 768px) {
-  
+
   /* .container {
     max-width: 1440px;
   } */
@@ -228,45 +272,43 @@ a {
   .d-display {
     display: flex;
   }
+
   /* display flex for the desktop */
   .d-flex {
     display: flex;
     align-items: center;
   }
 
-/* .d-btn means desktop buttons */
-.d-btn {
-  color: #F4F4F4;
-  background: #1D48B7;
-  border-radius: 5px;
-  padding: 10px 35px;
-}
-/* Header  */
-.header{
-  height: 88px;
-}
-/* header ends here */
+  /* .d-btn means desktop buttons */
+  .d-btn {
+    color: #F4F4F4;
+    background: #1D48B7;
+    border-radius: 5px;
+    padding: 10px 35px;
+  }
 
-/* Content wrap */
-.content-wrap{
-  top: 88px;
-}
-/* Ends here */
-/* End of generic styling for the desktop */
+  /* Header  */
+  .header {
+    height: 88px;
+  }
+
+  /* header ends here */
+
+  /* Content wrap */
+  .content-wrap {
+    top: 88px;
+  }
+
+  /* Ends here */
+  /* End of generic styling for the desktop */
   /* for the desktop items */
   /* Navigation for desktop */
-  .right-menu {
-    width: auto;
-    align-items: center;
-  }
-/* the filter text */
-.filter {
-  margin: 0 10px;
-}
-/* the filter icon */
-.filter img {
-  margin: 0 5px;
-}
+  .right-menu {}
+
+  /* the filter text */
+
+  /* the filter icon */
+
 
   /* navigation for the desktop */
   .desktop-nav {
@@ -279,88 +321,38 @@ a {
     font-weight: bold;
     margin: 0 10px;
   }
+
   .nav-btn {
     color: #000000;
   }
-/* set the active button to blue */
+
+  /* set the active button to blue */
   .active {
     color: #1D48B7;
   }
-  
-  input {
-    height: 50px;
-    border: 1px solid #4E4E4E;
-    border-radius: 5px 0px 0px 5px;
-  }
-  .search-tool {
-    	     background: #1D48B7;
-    	     height: 50px;
-    	     display: flex;
-    	     justify-content: center;
-    	     border-radius: 0 5px 5px 0;
-    	     width: 45px;
-    }
-    
-    
-  .search-bar input {
-    	     width: 21vw;
-    	     padding: 0 10px;
-    	     font-size: 20px;
-    }
-    
+
+
+
+
+
+
+
+
   /* end of desktop navigation */
   /* showcase is the area with large image */
-  .showcase {
-    height: 724px;
-  }
-  .sign {
-    flex-basis: 60%;
-  }
-  .leading-text {
-    font-size: 32px;
-    font-weight: bold;
-    line-height: 39px;
-    color: #f4f4f4;
-    padding: 20px 40px;
-  }
-  .showcase-text {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .showcase-text2 {
-    font-size: 24px;
-    line-height: 29px;
-    padding: 20px 45px;
-  }
+  
+
+
+
+
   /* end of showcase */
   /* servicees is the area with cards */
-  .services {
-    background: rgba(255, 255, 25, 0);
-    display: flex;
-    justify-content: space-evenly;
-    top: -95px;
-    position: relative;
-  }
-  .card {
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    height: 193px;
-    padding: 0 5px;
-  }
-  .footer {
-    justify-content: center;
-  }
 
-  .footer-col {
-    display: flex;
-  }
 
-  .footer a {
-    padding: 10px 0;
-    margin: 0 20px;
-    color: #ffffff;
-  }
+
+
+
+
+
+  
 }
