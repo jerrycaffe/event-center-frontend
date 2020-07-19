@@ -10,42 +10,37 @@ const LandingPageHearder = () => {
     <div className="header">
       <div className="logo">
         <a href="#">
-          <img src={Logo} />
+          <img src={Logo} alt="magnitude event center logo" />
         </a>
       </div>
       <div className="right-menu">
-        <div className="filter d-flex pointer">
-          <img src={Filter} alt="filter page" />
-          <span className="d-display m-display-none pointer">Filter</span>
-        </div>
-        <div className="search-bar d-flex">
-          <input type="search" className="m-display-none d-display" />
-
-          <div className="search-tool m-display-none pointer">
-            <img src={Search} alt="search icon for mobile" />
-          </div>
-          <img
-            className="d-display-none pointer"
-            src={whiteSearchIcon}
-            alt="search icon for desktop"
-            className="d-display-none"
-          />
-        </div>
-
         <div className="desktop-nav m-display-none">
-          <a href="#" className="nav-btn active">Home</a>
-          <a href="#" className="nav-btn">About</a>
-          <a href="#" className="nav-btn">Venues</a>
-          <a href="#" className="nav-btn">Contact</a>
+          <a href="#" className="nav-btn active">
+            Home
+          </a>
+          <a href="#" className="nav-btn">
+            About
+          </a>
+          <a href="#" className="nav-btn">
+            Venues
+          </a>
+          <a href="#" className="nav-btn">
+            Contact
+          </a>
         </div>
-        
-        <a href="#" className="d-display m-display-none d-btn">
-          Login
+
+        <a href="#" class="d-display m-display-none d-btn-pry">
+          Log in
+        </a>
+        <a href="#" class="d-display m-display-none d-btn-sec">
+          Sign up
         </a>
         <img
           className="pointer d-display-none"
           src={mobileMenu}
-          alt="menu icon for mobile" className="d-display-none" />
+          alt="menu icon for mobile"
+          className="d-display-none"
+        />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
 
@@ -68,7 +68,7 @@ a {
 /* Showcase is the area with the large image */
 .showcase {
   height: 576px;
-  background: url('../img/homeBg.png') center center/cover;
+  background: url('../images/homeBg.png') center center/cover;
   width: 100%;
 }
 
@@ -126,23 +126,23 @@ input {
 }
 
 .carlender-icon {
-  content: url('../img//calendar.svg')
+  content: url('../images/calendar.svg')
 }
 
 .location-icon {
-  content: url('../img/locations.svg')
+  content: url('../images/locations.svg')
 }
 
 .group-icon {
-  content: url('../img/groups.svg')
+  content: url('../images/groups.svg')
 }
 
 .confetti-icon {
-  content: url('../img/confetti.svg')
+  content: url('../images/confetti.svg')
 }
 
 .drop-down {
-  content: url('../img//dropdown.svg');
+  content: url('../images/dropdown.svg');
   cursor: pointer;
 }
 
@@ -325,7 +325,7 @@ footer {
   }
 
   .showcase {
-    background: url('../img/desktopbg.png') center center/cover;
+    background: url('../images/desktopbg.png') center center/cover;
     height: 729px;
   }
 

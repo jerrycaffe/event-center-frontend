@@ -7,24 +7,44 @@ const Showcase = () => {
   return (
     <React.Fragment>
       <div className="showcase">
-        <div className="sign">
-          <a href="#" className="d-display-none t-display-none btn">
-            Sign up!
-          </a>
-        </div>
-        <div className="showcase-text">
-          <p className="leading-text">
-            Managing your reservations has never been easier
-          </p>
-          <p className="showcase-text2">
-            Bookings helps you manage reservations of all your event centers in
-            one place.
-          </p>
+        
+      <div class="showcase-cover">
+          <div class="showcase-text">
+            <p class="big-text">
+              BOOK A VENUE FOR
+              YOUR EVENT
+            </p>
+            <p class="small-text">FIND YOUR IDEAL
+              VENUE INSTANTLY</p>
+          </div>
 
-          <a href="#" className="d-display t-display btn m-display-none">
-            Sign up!
-          </a>
+          <form class="form-bg">
+            <div class="icon-input">
+              <i class="carlender-icon"></i>
+              <input type="text" placeholder="Date" />
+              <i class="drop-down"></i>
+            </div>
+
+            <div class="icon-input">
+              <i class="location-icon"></i>
+              <input class="text-input" type="text" placeholder="Lagos" />
+
+            </div>
+            <div class="icon-input">
+              <i class="group-icon"></i>
+              <input class="text-input" type="text" placeholder="Number of Guests" />
+              <i class="drop-down"></i>
+            </div>
+            <div class="icon-input">
+              <i class="confetti-icon"></i>
+              <input type="text" placeholder="Type of Event" />
+              <i class="drop-down"></i>
+            </div>
+            <button type="submit">Search</button>
+          </form>
+
         </div>
+
       </div>
     </React.Fragment>
   );

@@ -1,46 +1,50 @@
-import React from 'react'
-import bookings from '../images/mdi_event_available.svg';
-import payment from '../images/mdi_payment.svg';
-import bookmarks from '../images/mdi_collections_bookmark.svg';
+import React from "react";
+import bookings from "../images/mdi_event_available.svg";
+import artist from "../images/artist.png";
+import wedding from "../images/wedding.png";
+import reuinion from "../images/reuinion.png";
 
-const Services=()=> {
+const Services = () => {
   return (
-    <div class="services">
-        <div class="card pointer">
-          <div class="card-title">
-            Automatically accept applications
+    <div className="services">
+      <h2 className="title">MAGNITUDE EVENT CENTER</h2>
+      <div className="card-wrapper">
+        <div className="card">
+          <div className="card-image">
+            <img src={wedding} alt="wedding" />
           </div>
-          <div class="card-icon">
-            <img src={bookings} alt="" />
-          </div>
-          <div class="card-footer">
-            Get notified of new reservations.
-          </div>
+          <h3 className="card-caption">WEDDING</h3>
+          <p>
+            Your dream wedding needs the perfect venue. We care about you, it is
+            our duty to provide you the opportunity of having a memorable
+            wedding ceremony.
+          </p>
         </div>
-        <div class="card pointer">
-          <div class="card-title">
-            Manage payments better
+        <div className="card">
+          <div className="card-image">
+            <img src={reuinion} alt="get together" />
           </div>
-          <div class="card-icon">
-            <img src={payment} alt="" />
-          </div>
-          <div class="card-footer">
-            Customers can book for your event hall and make payment safely.
-          </div>
+          <h3 className="card-caption">BIRTHDAY</h3>
+          <p>
+            Let us put you in the spotlight by providing a venue for you to
+            celebrate your new age. You deserve an accolade for reaching such a
+            wonderful milestone
+          </p>
         </div>
-        <div class="card pointer">
-          <div class="card-title">
-            Avoid double booking
+        <div className="card">
+          <div className="card-image">
+            <img src={artist} alt="birthday" />
           </div>
-          <div class="card-icon">
-            <img src={bookmarks} alt="" />
-          </div>
-          <div class="card-footer">
-            Bookings automatically shows only available event halls.
-          </div>
+          <h3 className="card-caption">CONCERT</h3>
+          <p>
+            Your fans deserve to feel the sound of your new beat, let us provide
+            a venue worthy of such connection. Trust us to bring you closer to
+            your fans.
+          </p>
         </div>
       </div>
-  )
-}
+    </div>
+  );
+};
 
 export default Services;
