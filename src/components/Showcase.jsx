@@ -1,7 +1,6 @@
 import React from "react";
 import eventAvailable from "../images/mdi_event_available.svg";
-import payment from "../images/mdi_payment.svg";
-import bookmark from "../images/mdi_collections_bookmark.svg";
+import FilterSearch from './filterSearch'
 
 const Showcase = () => {
   return (
@@ -18,30 +17,7 @@ const Showcase = () => {
               VENUE INSTANTLY</p>
           </div>
 
-          <form class="form-bg">
-            <div class="icon-input">
-              <i class="carlender-icon"></i>
-              <input type="text" placeholder="Date" />
-              <i class="drop-down"></i>
-            </div>
-
-            <div class="icon-input">
-              <i class="location-icon"></i>
-              <input class="text-input" type="text" placeholder="Lagos" />
-
-            </div>
-            <div class="icon-input">
-              <i class="group-icon"></i>
-              <input class="text-input" type="text" placeholder="Number of Guests" />
-              <i class="drop-down"></i>
-            </div>
-            <div class="icon-input">
-              <i class="confetti-icon"></i>
-              <input type="text" placeholder="Type of Event" />
-              <i class="drop-down"></i>
-            </div>
-            <button type="submit">Search</button>
-          </form>
+          <FilterSearch />
 
         </div>
 

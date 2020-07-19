@@ -4,7 +4,9 @@ class newsLetter extends Component {
   render() {
     return (
       <div className="news-offer">
-        <span className="small-text">NEWS & OFFERS</span>
+        
+          <h4 className="small-text">NEWS & OFFERS</h4>
+        
         <form action="">
           <input
             className="input-subscribe"

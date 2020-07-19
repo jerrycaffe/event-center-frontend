@@ -17,7 +17,7 @@ const Footer = () => {
             <a href="#">Privacy policy</a>
           </p>
           <p>
-            {" "}
+          
             <a href="#">Terms & Conditions</a>
           </p>
         </div>
