@@ -13,7 +13,7 @@ class newsLetter extends Component {
             type="text"
             placeholder="Enter Your Email"
           />
-          <button className=" suscribe-btn" type="submit">
+          <button className="button-blue suscribe-btn" type="submit">
             Subscribe
           </button>
         </form>

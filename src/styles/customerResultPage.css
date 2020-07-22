@@ -1,0 +1,15 @@
+.search-contents{
+  padding: 40px;
+}
+
+a{
+  color: #000000 !important;
+  text-decoration: none;
+}
+.indicator-divider{
+  content: url('../images/indiicator-divider.png');
+  padding: 0 10px;
+}
+.page-indicator{
+  display: flex;
+}
