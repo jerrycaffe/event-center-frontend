@@ -12,6 +12,19 @@
   font-size: 1rem;
   color: #1d48b7;
 }
+.signup-names{
+    display: flex;
+}
+.signup-names div{
+    display: flex;
+    flex-direction: column;
+}
+.signup-names div:first-child{
+    margin: 0 1rem 0 0;
+}
+.signup-names div label{
+    margin-right: auto;
+}
 .login-main {
   display: flex;
   flex-wrap: wrap;
@@ -32,6 +45,10 @@
   display: flex;
   flex-direction: column;
   font-weight: bold;
+}
+.form-section form label::after{
+    content: " *";
+    color: red;
 }
 .form-section form input {
   margin: 0.5rem 0;
@@ -89,5 +106,11 @@
   }
   label{
       padding: 0.5rem 0;
+  }
+  .signup-names{
+      display: block;
+  }
+  .signup-names div:first-child{
+      margin: unset;
   }
 }

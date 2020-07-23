@@ -9,13 +9,15 @@ import "./App.css";
 import AboutUs from "../src/components/aboutUs";
 import NewsLetter from "./components/newsLetter";
 import Login from "./components/login/Login";
+import SignUp from "./components/SignUp"
 
 function App() {
   return (
     
      <div className="container">
-       {/* to view login page; div.container>Login>footer */}
-    <Login/>
+       {/* to view signup page; div.container>SignUp>footer */}
+    {/* <Login/> */}
+    <SignUp/>
        {/* <Header />
        <div className="content-wrap">
          <Showcase />
