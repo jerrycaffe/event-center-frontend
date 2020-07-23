@@ -1,14 +1,11 @@
 import React from "react";
-import LOGO from "../../images/LOGO.svg";
 import LoginForm from "./LoginForm";
+import LoginHeader from "./LoginHeader";
 
 const Login = () => {
   return (
     <React.Fragment>
-      <header className="login-header">
-        <img src={LOGO} alt="LOGO" />
-        <h5>Back</h5>
-      </header>
+        <LoginHeader/>
       <LoginForm /> 
     </React.Fragment>
   );
