@@ -202,9 +202,10 @@ a {
 }
 
 .news-offer {
-  padding: 20px 0;
-  margin-top: 20px;
+  padding: 10px;
+  margin-top: 50px;
   text-align: center;
+
 }
 
 .input-subscribe {
@@ -212,6 +213,10 @@ a {
   height: 48px;
   border-radius: 5px;
   padding-left: 20px;
+}
+.subscribe-form{
+  display: flex;
+  flex-direction: column;
 }
 
 /* at the bottom of the page */
