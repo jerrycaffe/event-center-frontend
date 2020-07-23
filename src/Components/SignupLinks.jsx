@@ -1,10 +1,10 @@
 import React from "react";
 
-const LoginLinks = () => {
+const SignupLinks = () => {
   return (
     <div>
       <p>
-        New user? <span className="links">Create an account</span>
+        Already Registered? <span className="links">Log In</span>
       </p>
       <p className="links">Forgot password?</p>
       <p>
@@ -15,4 +15,4 @@ const LoginLinks = () => {
   );
 };
 
-export default LoginLinks;
+export default SignupLinks;

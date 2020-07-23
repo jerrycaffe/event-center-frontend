@@ -1,15 +1,15 @@
 import React from "react";
 import LOGO from "../Images/LOGO.svg";
-import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 
-const Login = () => {
+const Signup = () => {
   return (
     <React.Fragment>
       <header className="login-header">
         <img src={LOGO} alt="LOGO" />
         <h5>Back</h5>
       </header>
-      <LoginForm />
+      <SignupForm />
       <footer className="signIn-footer">
         <p>Contact us</p>
         <p>FAQ</p>
@@ -21,4 +21,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
