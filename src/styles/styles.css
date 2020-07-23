@@ -4,7 +4,7 @@
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
-/* css for login page */
+/* css for login and signup page */
 @import url(./signup-in.css);
 
 .container {
