@@ -41,7 +41,7 @@
 /* this removes underline and blue color from anchor tag */
 a {
   text-decoration: none;
-  color: #ffffff;
+
 }
 
 .mt-3 {
@@ -102,17 +102,14 @@ a {
 
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
+
 
 .form-bg {
   background: #000000;
+  padding: 10px;
 }
 
-input {
+.border-none {
   font-size: 17px;
   border: none;
 }
@@ -148,7 +145,7 @@ input {
   cursor: pointer;
 }
 
-button {
+.button-blue {
   font-size: 18px;
   color: #ffffff;
   background: #1D48B7;
@@ -207,9 +204,10 @@ button {
 }
 
 .news-offer {
-  padding: 20px 0;
-  margin-top: 20px;
+  padding: 10px;
+  margin-top: 50px;
   text-align: center;
+
 }
 
 .input-subscribe {
@@ -218,9 +216,13 @@ button {
   border-radius: 5px;
   padding-left: 20px;
 }
+.subscribe-form{
+  display: flex;
+  flex-direction: column;
+}
 
 /* at the bottom of the page */
-footer {
+.footer {
   background: #1D48B7;
   height: 106px;
   display: flex;
@@ -230,7 +232,9 @@ footer {
   font-size: 12px;
 
 }
-
+.footer-copy{
+  text-align: center;
+}
 .footer-cat {
   display: flex;
   justify-content: space-around;
@@ -239,12 +243,9 @@ footer {
 /* The links for the footer */
 .footer a {
   padding: 10px 0;
+  color: #ffffff;
 }
 
-.footer-copy {
-  text-align: center;
-  padding: 10px 0;
-}
 
 /* End of mobile styles */
 
@@ -254,9 +255,6 @@ footer {
 /* Styling for the desktop */
 @media only screen and (min-width: 768px) {
 
-  /* .container {
-    max-width: 1440px;
-  } */
 
   /* generic styling for the desktop */
   .d-display-none {
@@ -343,10 +341,6 @@ footer {
 
   }
 
-  form {
-
-    padding: 0 10px;
-  }
 
   .form-bg {
     width: 86%;
@@ -454,31 +448,14 @@ footer {
     display: flex;
     justify-content: space-around;
   }
-  .footer-col p{
+
+  .footer-col p {
     margin: 0 15px;
   }
 
-  footer {
-   
+  .footer {
     flex-direction: row;
     align-items: center;
   }
-
-  /* end of desktop navigation */
-  /* showcase is the area with large image */
-
-
-
-
-
-  /* end of showcase */
-  /* servicees is the area with cards */
-
-
-
-
-
-
-
 
 }
