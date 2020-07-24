@@ -12,9 +12,7 @@ const SignupForm = () => {
         <form>
           <div className="signup-names">
             <div>
-              <label htmlFor="first_name">
-                First Name
-              </label>
+              <label htmlFor="first_name">First Name</label>
               <input
                 type="text"
                 name="first_name"
@@ -23,9 +21,7 @@ const SignupForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="last_name">
-                Last Name
-              </label>
+              <label htmlFor="last_name">Last Name</label>
               <input
                 type="text"
                 name="last_name"
@@ -34,10 +30,8 @@ const SignupForm = () => {
               />
             </div>
           </div>
-          
-          <label htmlFor="email">
-            Email
-          </label>
+
+          <label htmlFor="email">Email</label>
           <input
             type="text"
             name="email"
@@ -51,6 +45,12 @@ const SignupForm = () => {
             id="phone_num"
             placeholder="Enter Phone Number"
           />
+          <label for="gender">Gender</label>
+          <select name="gender" id="gender">
+            <option value="">Choose your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
           <label htmlFor="password">Password</label>
           <input
             type="password"

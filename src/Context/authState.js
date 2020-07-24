@@ -11,7 +11,7 @@ const AuthState = (props) => {
     user: {},
   };
 
-  //userReducer
+  //declare state and reducer
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   //declare all action functions you are dispatching in authReducer here and include it in the AuthContext.Provider value
