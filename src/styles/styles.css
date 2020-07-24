@@ -4,6 +4,7 @@
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
+
 /* css for login and signup page */
 @import url(./signup-in.css);
 
@@ -65,6 +66,53 @@ a {
 .content-wrap {
   position: relative;
   top: 60px;
+}
+
+/* Mobile menu here */
+.mobile-menu {
+  cursor: pointer;
+  content: url("../images/menubuttonofthreelines_79781\ 1.png")
+}
+
+.mobile-lists {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 250;
+  align-items: center;
+  background: #ffffff;
+}
+
+.mobile-lists a {
+  margin: 15px 0;
+  font-size: 1.2rem
+}
+
+.mobile-lists a:hover {
+  width: 100%;
+  color: #FFFFFF;
+  background: #1D48B7;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.mobile-lists p {
+  font-size: 2rem;
+  background: #1D48B7;
+  color: #ffffff;
+  width: 100%;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+
+
+.close-mobile-menu {
+  padding: 10px;
+  /* align-self: flex-start; */
 }
 
 /* Showcase is the area with the large image */
@@ -216,7 +264,8 @@ a {
   border-radius: 5px;
   padding-left: 20px;
 }
-.subscribe-form{
+
+.subscribe-form {
   display: flex;
   flex-direction: column;
 }
@@ -232,9 +281,11 @@ a {
   font-size: 12px;
 
 }
-.footer-copy{
+
+.footer-copy {
   text-align: center;
 }
+
 .footer-cat {
   display: flex;
   justify-content: space-around;
@@ -372,6 +423,7 @@ a {
   .desktop-nav {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   /* links inside the navigation */
