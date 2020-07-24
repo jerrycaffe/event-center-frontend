@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LOGO from "../../images/LOGO.svg";
 
 const LoginHeader = () => {
   return (
     <header className="login-header">
-      <img src={LOGO} alt="LOGO" />
-      <h5>Back</h5>
+      <img src={LOGO} alt="magnitude event center logo" />
+      <h5>
+        <Link to="/">Back</Link>
+      </h5>
     </header>
   );
 };

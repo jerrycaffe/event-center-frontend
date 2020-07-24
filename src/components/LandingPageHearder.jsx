@@ -1,23 +1,22 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import Logo from "../images/LOGO.svg";
-import Filter from "../images/fa-solid_sliders-h.svg";
-import Search from "../images/search.svg";
-import whiteSearchIcon from "../images/noun_Search_3359351 1.svg";
+
 import mobileMenu from "../images/menubuttonofthreelines_79781 1.png";
 
 const LandingPageHearder = () => {
   return (
     <div className="header">
       <div className="logo">
-        <a href="#">
+        <a href="/">
           <img src={Logo} alt="magnitude event center logo" />
         </a>
       </div>
       <div className="right-menu">
         <div className="desktop-nav m-display-none">
-          <a href="#" className="nav-btn active">
+          <Link to="/" className="nav-btn active">
             Home
-          </a>
+          </Link>
           <a href="#" className="nav-btn">
             About
           </a>
@@ -29,12 +28,12 @@ const LandingPageHearder = () => {
           </a>
         </div>
 
-        <a href="#" class="d-display m-display-none d-btn-pry">
+        <Link to="/login" class="d-display m-display-none d-btn-pry">
           Log in
-        </a>
-        <a href="#" class="d-display m-display-none d-btn-sec">
+        </Link>
+        <Link to="/sign-up" class="d-display m-display-none d-btn-sec">
           Sign up
-        </a>
+        </Link>
         <img
           className="pointer d-display-none"
           src={mobileMenu}

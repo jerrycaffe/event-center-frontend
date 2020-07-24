@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="footer">
@@ -26,7 +26,7 @@ const Footer = () => {
             <a href="#">All rights reserved.</a>
           </p>
           <p>
-            <a href="#">Admin Login </a>
+            <a href="/login">Admin Login </a>
           </p>
         </div>
       </div>

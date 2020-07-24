@@ -1,14 +1,15 @@
 import React from "react";
 import SignupForm from "./SignupForm";
 import LoginHeader from "./login/LoginHeader";
-
+import Footer from "./Footer";
 
 const Signup = () => {
   return (
     <React.Fragment>
-      <LoginHeader/>
+      <LoginHeader />
       <SignupForm />
-      </React.Fragment>
+      <Footer />
+    </React.Fragment>
   );
 };
 
