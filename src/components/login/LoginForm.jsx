@@ -1,7 +1,15 @@
 import React from "react";
 import LoginLinks from "./LoginLinks";
+import AuthContext from "../../Context/authContext"
 
 const LoginForm = () => {
+  const authContext = React.useContext(AuthContext);
+  const handleClick=(e)=>{
+    e.preventDefault();
+     authContext.loadUser({correct:"yes"});
+     console.log(authContext.user);
+  }
+  
   return (
     <main className="login-main">
       <h1>
@@ -24,7 +32,7 @@ const LoginForm = () => {
             id="password"
             placeholder="Enter Password"
           />
-          <input type="submit" value="Log In" className="btn-signIn" />
+          <input type="submit" value="Log In" className="btn-signIn" onClick={handleClick}/>
         </form>
         <LoginLinks />
       </section>
