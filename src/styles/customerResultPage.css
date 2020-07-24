@@ -6,9 +6,9 @@
 .select-filter{
   display: none;
 }
-.desktop-filter {
+/* .desktop-filter {
  
-}
+} */
 
 .search-count {
   margin: 20px 0;
@@ -51,7 +51,7 @@
   content: url("../images/fa-solid_sliders-h.svg")
 }
 
-.center-result {}
+/* .center-result {} */
 
 .center-result .center-img {
   width: 100%;

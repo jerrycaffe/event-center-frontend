@@ -18,6 +18,7 @@
 .signup-names div{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .signup-names div:first-child{
     margin: 0 1rem 0 0;

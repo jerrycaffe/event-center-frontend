@@ -9,9 +9,17 @@ import NewsLetter from "./components/newsLetter";
 import Login from "./components/login/Login";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
+import AuthState from "./Context/authState" 
+import Axios from "axios";
+
+//save token in local storage, this will set the header authorization = localStorage.token
+if(localStorage.token){
+  Axios.defaults.headers.common["authorization"]= localStorage.token;
+}
 
 function App() {
   return (
+    <AuthState>
     <div>
       <switch>
         <Route path="/" exact component={Home} />
@@ -20,6 +28,7 @@ function App() {
         <Redirect to='/'/>
       </switch>
     </div>
+    </AuthState>
   );
 }
 
