@@ -66,6 +66,10 @@
 .form-section div p {
   margin: 2rem;
 }
+.form-section select{
+  margin: 0.5rem 0;
+  height: 2.8rem;
+}
 .btn-signIn {
   background-color: #1d48b7;
   color: white;
