@@ -51,7 +51,7 @@
     content: " *";
     color: red;
 }
-.form-section form input {
+.form-section form input, .btn-signIn {
   margin: 0.5rem 0;
   height: 2.8rem;
   width: 100%;
@@ -88,7 +88,9 @@
   border: 0.1rem solid #1d48b7;
   margin-top: 2rem;
 }
-
+[alt="loading"]{
+  width: 1rem;
+}
 /* for smaller screens */
 @media only screen and (max-width: 768px) {
   body {
