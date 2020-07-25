@@ -6,6 +6,7 @@ const LoginForm = () => {
   const authContext = React.useContext(AuthContext);
   const handleClick=(e)=>{
     e.preventDefault();
+    
      authContext.loadUser({correct:"yes"});
      console.log(authContext.user);
   }
@@ -17,13 +18,14 @@ const LoginForm = () => {
         <span style={{ opacity: 0.5 }}>Log In to continue</span>
       </h1>
       <section className="form-section">
-        <form>
+        <form onSubmit={handleClick}>
           <label htmlFor="email">Email</label>
           <input
             type="text"
             name="email"
             id="email"
             placeholder="Enter Email"
+            required
           />
           <label htmlFor="password">Password</label>
           <input
@@ -31,8 +33,9 @@ const LoginForm = () => {
             name="password"
             id="password"
             placeholder="Enter Password"
+            required
           />
-          <input type="submit" value="Log In" className="btn-signIn" onClick={handleClick}/>
+          <input type="submit" value="Log In" className="btn-signIn" />
         </form>
         <LoginLinks />
       </section>
