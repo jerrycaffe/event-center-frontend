@@ -29,7 +29,7 @@ class LandingPageHearder extends Component {
           </div>
           <div className="right-menu">
             <div className="m-display-none desktop-nav">
-              <Link to="/" className="nav-btn active">
+              <Link href="/" className="nav-btn active">
                 Home
               </Link>
               <a href="#" className="nav-btn">

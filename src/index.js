@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {BrowserRouter} from 'react-router-dom';
 import App from "./App";
 import "../src/styles/styles.css";
+import "flatpickr/dist/themes/material_green.css"
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

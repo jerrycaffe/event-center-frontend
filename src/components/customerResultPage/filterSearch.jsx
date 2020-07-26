@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
+import Flatpickr from 'react-flatpickr';
 
 class filterSearch extends Component {
+  state = {
+    date: new Date()
+  }
   render() {
     return (
       <form className="form-bg">
             <div className="icon-input">
               <i className="carlender-icon"></i>
-              <input className="border-none" type="text" placeholder="Date" />
-              <i className="drop-down"></i>
+              {/* <input className="border-none" type="text" placeholder="Date" /> */}
+              <Flatpickr 
+              options={{minDate: this.state.date}}
+              date-enabe-time value={this.state.date}onChange={date =>{
+                this.setState({date: this.state.date})
+              }} 
+              />
+              {/* <i className="drop-down"></i> */}
             </div>
 
             <div className="icon-input">

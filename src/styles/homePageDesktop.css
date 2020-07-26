@@ -1,0 +1,207 @@
+@media only screen and (min-width: 768px) {
+
+
+  /* generic styling for the desktop */
+  .d-display-none {
+    display: none;
+  }
+
+  .d-display {
+    display: flex;
+  }
+
+  /* display flex for the desktop */
+  .d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  /* .d-btn means desktop buttons */
+  .d-btn-pry,
+  .d-btn-sec {
+    background: #ffffff;
+    color: #1D48B7;
+    border-radius: 5px;
+    padding: 10px 35px;
+    border: solid 1.2px;
+  }
+
+  .d-btn-pry:hover {
+    background: #1D48B7;
+    color: #ffffff;
+  }
+
+  .d-btn-sec {
+    background: #1D48B7;
+    color: #ffffff;
+  }
+
+  .d-btn-sec:hover {
+    color: #1D48B7;
+    background: #ffffff;
+  }
+
+  /* Header  */
+  .header {
+    height: 98px;
+    padding: 0 60px;
+
+  }
+
+  /* header ends here */
+
+  /* Content wrap */
+  .content-wrap {
+    top: 88px;
+  }
+
+  /* Ends here */
+  /* End of generic styling for the desktop */
+  /* for the desktop items */
+  /* Navigation for desktop */
+  .right-menu {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .right-menu a {
+    margin: 0 10px;
+  }
+
+  .showcase {
+    background: url('../images/desktopbg.png') center center/cover;
+    height: 729px;
+  }
+
+  .big-text {
+    font-size: 48px;
+    line-height: 59px;
+  }
+
+
+  .small-text {
+    line-height: 39px;
+    font-size: 32px;
+
+  }
+
+
+  .form-bg {
+    width: 86%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+
+
+  .icon-input {
+    width: 205px;
+    height: 40px;
+    margin: 0 5px;
+  }
+
+  .icon-input input {
+    width: 60%;
+    font-size: 16px;
+  }
+
+  /* the filter text */
+
+  /* the filter icon */
+
+
+  /* navigation for the desktop */
+  .desktop-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* links inside the navigation */
+  .desktop-nav a {
+    font-weight: bold;
+    margin: 0 10px;
+  }
+
+  .nav-btn {
+    color: #000000;
+  }
+
+  .page-contents {
+    flex-direction: row;
+  }
+
+  .page-contents-img img {
+
+    width: 90%;
+    margin: auto;
+  }
+
+  .about-us {
+    align-self: baseline;
+    padding: 0 30px;
+    width: 70%;
+    font-size: 18px;
+  }
+
+  /* set the active button to blue */
+  .active {
+    color: #1D48B7;
+  }
+
+  .card-wrapper {
+    flex-direction: row;
+    padding: 40px 10px;
+  }
+
+  .card {
+    margin: 15px;
+  }
+
+  .services {
+    padding: 100px 0;
+  }
+
+  .news-offer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .news-offer form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .input-subscribe {
+    width: 370px;
+    margin: 0 10px 0 20px;
+
+  }
+
+  .suscribe-btn {
+    width: 60%;
+    margin: auto;
+    padding: 12px 0;
+    font-size: 20px;
+  }
+
+  .footer-col {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .footer-col p {
+    margin: 0 15px;
+  }
+
+  .footer {
+    flex-direction: row;
+    align-items: center;
+  }
+
+}
