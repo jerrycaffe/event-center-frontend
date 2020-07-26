@@ -4,8 +4,8 @@
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
-html{
-  scroll-behavior: smooth
+html {
+  scroll-behavior: smooth;
 }
 
 
@@ -22,11 +22,9 @@ html{
 /* The links for the footer */
 
 
-
 /* End of mobile styles */
 
 /* @media (min-width: 481px) and (max-width: 767px) {} */
-
 
 /* Styling for the desktop */
 

@@ -42,10 +42,10 @@ class LandingPageHearder extends Component {
                 Contact
               </a>
 
-              <Link to="/login" class=" d-btn-pry">
+              <Link to="/login" className=" d-btn-pry">
                 Log in
               </Link>
-              <Link to="/sign-up" class="d-btn-sec">
+              <Link to="/sign-up" className="d-btn-sec">
                 Sign up
               </Link>
             </div>
