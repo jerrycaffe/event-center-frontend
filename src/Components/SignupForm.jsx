@@ -27,17 +27,18 @@ const SignupForm = (props) => {
     setLoading(true);
     Axios.post(
       "https://magnitude-event-manager.herokuapp.com/api/auth/customer/signup",
-      { state }
+      state 
     )
       .then((res) => {
-        setAlert(res.message); //alert with response message
+        setAlert(res.data.message); //alert with response message
         props.histry.push("/login"); //redirect to login page
         setLoading(false);
         setAlert("");
       })
       .catch((err) => {
         setLoading(false);
-        setAlert(err.message); //alert with response message
+        //setAlert(err.message); //alert with response message
+        console.log(err,'here');
         setTimeout(() => setAlert(""), 3000); //remove response message after 3secs
       });
   };
@@ -84,14 +85,14 @@ const SignupForm = (props) => {
           />
           <label htmlFor="phone_number">Phone Number</label>
           <input
-            type="text"
+            type="number"
             name="phone_number"
             id="phone_number"
             placeholder="Enter Phone Number"
             required
             onChange={handleChange}
           />
-          <label for="gender">Gender</label>
+          <label htmlFor="gender">Gender</label>
           <select name="gender" id="gender" required onChange={handleChange}>
             <option value="">Choose your gender</option>
             <option value="male">Male</option>

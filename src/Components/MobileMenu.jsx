@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 class MobileMenu extends Component {
   render() {
     return (
-      <div className={this.props.mobileMenu}>
+      <div className={this.props.mobileMenu} id="mobile-fixed">
           <p className="close-mobile-menu pointer" onClick={this.props.toggleMobileMenu}>X</p>
           <p className="txt-center">Menu</p>
         
@@ -20,10 +20,10 @@ class MobileMenu extends Component {
             Contact
           </a>
 
-          <Link to="/login" class="">
+          <Link to="/login">
             Log in
           </Link>
-          <Link to="/sign-up" class="">
+          <Link to="/sign-up">
             Sign up
           </Link>
         </div>

@@ -4,8 +4,8 @@
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
 }
-html{
-  scroll-behavior: smooth
+html {
+  scroll-behavior: smooth;
 }
 
 /* css for login and signup page */
@@ -30,6 +30,10 @@ html{
   background: #ffffff;
 }
 
+/* menu visible on scroll down */
+#mobile-fixed{
+  position: fixed;
+}
 /* general styles for hiding some of the contents meant for desktop view in mobile view */
 
 /* .m-dsiplay means show any element with this tag in mobile */
@@ -45,7 +49,6 @@ html{
 /* this removes underline and blue color from anchor tag */
 a {
   text-decoration: none;
-
 }
 
 .mt-3 {
@@ -58,7 +61,6 @@ a {
 }
 
 /* the styles for the button */
-
 
 /* cursor effect enables the mouse change on hover on the item */
 .pointer {
@@ -74,7 +76,7 @@ a {
 /* Mobile menu here */
 .mobile-menu {
   cursor: pointer;
-  content: url("../images/menubuttonofthreelines_79781\ 1.png")
+  content: url("../images/menubuttonofthreelines_79781\ 1.png");
 }
 
 .mobile-lists {
@@ -89,20 +91,20 @@ a {
 
 .mobile-lists a {
   margin: 15px 0;
-  font-size: 1.2rem
+  font-size: 1.2rem;
 }
 
 .mobile-lists a:hover {
   width: 100%;
-  color: #FFFFFF;
-  background: #1D48B7;
+  color: #ffffff;
+  background: #1d48b7;
   text-align: center;
   padding: 20px 0;
 }
 
 .mobile-lists p {
   font-size: 2rem;
-  background: #1D48B7;
+  background: #1d48b7;
   color: #ffffff;
   width: 100%;
 }
@@ -110,8 +112,6 @@ a {
 .txt-center {
   text-align: center;
 }
-
-
 
 .close-mobile-menu {
   padding: 10px;
@@ -121,7 +121,7 @@ a {
 /* Showcase is the area with the large image */
 .showcase {
   height: 576px;
-  background: url('../images/homeBg.png') center center/cover;
+  background: url("../images/homeBg.png") center center/cover;
   width: 100%;
 }
 
@@ -142,7 +142,7 @@ a {
 }
 
 .showcase-text {
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0 40px;
   margin-bottom: 30px;
 }
@@ -150,10 +150,7 @@ a {
 .small-text {
   padding: 10px 30px;
   font-size: 18px;
-
 }
-
-
 
 .form-bg {
   background: #000000;
@@ -176,30 +173,30 @@ a {
 }
 
 .carlender-icon {
-  content: url('../images/calendar.svg')
+  content: url("../images/calendar.svg");
 }
 
 .location-icon {
-  content: url('../images/locations.svg')
+  content: url("../images/locations.svg");
 }
 
 .group-icon {
-  content: url('../images/groups.svg')
+  content: url("../images/groups.svg");
 }
 
 .confetti-icon {
-  content: url('../images/confetti.svg')
+  content: url("../images/confetti.svg");
 }
 
 .drop-down {
-  content: url('../images/dropdown.svg');
+  content: url("../images/dropdown.svg");
   cursor: pointer;
 }
 
 .button-blue {
   font-size: 18px;
   color: #ffffff;
-  background: #1D48B7;
+  background: #1d48b7;
   padding: 8px 15px;
   margin: 10px 0;
   border-radius: 5px;
@@ -221,10 +218,9 @@ a {
 }
 
 .services {
-  background: #E7F2FE;
+  background: #e7f2fe;
   padding: 50px 0;
 }
-
 
 .page-contents-img {
   display: flex;
@@ -258,7 +254,6 @@ a {
   padding: 10px;
   margin-top: 50px;
   text-align: center;
-
 }
 
 .input-subscribe {
@@ -275,14 +270,13 @@ a {
 
 /* at the bottom of the page */
 .footer {
-  background: #1D48B7;
+  background: #1d48b7;
   height: 106px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #ffffff;
   font-size: 12px;
-
 }
 
 .footer-copy {
@@ -300,16 +294,12 @@ a {
   color: #ffffff;
 }
 
-
 /* End of mobile styles */
 
 /* @media (min-width: 481px) and (max-width: 767px) {} */
 
-
 /* Styling for the desktop */
 @media only screen and (min-width: 768px) {
-
-
   /* generic styling for the desktop */
   .d-display-none {
     display: none;
@@ -329,24 +319,24 @@ a {
   .d-btn-pry,
   .d-btn-sec {
     background: #ffffff;
-    color: #1D48B7;
+    color: #1d48b7;
     border-radius: 5px;
     padding: 10px 35px;
     border: solid 1.2px;
   }
 
   .d-btn-pry:hover {
-    background: #1D48B7;
+    background: #1d48b7;
     color: #ffffff;
   }
 
   .d-btn-sec {
-    background: #1D48B7;
+    background: #1d48b7;
     color: #ffffff;
   }
 
   .d-btn-sec:hover {
-    color: #1D48B7;
+    color: #1d48b7;
     background: #ffffff;
   }
 
@@ -354,7 +344,6 @@ a {
   .header {
     height: 98px;
     padding: 0 60px;
-
   }
 
   /* header ends here */
@@ -371,7 +360,6 @@ a {
   .right-menu {
     display: flex;
     align-items: center;
-
   }
 
   .right-menu a {
@@ -379,7 +367,7 @@ a {
   }
 
   .showcase {
-    background: url('../images/desktopbg.png') center center/cover;
+    background: url("../images/desktopbg.png") center center/cover;
     height: 729px;
   }
 
@@ -388,13 +376,10 @@ a {
     line-height: 59px;
   }
 
-
   .small-text {
     line-height: 39px;
     font-size: 32px;
-
   }
-
 
   .form-bg {
     width: 86%;
@@ -403,8 +388,6 @@ a {
     justify-content: space-evenly;
     align-items: center;
   }
-
-
 
   .icon-input {
     width: 205px;
@@ -420,7 +403,6 @@ a {
   /* the filter text */
 
   /* the filter icon */
-
 
   /* navigation for the desktop */
   .desktop-nav {
@@ -444,7 +426,6 @@ a {
   }
 
   .page-contents-img img {
-
     width: 90%;
     margin: auto;
   }
@@ -458,7 +439,7 @@ a {
 
   /* set the active button to blue */
   .active {
-    color: #1D48B7;
+    color: #1d48b7;
   }
 
   .card-wrapper {
@@ -489,7 +470,6 @@ a {
   .input-subscribe {
     width: 370px;
     margin: 0 10px 0 20px;
-
   }
 
   .suscribe-btn {
@@ -512,5 +492,4 @@ a {
     flex-direction: row;
     align-items: center;
   }
-
 }
