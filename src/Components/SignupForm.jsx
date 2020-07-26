@@ -30,6 +30,8 @@ const SignupForm = (props) => {
       state 
     )
       .then((res) => {
+        console.log("from here",res.response);
+        
         setAlert(res.data.message); //alert with response message
         props.histry.push("/login"); //redirect to login page
         setLoading(false);
@@ -38,7 +40,8 @@ const SignupForm = (props) => {
       .catch((err) => {
         setLoading(false);
         //setAlert(err.message); //alert with response message
-        console.log(err,'here');
+       
+        setAlert(err.response.data.message)
         setTimeout(() => setAlert(""), 3000); //remove response message after 3secs
       });
   };
