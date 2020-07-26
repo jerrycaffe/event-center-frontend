@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect,Switch } from "react-router-dom";
 import "../src/styles/styles.css";
 import "./App.css";
 
@@ -21,12 +21,12 @@ function App() {
   return (
     <AuthState>
     <div>
-      <switch>
+      <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/login" component={Login} />
         <Redirect to='/'/>
-      </switch>
+      </Switch>
     </div>
     </AuthState>
   );

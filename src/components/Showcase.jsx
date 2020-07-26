@@ -6,10 +6,10 @@ const Showcase = () => {
   return (
     <React.Fragment>
       <div className="showcase">
-        <div class="showcase-cover">
-          <div class="showcase-text">
-            <p class="big-text">BOOK A VENUE FOR YOUR EVENT</p>
-            <p class="small-text">FIND YOUR IDEAL VENUE INSTANTLY</p>
+        <div className="showcase-cover">
+          <div className="showcase-text">
+            <p className="big-text">BOOK A VENUE FOR YOUR EVENT</p>
+            <p className="small-text">FIND YOUR IDEAL VENUE INSTANTLY</p>
           </div>
 
           <FilterSearch />
