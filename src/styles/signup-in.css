@@ -93,11 +93,12 @@
 }
 /* for smaller screens */
 @media only screen and (max-width: 768px) {
-  body {
+  .signin-up-body {
     background-color: #f4f4f4;
   }
   .login-header {
-    margin: 1rem;
+    margin: 0rem 1rem 1rem 1rem;
+    padding-top: 1rem;
   }
   .login-main{
       background-color: #fff;

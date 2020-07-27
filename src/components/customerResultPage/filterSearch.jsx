@@ -13,7 +13,7 @@ class filterSearch extends Component {
               {/* <input className="border-none" type="text" placeholder="Date" /> */}
               <Flatpickr 
               options={{minDate: this.state.date}}
-              date-enabe-time value={this.state.date}onChange={date =>{
+              date-enable-time value={this.state.date}onChange={date =>{
                 this.setState({date: this.state.date})
               }} 
               />

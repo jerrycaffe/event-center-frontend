@@ -1,16 +1,56 @@
-import React from "react";
+import React, { useState,useContext } from "react";
 import LoginLinks from "./LoginLinks";
-import AuthContext from "../../Context/authContext"
+import AuthContext from "../../Context/authContext";
+import { withRouter } from "react-router-dom";
+import loadingGif from "../../images/loading.gif";
+import Axios from "axios";
 
-const LoginForm = () => {
-  const authContext = React.useContext(AuthContext);
-  const handleClick=(e)=>{
+const LoginForm = (props) => {
+  const context = useContext(AuthContext);
+  const [state, setState] = useState({ email: "", password: "" });
+  //alerts
+  const [alert, setAlert] = useState({
+    message: "",
+    color: "#1d48b7",
+    loading: false,
+  });
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
+  const handleClick = (e) => {
     e.preventDefault();
-    
-     authContext.loadUser({correct:"yes"});
-     console.log(authContext.user);
-  }
-  
+    if (state.email === "" || state.password === "") {
+      setAlert({ ...alert, message: "Please fill all fields" });
+      setTimeout(() => setAlert({ ...alert, message: "" }), 3000);
+    } else {
+      setAlert({ ...alert, loading: true });
+      Axios.post(
+        "https://magnitude-event-manager.herokuapp.com/api/auth/customer/signin",
+        state
+      )
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          Axios.defaults.headers.common["authorization"] = res.data.token; //set token to authorization header
+          localStorage.setItem("isAuthenticated", true); // isAuthenticated true to localStorage
+          context.loginUser();
+          context.loadUser();
+          setAlert({ ...alert, loading: false, message: res.data.message });
+          props.history.push("/"); //redirect to homepage
+        })
+        .catch((err) => {
+          setAlert({
+            ...alert,
+            loading: false,
+            color: "red",
+            message: err.response.data.message,
+          });
+          setTimeout(() => setAlert({ ...alert, message: "" }), 5000);
+        });
+    }
+  };
+
   return (
     <main className="login-main">
       <h1>
@@ -21,11 +61,12 @@ const LoginForm = () => {
         <form onSubmit={handleClick}>
           <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
             placeholder="Enter Email"
             required
+            onChange={handleChange}
           />
           <label htmlFor="password">Password</label>
           <input
@@ -34,8 +75,12 @@ const LoginForm = () => {
             id="password"
             placeholder="Enter Password"
             required
+            onChange={handleChange}
           />
-          <input type="submit" value="Log In" className="btn-signIn" />
+          <p style={{ color: alert.color, margin: "auto" }}>{alert.message}</p>
+          <button type="submit" className="btn-signIn">
+            {alert.loading ? <img src={loadingGif} alt="loading" /> : "Sign In"}
+          </button>
         </form>
         <LoginLinks />
       </section>
@@ -43,4 +88,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

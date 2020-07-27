@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SignupLinks from "./SignupLinks";
 import loadingGif from "../images/loading.gif";
 import Axios from "axios";
+import { withRouter } from "react-router-dom";
 
 const SignupForm = (props) => {
   //customer details
@@ -15,7 +16,7 @@ const SignupForm = (props) => {
     gender: "",
   });
   //alerts onSubmit
-  const [alert, setAlert] = useState("");
+  const [alert, setAlert] = useState({ message: "", color: "#1d48b7" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -27,22 +28,23 @@ const SignupForm = (props) => {
     setLoading(true);
     Axios.post(
       "https://magnitude-event-manager.herokuapp.com/api/auth/customer/signup",
-      state 
+      state
     )
       .then((res) => {
-        console.log("from here",res.response);
-        
-        setAlert(res.data.message); //alert with response message
-        props.histry.push("/login"); //redirect to login page
+        console.log(res);
+        setAlert({ ...alert, message: res.data.message }); //alert with response message
+        props.history.replace("/login"); //redirect to login page
         setLoading(false);
-        setAlert("");
+        setAlert({ ...alert, message: "" });
       })
       .catch((err) => {
         setLoading(false);
-        //setAlert(err.message); //alert with response message
-       
-        setAlert(err.response.data.message)
-        setTimeout(() => setAlert(""), 3000); //remove response message after 3secs
+        setAlert({
+          ...alert,
+          message: err.response.data.message,
+          color: "red",
+        }); //alert with response message
+        setTimeout(() => setAlert({ ...alert, message: "" }), 3000); //remove response message after 3secs
       });
   };
   return (
@@ -79,7 +81,7 @@ const SignupForm = (props) => {
           </div>
           <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
             placeholder="Enter Email"
@@ -119,7 +121,7 @@ const SignupForm = (props) => {
             required
             onChange={handleChange}
           />
-          <p style={{ color: "red", margin: "auto" }}>{alert}</p>
+          <p style={{ color: alert.color, margin: "auto" }}>{alert.message}</p>
           <button type="submit" className="btn-signIn">
             {loading ? <img src={loadingGif} alt="loading" /> : "Sign Up"}
           </button>
@@ -130,4 +132,4 @@ const SignupForm = (props) => {
   );
 };
 
-export default SignupForm;
+export default withRouter(SignupForm);

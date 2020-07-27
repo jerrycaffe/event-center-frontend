@@ -1,4 +1,4 @@
-import {LOAD_USER} from "./actions";
+import {LOAD_USER,LOGIN_USER,LOGOUT_USER} from "./actions";
 
 //dispatch actions here like in redux
 export default (state, action) => {
@@ -8,6 +8,16 @@ export default (state, action) => {
         ...state,
         user: action.payload,
       };
+      case LOGIN_USER:
+      return {
+        ...state,
+        isAuthenticated: true,
+      };
+      case LOGOUT_USER:
+        return {
+          ...state,
+          isAuthenticated: false,
+        };
     default:
       return state;
   }
