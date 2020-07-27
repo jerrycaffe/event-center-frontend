@@ -6,9 +6,9 @@
 .select-filter{
   display: none;
 }
-/* .desktop-filter {
- 
-} */
+.desktop-filter {
+ width: 300px;
+}
 
 .search-count {
   margin: 20px 0;

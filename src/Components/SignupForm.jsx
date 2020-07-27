@@ -4,8 +4,9 @@ import loadingGif from "../images/loading.gif";
 import Axios from "axios";
 import { withRouter } from "react-router-dom";
 
-const SignupForm = (props) => {
+const SignupForm = props => {
   //customer details
+  const [date, setDate] = useState(new Date())
   const [state, setState] = useState({
     firstname: "",
     lastname: "",
@@ -13,17 +14,17 @@ const SignupForm = (props) => {
     confirm_password: "",
     email: "",
     phone_number: "",
-    gender: "",
+    gender: ""
   });
   //alerts onSubmit
   const [alert, setAlert] = useState({ message: "", color: "#1d48b7" });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     setLoading(true);
     Axios.post(
@@ -37,7 +38,7 @@ const SignupForm = (props) => {
         setLoading(false);
         setAlert({ ...alert, message: "" });
       })
-      .catch((err) => {
+      .catch(err => {
         setLoading(false);
         setAlert({
           ...alert,

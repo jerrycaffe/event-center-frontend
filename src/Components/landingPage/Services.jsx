@@ -1,8 +1,8 @@
 import React from "react";
-import bookings from "../images/mdi_event_available.svg";
-import artist from "../images/artist.png";
-import wedding from "../images/wedding.png";
-import reuinion from "../images/reuinion.png";
+// import bookings from "../images/mdi_event_available.svg";
+import artist from "../../images/artist.png";
+import wedding from "../../images/wedding.png";
+import reuinion from "../../images/reuinion.png";
 
 const Services = () => {
   return (

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../images/LOGO.svg";
+import Logo from "../../images/LOGO.svg";
 import MobileMenu from "./MobileMenu";
-import AuthContext from "../Context/authContext";
+import AuthContext from "../../Context/authContext"
 import Axios from "axios";
 
 class LandingPageHearder extends Component {

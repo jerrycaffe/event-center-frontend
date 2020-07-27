@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class SelectFilterForm extends Component {
+class SearchFilter extends Component {
   render() {
     return (
       <form action="" className="select-filter">
@@ -86,4 +86,4 @@ class SelectFilterForm extends Component {
     )
   }
 }
-export default SelectFilterForm;
+export default SearchFilter;
