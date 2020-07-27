@@ -5,10 +5,12 @@ import Footer from "./landingPage/Footer";
 
 const Signup = () => {
   return (
-    <React.Fragment>
+    <React.Fragment >
+      <div className="signin-up-body">
       <LoginHeader />
       <SignupForm />
       <Footer />
+      </div>
     </React.Fragment>
   );
 };

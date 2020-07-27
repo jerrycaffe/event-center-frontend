@@ -2,15 +2,45 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../images/LOGO.svg";
 import MobileMenu from "./MobileMenu";
+import AuthContext from "../../Context/authContext"
+import Axios from "axios";
 
 class LandingPageHearder extends Component {
   state = {
-    isMenuOpen: false
+    isMenuOpen: false,
   };
   toggleMobileMenu = () => {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
+  static contextType = AuthContext;
+
+  handleLogout=()=>{
+    localStorage.clear();
+    this.context.logoutUser();
+    delete Axios.defaults.headers.common["authorization"];
+  }
+
   render() {
+    console.log(this.context.user,"here");
+    let buttons;
+    if (this.context.isAuthenticated) {
+      buttons = (
+        <Link to="/" className=" d-btn-pry" onClick={this.handleLogout}>
+          Log out
+        </Link>
+      );
+    } else {
+      buttons = (
+        <React.Fragment>
+          <Link to="/login" className=" d-btn-pry">
+            Log in
+          </Link>
+          <Link to="/sign-up" className="d-btn-sec">
+            Sign up
+          </Link>
+        </React.Fragment>
+      );
+    }
     return (
       <React.Fragment>
         <MobileMenu
@@ -41,13 +71,7 @@ class LandingPageHearder extends Component {
               <a href="#" className="nav-btn">
                 Contact
               </a>
-
-              <Link to="/login" className=" d-btn-pry">
-                Log in
-              </Link>
-              <Link to="/sign-up" className="d-btn-sec">
-                Sign up
-              </Link>
+              {buttons}
             </div>
             <i
               className="mobile-menu d-display-none"
