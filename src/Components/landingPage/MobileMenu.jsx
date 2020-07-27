@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-import AuthContext from '../Context/authContext';
+import AuthContext from "../../Context/authContext";
 import Axios from 'axios';
 
 class MobileMenu extends Component {

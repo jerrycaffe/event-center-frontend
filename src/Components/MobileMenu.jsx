@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-//import AuthContext from "../Context/authContext"
+import AuthContext from "../Context/authContext"
 import Axios from 'axios';
 
 class MobileMenu extends Component {
-  //static contextType = AuthContext;
+  static contextType = AuthContext;
 
 handleLogout=()=>{
   localStorage.clear();
-  //this.context.logoutUser();
+  this.context.logoutUser();
   delete Axios.defaults.headers.common["authorization"];
 }
 
@@ -49,7 +49,7 @@ handleLogout=()=>{
           <a href="#" className="">
             Contact
           </a>
-          {/* {buttons} */}
+          {buttons}
         </div>
     )
   }
