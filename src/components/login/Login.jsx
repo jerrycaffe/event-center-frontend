@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import LoginHeader from "./LoginHeader";
-import Footer from "../Footer"
+import Footer from "../landingPage/Footer"
 
 const Login = () => {
   return (

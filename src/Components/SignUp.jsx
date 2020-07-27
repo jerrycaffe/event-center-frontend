@@ -1,7 +1,7 @@
 import React from "react";
 import SignupForm from "./SignupForm";
 import LoginHeader from "./login/LoginHeader";
-import Footer from "./Footer";
+import Footer from "./landingPage/Footer";
 
 const Signup = () => {
   return (

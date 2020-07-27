@@ -3,8 +3,9 @@ import SignupLinks from "./SignupLinks";
 import loadingGif from "../images/loading.gif";
 import Axios from "axios";
 
-const SignupForm = (props) => {
+const SignupForm = props => {
   //customer details
+  const [date, setDate] = useState(new Date())
   const [state, setState] = useState({
     firstname: "",
     lastname: "",
@@ -12,36 +13,34 @@ const SignupForm = (props) => {
     confirm_password: "",
     email: "",
     phone_number: "",
-    gender: "",
+    gender: ""
   });
   //alerts onSubmit
   const [alert, setAlert] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     setLoading(true);
     Axios.post(
       "https://magnitude-event-manager.herokuapp.com/api/auth/customer/signup",
-      state 
+      state
     )
-      .then((res) => {
-        console.log("from here",res.response);
-        
+      .then(res => {
         setAlert(res.data.message); //alert with response message
         props.histry.push("/login"); //redirect to login page
         setLoading(false);
         setAlert("");
       })
-      .catch((err) => {
+      .catch(err => {
         setLoading(false);
         //setAlert(err.message); //alert with response message
-       
-        setAlert(err.response.data.message)
+
+        setAlert(err.response.data.message);
         setTimeout(() => setAlert(""), 3000); //remove response message after 3secs
       });
   };

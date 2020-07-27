@@ -1,6 +1,6 @@
 import React from "react";
-import eventAvailable from "../images/mdi_event_available.svg";
-import FilterSearch from "./customerResultPage/filterSearch";
+// import eventAvailable from "../images/mdi_event_available.svg";
+import FilterSearch from "../SearchResultPage/filterSearch";
 
 const Showcase = () => {
   return (
