@@ -65,9 +65,9 @@ class LandingPageHearder extends Component {
               <a href="#" className="nav-btn">
                 About
               </a>
-              <a href="#" className="nav-btn">
+              <Link to="/all/centers" className="nav-btn">
                 Venues
-              </a>
+              </Link>
               <a href="#" className="nav-btn">
                 Contact
               </a>

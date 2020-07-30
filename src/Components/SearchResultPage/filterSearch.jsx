@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {withRouter} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
 
 const FilterSearch = props => {
@@ -29,14 +29,19 @@ const FilterSearch = props => {
     event: ""
   });
   const changeFilter = e => {
-    setFilter({ ...setFilter, [e.target.name]: e.target.value });
+    setFilter({ ...filter, [e.target.name]: e.target.value });
   };
   const changeDate = date => {
     setDate(date);
   };
   const handleSubmit = e => {
     e.preventDefault();
-    props.history.push("/search");
+
+    const {location: locate, guests: guestss, event: eventing} = filter
+    console.log(
+      locate, date, eventing, guestss
+    );
+    props.history.push(`/search/${date}/${locate}/${guestss}/${eventing}}`);
   };
   return (
     <form className="form-bg" onSubmit={handleSubmit}>
@@ -45,8 +50,8 @@ const FilterSearch = props => {
         {/* <input className="border-none" type="text" placeholder="Date" /> */}
         <Flatpickr
           options={{ minDate: date }}
-          // date-enabe-time
-          value={date}
+          date-enabe-time="true"
+          value={date.toString()}
           onChange={changeDate}
         />
         {/* <i className="drop-down"></i> */}
@@ -65,11 +70,11 @@ const FilterSearch = props => {
       <div className="icon-input">
         <i className="group-icon"></i>
         <select
-          name="guests"
+          name="event"
           className="border-none text-input"
           onChange={changeFilter}
         >
-          <option>No of guests</option>
+          <option>Purpose</option>
           {eventList.map((lists, i) => {
             return (
               <option value={lists} key={i}>
@@ -78,7 +83,6 @@ const FilterSearch = props => {
             );
           })}
         </select>
-        {/* <i className="drop-down"></i> */}
       </div>
       <div className="icon-input">
         <i className="confetti-icon"></i>

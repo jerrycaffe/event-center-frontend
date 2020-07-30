@@ -1,17 +1,19 @@
 import React, { Component } from "react";
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import Header from "./Header";
+
+import Header from '../landingPage/Header';
 import Showcase from "./Showcase";
 import AboutUs from "./About";
 import hallImage from "../../images/hallimage.png";
 import Services from "./Services";
-import NewsLetter from "./NewsLetter";
-import Footer from "./Footer";
+import NewsLetter from '../landingPage/NewsLetter';
+import Footer from '../landingPage/Footer';
 
 class Home extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="container">
+        <Header />
+        <div className="content-wrap">
         <Showcase />
         <div className="page-contents">
           <AboutUs />
@@ -20,7 +22,10 @@ class Home extends Component {
           </div>
         </div>
         <Services />
-      </React.Fragment>
+        <NewsLetter />
+        <Footer />
+      </div>
+      </div>
     );
   }
 }
