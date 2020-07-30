@@ -6,6 +6,7 @@ import Header from '../landingPage/Header';
 import Footer from '../landingPage/Footer'
 import Services from '../landingPage/Services'
 import NewsLetter from '../landingPage/NewsLetter';
+import searchImg from "../../images/center-search.png";
 class resultPage extends Component {
   render() {
     return (
@@ -35,7 +36,7 @@ class resultPage extends Component {
                   <div>
                     <p className="search-count">1 Result Found</p>
                   </div>
-                  <CenterCard />
+                  <CenterCard centerImg = {searchImg}/>
                 </div>
               </div>
             </div>

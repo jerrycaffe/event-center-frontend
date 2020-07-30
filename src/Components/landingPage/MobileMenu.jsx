@@ -43,9 +43,9 @@ handleLogout=()=>{
           <a href="#" className="">
             About
           </a>
-          <a href="#" className="">
+          <Link to="/all/centers" className="">
             Venues
-          </a>
+          </Link>
           <a href="#" className="">
             Contact
           </a>

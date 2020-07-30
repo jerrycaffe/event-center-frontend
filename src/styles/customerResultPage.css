@@ -1,20 +1,25 @@
-.center-card{
-  
+.center-card {
+
   border: solid 2px #C8C8C8;
   border-radius: 5px;
- 
-  padding: 24px;
+  margin: 30px 0;
+  padding: 20px;
 }
+
+.center-card:hover {}
+
 .search-contents {
   padding: 20px;
   max-width: 380px;
   margin: auto;
 }
-.select-filter{
+
+.select-filter {
   display: none;
 }
+
 .desktop-filter {
- width: 300px;
+  width: 300px;
 }
 
 .search-count {
@@ -65,6 +70,11 @@
   height: 248px;
 }
 
+.center-img {
+  width: 100%;
+  height: 248px;
+}
+
 .center-address {
   display: flex;
   align-items: center;
@@ -86,7 +96,7 @@
 }
 
 .center-info {
- 
+
   width: 100%;
 }
 
@@ -169,9 +179,10 @@
 }
 
 @media only screen and (min-width: 726px) {
-  .search-contents{
+  .search-contents {
     max-width: 100%;
   }
+
   /* .search-wrapper {
     display: flex;
    
@@ -180,42 +191,48 @@
   /* .desktop-filter {
     display: flex;
   } */
-  .result-body{
+  .result-body {
     display: flex;
     justify-content: space-evenly;
     padding: 40px 0;
   }
-  .form-filter{
+
+  .form-filter {
     display: none;
   }
+
   .select-filter {
     display: flex;
     flex-direction: column;
     margin-top: 35px;
     background: #f4f4f4;
-}
-.filter-title{
-  padding: 20px;
-}
-.select-items {
-  padding: 6px 30px 0px 20px;
-}
-.filter-pd{
-padding: 20px;
-}
-hr{
-  border: 1px solid #CBCBCB;
-  margin-top: 10px;
-}
+  }
 
-.select-filter button{
-  width: 150px;
-  margin: 40px auto;
-  height: 30px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: solid 1px;
-  border: 1px solid #242424;
-}
+  .filter-title {
+    padding: 20px;
+  }
+
+  .select-items {
+    padding: 6px 30px 0px 20px;
+  }
+
+  .filter-pd {
+    padding: 20px;
+  }
+
+  hr {
+    border: 1px solid #CBCBCB;
+    margin-top: 10px;
+  }
+
+  .select-filter button {
+    width: 150px;
+    margin: 40px auto;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: solid 1px;
+    border: 1px solid #242424;
+  }
 
 }

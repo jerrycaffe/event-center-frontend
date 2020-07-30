@@ -7,7 +7,7 @@ class CenterCard extends Component {
     return (
       <div className="center-card">
         <div className="center-image">
-          <img className="center-img" src={centerSearch} alt="center search" />
+          <img className="center-img" src={this.props.centerImg} alt="center search" />
         </div>
         <div className="center-info">
           <div className="center-address">

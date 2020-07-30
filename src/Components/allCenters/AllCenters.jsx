@@ -7,20 +7,33 @@ import NewsLetter from "../landingPage/NewsLetter";
 import Services from "../landingPage/Services";
 import Footer from "../landingPage/Footer";
 import allCenterBg from "../../images/viewAllCenters.png";
+import centerImg1 from "../../images/center-search.png";
+import centerImg2 from "../../images/eventCenter2.png";
+import centerImg3 from "../../images/eventCenter3.png";
 function AllCenters() {
   return (
     <div className="container">
       <Header />
       <div className="content-wrap">
         <div className="center-wrapper">
-          <p>Our Top Venues</p>
-          <div className="allCenterBg">
+          <div className="page-indicator pd-left-20">
+            <a className="home" href="/">
+              Home
+            </a>
+            <i class="indicator-divider"></i>
+            <a href="#" className="home">
+              Venues
+            </a>
+          </div>
+          
+          <div className="all-center-bg">
             <img src={allCenterBg} />
           </div>
+          <h3 className="pd-left-20">Our Top Venues</h3>
           <div className="cardWrapper">
-            <CenterCard />
-            <CenterCard />
-            <CenterCard />
+            <CenterCard centerImg={centerImg1} />
+            <CenterCard centerImg={centerImg2} />
+            <CenterCard centerImg={centerImg3} />
           </div>
           <NewsLetter />
           <Footer />

@@ -57,6 +57,9 @@ a {
   position: relative;
   top: 60px;
 }
+.pd-left-20{
+  padding-left: 20px;
+}
 
 /* Mobile menu here */
 .mobile-menu {

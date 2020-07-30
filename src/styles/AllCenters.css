@@ -1,7 +1,13 @@
+.center-wrapper{
+  padding-top: 30px;
+}
 .cardWrapper {
   padding: 20px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.all-center-bg img{
+width: 100%;
 }
