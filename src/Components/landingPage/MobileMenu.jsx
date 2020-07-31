@@ -40,7 +40,7 @@ handleLogout=()=>{
           <Link to="/" className="active">
             Home
           </Link>
-          <a href="#" className="">
+          <a href="#about-us" className="">
             About
           </a>
           <Link to="/all/centers" className="">

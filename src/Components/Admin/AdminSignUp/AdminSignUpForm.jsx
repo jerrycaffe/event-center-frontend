@@ -1,40 +1,72 @@
 import React, { useState } from "react";
-import SignupLinks from "./SignupLinks";
-import loadingGif from "../images/loading.gif";
+import loadingGif from "../../../images/loading.gif";
 import Axios from "axios";
 import { withRouter } from "react-router-dom";
+import AdminSignUpLinks from "./AdminSignUpLinks";
 
-const SignupForm = (props) => {
-  //customer details
-  const [date, setDate] = useState(new Date());
+const AdminSignUpForm = (props) => {
+  //admin details
+//   const [date, setDate] = useState(new Date());
   const [state, setState] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     password: "",
-    confirm_password: "",
+    confirmPassword: "",
     email: "",
-    phone_number: "",
-    gender: "",
+    phoneNum: "",
+    address: "",
+    businessName: "",
+    file: "",
   });
   //alerts onSubmit
   const [alert, setAlert] = useState({ message: "", color: "#1d48b7" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
+    switch (e.target.name) {
+      case "file":
+        setState({ ...state, file: e.target.files[0] });
+        break;
+      default:
+        setState({ ...state, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    console.log('clicked');
+    const {
+      firstName,
+      lastName,
+      password,
+      confirmPassword,
+      email,
+      phoneNum,
+      address,
+      businessName,
+      file,
+    } = state;
+    let formData = new FormData();
+    formData.append('firstName', firstName);
+    formData.append('lastName', lastName);
+    formData.append('password', password);
+    formData.append('confirmPassword', confirmPassword);
+    formData.append('email', email);
+    formData.append('phoneNum', phoneNum);
+    formData.append('address', address);
+    formData.append('businessName', businessName);
+    formData.append('file', file);
+
+    console.log(formData);
     Axios.post(
-      "https://magnitude-event-manager.herokuapp.com/api/auth/customer/signup",
-      state
+      "https://magnitude-event-manager.herokuapp.com/api/auth/admin/signup",
+      formData
     )
       .then((res) => {
         console.log(res);
         setAlert({ ...alert, message: res.data.message }); //alert with response message
-        props.history.replace("/login"); //redirect to login page
+        props.history.replace("/Admin_sign-in"); //redirect to login page
         setLoading(false);
         setAlert({ ...alert, message: "" });
       })
@@ -52,28 +84,28 @@ const SignupForm = (props) => {
     <main className="login-main">
       <h1>
         <span className="welcome-text">Create an account,</span>
-        <span style={{ opacity: 0.5 }}>for reservation</span>
+        <span style={{ opacity: 0.5 }}>for managers</span>
       </h1>
       <section className="form-section">
         <form onSubmit={handleSubmit}>
           <div className="signup-names">
             <div>
-              <label htmlFor="firstname">First Name</label>
+              <label htmlFor="firstName">First Name</label>
               <input
                 type="text"
-                name="firstname"
-                id="firstname"
+                name="firstName"
+                id="firstName"
                 placeholder="Enter First Name"
                 required
                 onChange={handleChange}
               />
             </div>
             <div>
-              <label htmlFor="lastname">Last Name</label>
+              <label htmlFor="lastName">Last Name</label>
               <input
                 type="text"
-                name="lastname"
-                id="lastname"
+                name="lastName"
+                id="lastName"
                 placeholder="Enter Last Name"
                 required
                 onChange={handleChange}
@@ -89,21 +121,42 @@ const SignupForm = (props) => {
             required
             onChange={handleChange}
           />
-          <label htmlFor="phone_number">Phone Number</label>
+          <label htmlFor="phoneNum">Phone Number</label>
           <input
             type="number"
-            name="phone_number"
-            id="phone_number"
+            name="phoneNum"
+            id="phoneNum"
             placeholder="Enter Phone Number"
             required
             onChange={handleChange}
           />
-          <label htmlFor="gender">Gender</label>
-          <select name="gender" id="gender" required onChange={handleChange}>
-            <option value="">Choose your gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            placeholder="Enter Addresss"
+            required
+            onChange={handleChange}
+          />
+          <label htmlFor="businessName">Business Name</label>
+          <input
+            type="text"
+            name="businessName"
+            id="businessName"
+            placeholder="Enter Business Name"
+            required
+            onChange={handleChange}
+          />
+          <label htmlFor="file">Logo</label>
+          <input
+            type="file"
+            name="file"
+            id="file"
+            accept=".jpg, .png, .jpeg|image/*"
+            required
+            onChange={handleChange}
+          />
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -113,11 +166,11 @@ const SignupForm = (props) => {
             required
             onChange={handleChange}
           />
-          <label htmlFor="confirm_password">Confirm Password</label>
+          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             type="password"
-            name="confirm_password"
-            id="confirm_password"
+            name="confirmPassword"
+            id="confirmPassword"
             placeholder="Retype Password"
             required
             onChange={handleChange}
@@ -127,10 +180,10 @@ const SignupForm = (props) => {
             {loading ? <img src={loadingGif} alt="loading" /> : "Sign Up"}
           </button>
         </form>
-        <SignupLinks />
+        <AdminSignUpLinks />
       </section>
     </main>
   );
 };
 
-export default withRouter(SignupForm);
+export default withRouter(AdminSignUpForm);

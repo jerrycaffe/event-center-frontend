@@ -26,7 +26,7 @@ const Footer = () => {
             <a href="#">All rights reserved.</a>
           </p>
           <p>
-            <a href="/login">Admin Login </a>
+            <a><Link to="/admin_sign-in">Admin Login</Link></a>
           </p>
         </div>
       </div>

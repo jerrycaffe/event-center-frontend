@@ -17,6 +17,10 @@ import Test from "./components/landingPage/Home";
 import resultPage from "./components/SearchResultPage/resultPage";
 
 import AllCenters from "./components/allCenters/AllCenters";
+import AdminLogin from "./components/Admin/AdminLogin";
+import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
+import AdminSignUp from "./components/Admin/AdminSignUp/AdminSignUp";
+
 //save token in local storage, this will set the header authorization = localStorage.token
 if (localStorage.token) {
   Axios.defaults.headers.common["authorization"] = localStorage.token;
@@ -33,9 +37,13 @@ function App() {
             path="/search/:date?/:location?/:guests?/:event?"
             component={CustomerResultPage}
           />
+          <Route path="/admin_sign-in" component={AdminLogin}/>
+          <Route path="/admin_sign-up" component={AdminSignUp}/>
+          <Route path="/admin_dashboard" component={AdminDashboard}/>
+
           <Route path="/all/centers" component={AllCenters} />
           <Route path="/" exact component={Home} />
-
+          
           <Redirect to="/" />
         </Switch>
       </div>
