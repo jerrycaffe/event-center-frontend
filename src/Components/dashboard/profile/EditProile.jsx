@@ -23,15 +23,15 @@ const EditProile = () => {
               </a>
             </div>
             <div className="profile-area">
-              <div className="navigation"></div>
-              <div className="edit-proile">
-                <div className="dashboard-nav">
+            <div className="dashboard-nav">
                   <button className="nav-btn active">Your Profile</button>
                   <button className="nav-btn">Your Booking</button>
                 </div>
+              <div className="edit-profile">
+                
                 <div className="edit-form">
                   <form className="user-edit-profile">
-                    <p className="title">Edit Profile Information</p>
+                    <h3 className="title">Edit Profile Information</h3>
 
                     <div className="form-category">
                       <div>
