@@ -35,7 +35,6 @@ const AdminSignUpForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log('clicked');
     const {
       firstName,
       lastName,
@@ -56,15 +55,13 @@ const AdminSignUpForm = (props) => {
     formData.append('phoneNum', phoneNum);
     formData.append('address', address);
     formData.append('businessName', businessName);
-    formData.append('file', file);
+    formData.append('logo', file);
 
-    console.log(formData);
     Axios.post(
       "https://magnitude-event-manager.herokuapp.com/api/auth/admin/signup",
       formData
     )
       .then((res) => {
-        console.log(res);
         setAlert({ ...alert, message: res.data.message }); //alert with response message
         props.history.replace("/Admin_sign-in"); //redirect to login page
         setLoading(false);

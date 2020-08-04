@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from "react";
+import AdminDashboardMenu from "./AdminDashboardMenu";
+import AdminDashboardMain from "./AdminDasboardMain";
 
 const AdminDashboard = () => {
-    return ( <React.Fragment>
-        <h2>Admin Dashboard Comming Soon</h2>
-    </React.Fragment> );
-}
- 
+  const [page, setPage] = useState("Dashboard");
+  const handleClick = (page) => {
+    setPage(page);
+  };
+  return (
+    <React.Fragment>
+      <div className="admin-dashboard">
+        <AdminDashboardMenu setPage = {handleClick} page={page}/>
+        <AdminDashboardMain pageName={page}/>
+      </div>
+    </React.Fragment>
+  );
+};
+
 export default AdminDashboard;
