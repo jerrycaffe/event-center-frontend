@@ -14,6 +14,8 @@ html {
 
 @import url(./homePageMobile.css);
 /* All desktop screen here */
+/* Addmin add center styles */
+@import url(./AddCenters.css);
 /* css for login and signup page */
 @import url(./signup-in.css);
 /* css for hompage desktop screen */

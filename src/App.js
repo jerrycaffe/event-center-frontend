@@ -18,6 +18,7 @@ import resultPage from "./components/SearchResultPage/resultPage";
 import AllCenters from "./components/allCenters/AllCenters";
 
 import UserProfile from "./components/dashboard/profile/EditProile"
+import AddCenters from "./components/dashboard/admin/AddCenters";
 
 //save token in local storage, this will set the header authorization = localStorage.token
 
@@ -38,6 +39,7 @@ function App() {
           />
           <Route path="/all/centers" component={AllCenters} />
           <Route path="/dashboard/profile/edit" component={UserProfile} />
+          <Route path="/dashboard/admin/add/centers" component={AddCenters} />
           <Route path="/" exact component={Home} />
 
           <Redirect to="/" />
