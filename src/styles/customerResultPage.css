@@ -66,14 +66,14 @@
 /* .center-result {} */
 
 .center-result .center-img {
-  width: 100%;
+  width: 300px;
   height: 248px;
 }
 
-.center-img {
-  width: 100%;
+/* .center-img {
+  width: 300px;
   height: 248px;
-}
+} */
 
 .center-address {
   display: flex;

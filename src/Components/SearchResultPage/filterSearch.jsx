@@ -41,7 +41,7 @@ const FilterSearch = props => {
     console.log(
       locate, date, eventing, guestss
     );
-    props.history.push(`/search/${date}/${locate}/${guestss}/${eventing}}`);
+    props.history.push(`/search/q?location=${locate}`);
   };
   return (
     <form className="form-bg" onSubmit={handleSubmit}>

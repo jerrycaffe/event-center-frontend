@@ -23,6 +23,7 @@ html {
 @import url(./AllCenters.css);
 @import url(./userProfile.css);
 /* The links for the footer */
+@import url(./error.css);
 
 
 /* End of mobile styles */
