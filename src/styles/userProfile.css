@@ -1,0 +1,119 @@
+.profile-wrapper {
+  padding: 50px 24px;
+}
+
+.fullname,
+.dashboard-nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.dashboard-nav {
+  padding: 20px 0;
+}
+
+.dashboard-nav .nav-btn {
+  height: 50px;
+  width: 120px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #C4C4C4;
+  background: #ffffff;
+  padding: 0 5px;
+}
+
+.dashboard-nav .active {
+  background: #1D48B7;
+  color: #ffffff;
+}
+
+.user-edit-profile {
+  padding: 32px 20px;
+  font-size: 18px;
+}
+
+.form-category {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-evenly;
+  height: 100px;
+  align-items: center;
+}
+
+.form-category img {
+  width: 60px;
+
+}
+
+.user-edit-profile input {
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  border: 1px solid #4E4E4E;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.left,
+.right,
+.email-address,
+.phone-number {
+  display: flex;
+  flex-direction: column;
+}
+
+.left,
+.right {
+  width: 45%;
+}
+
+.user-edit-profile button {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 25px;
+  margin: 20px 0;
+  border-radius: 5px;
+  border: 1px;
+  color: #ffffff;
+
+}
+
+.user-edit-profile .update {
+  background: #FE6708;
+
+}
+
+.user-edit-profile .password {
+  background: #176438;
+}
+
+.edit-form {
+  margin: 30px 0;
+  border-radius: 5px;
+  border: 1px solid #C4C4C4;
+
+}
+
+@media only screen and (min-width: 768px) {
+  .profile-area {
+    display: flex;
+    width: 100%;
+  }
+
+  .dashboard-nav {
+    padding: 20px;
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .dashboard-nav .nav-btn{
+    width: 100%;
+    margin: 10px 0;
+  }
+  .edit-profile{
+    flex-basis: 60%;
+  }
+
+}

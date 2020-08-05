@@ -14,12 +14,16 @@ html {
 
 @import url(./homePageMobile.css);
 /* All desktop screen here */
+/* Addmin add center styles */
+@import url(./AddCenters.css);
 /* css for login and signup page */
 @import url(./signup-in.css);
 /* css for hompage desktop screen */
 @import url(./customerResultPage.css);
 @import url(./AllCenters.css);
+@import url(./userProfile.css);
 /* The links for the footer */
+@import url(./error.css);
 
 
 /* End of mobile styles */

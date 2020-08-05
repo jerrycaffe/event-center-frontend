@@ -2,13 +2,40 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CenterCard from "./CenterCard";
 import SelectFilterForm from "./SearchFilter";
-import Header from '../landingPage/Header';
-import Footer from '../landingPage/Footer'
-import Services from '../landingPage/Services'
-import NewsLetter from '../landingPage/NewsLetter';
+import Header from "../landingPage/Header";
+import Footer from "../landingPage/Footer";
+import NewsLetter from "../landingPage/NewsLetter";
 import searchImg from "../../images/center-search.png";
+import Axios from "axios";
+import Error500 from "../../pages/Error500";
+
 class resultPage extends Component {
+  componentDidMount = async () => {
+    try {
+      const searchParams = this.props.location.search;
+      const endPoint =
+        "https://magnitude-event-manager.herokuapp.com/api/center/search/q";
+      const getCenters = await Axios.get(`${endPoint}${searchParams}`);
+      this.setState({ ...this.state, centers: [...getCenters.data.result] });
+    } catch (error) {
+     this.setState({
+       networkErr: true
+     })
+    }
+  };
+  state = {
+    centers: "",
+    networkErr: false
+  };
   render() {
+    
+    const centers = this.state.centers;
+    if(this.state.networkErr){
+      return <Error500 />
+    }
+    if (!centers) {
+      return "Please wait for the search to load";
+    }
     return (
       <div className="container">
         <Header />
@@ -34,14 +61,27 @@ class resultPage extends Component {
                     <i className="filter-icon"></i>
                   </form>
                   <div>
-                    <p className="search-count">1 Result Found</p>
+                    <p className="search-count">
+                      {centers.length} Result Found
+                    </p>
                   </div>
-                  <CenterCard centerImg = {searchImg}/>
+                  {centers.map(center => {
+                    return (
+                      <CenterCard
+                        key={center.id}
+                        centerImg={center.images}
+                        name={center.name}
+                        located={center.location}
+                        capacity={center.capacity}
+                        price={center.price}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>
           </div>
-          <Services />
+
           <NewsLetter />
           <Footer />
         </div>
