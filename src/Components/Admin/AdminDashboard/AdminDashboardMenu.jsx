@@ -12,7 +12,6 @@ const AdminDashboardMenu = ({setPage,page,history}) => {
     delete Axios.defaults.headers.common["authorization"];
     history.replace("/");
   }
-  console.log(context.admin);
   return (
     <div className="admin-menu">
       <div>

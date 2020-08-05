@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import AuthContext from '../../../Context/authContext';
 
 const AdminDashboardMain = ({pageName}) => {
-    console.log(pageName);
+    const context = useContext(AuthContext)
+    console.log(context.admin);
     return ( <React.Fragment>
         <div style={{backgroundColor:'cyan',height:"80rem",width:"80%",marginLeft:"auto"}}>
     <strong >{pageName}</strong>

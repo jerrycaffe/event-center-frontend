@@ -4,17 +4,16 @@ import AuthContext from "../../Context/authContext";
 
 const Footer = () => {
   const context = useContext(AuthContext);
-  let adminLogin='';
+  console.log(context.user, "user");
+  console.log(context.admin, "admin");
+  let adminLogin = "";
   if (!context.isAuthenticated) {
     adminLogin = (
       <p>
-      
-          <Link to="/admin_sign-in">Admin Login</Link>
-        
+        <Link to="/admin_sign-in">Admin Login</Link>
       </p>
     );
   }
-  console.log(context.isAuthenticated);
   return (
     <footer className="footer">
       <div className="footer-cat">
