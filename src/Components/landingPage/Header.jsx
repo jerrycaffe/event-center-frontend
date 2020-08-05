@@ -22,7 +22,7 @@ class LandingPageHearder extends Component {
 
   render() {
     // console.log(this.context.user, "here");
-    const name = `${this.context.user.firstname} ${this.context.user.lastname}`;
+    const name = this.context.user.lastname;
     const avatar_url =
       this.context.user.logo === undefined
         ? "https://res.cloudinary.com/gharoro/image/upload/v1596653567/gravatar.png"

@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom';
-import AuthContext from "../Context/authContext"
-import Axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../Context/authContext";
+import Axios from "axios";
 
 class MobileMenu extends Component {
   static contextType = AuthContext;
 
-handleLogout=()=>{
-  localStorage.clear();
-  this.context.logoutUser();
-  delete Axios.defaults.headers.common["authorization"];
-}
+  handleLogout = () => {
+    localStorage.clear();
+    this.context.logoutUser();
+    delete Axios.defaults.headers.common["authorization"];
+  };
 
   render() {
     let buttons;
@@ -29,29 +29,34 @@ handleLogout=()=>{
           <Link to="/sign-up" className="d-btn-sec">
             Sign up
           </Link>
-          </React.Fragment>
+        </React.Fragment>
       );
     }
     return (
       <div className={this.props.mobileMenu} id="mobile-fixed">
-          <p className="close-mobile-menu pointer" onClick={this.props.toggleMobileMenu}>X</p>
-          <p className="txt-center">Menu</p>
-        
-          <Link to="/" className="active">
-            Home
-          </Link>
-          <a href="#" className="">
-            About
-          </a>
-          <a href="#" className="">
-            Venues
-          </a>
-          <a href="#" className="">
-            Contact
-          </a>
-          {buttons}
-        </div>
-    )
+        <p
+          className="close-mobile-menu pointer"
+          onClick={this.props.toggleMobileMenu}
+        >
+          X
+        </p>
+        <p className="txt-center">Menu</p>
+
+        <Link to="/" className="active">
+          Home
+        </Link>
+        <a href="#" className="">
+          About
+        </a>
+        <a href="#" className="">
+          Venues
+        </a>
+        <a href="#" className="">
+          Contact
+        </a>
+        {buttons}
+      </div>
+    );
   }
 }
 export default MobileMenu;
