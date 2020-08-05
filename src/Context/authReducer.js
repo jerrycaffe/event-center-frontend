@@ -1,4 +1,4 @@
-import { LOAD_USER, LOGIN_USER, LOGOUT_USER, LOAD_ADMIN } from "./actions";
+import { LOAD_USER, LOGIN_USER, LOGOUT_USER, LOAD_ADMIN} from "./actions";
 
 //dispatch actions here like in redux
 export default (state, action) => {

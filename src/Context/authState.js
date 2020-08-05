@@ -45,8 +45,12 @@ const AuthState = (props) => {
 
   //persist user details on reload
   useEffect(() => {
-    loadUser();
-    loadAdmin();
+    if (localStorage.account === "user") {
+      loadUser();
+    }
+    if (localStorage.account === "admin") {
+      loadAdmin();
+    }
   }, []);
 
   //declare all action functions you are dispatching in authReducer here and include it in the AuthContext.Provider value
