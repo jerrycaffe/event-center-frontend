@@ -1,5 +1,60 @@
 @media only screen and (min-width: 768px) {
+  /** User avatar and name on header **/
+  .dropbtn {
+    background-color: #1d48b7;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 70px;
+    cursor: pointer;
+  }
 
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #1d48b7;
+  }
+
+  .user-avatar {
+    border: 1px solid #ddd;
+    border-radius: 70px;
+    padding: 5px;
+    width: 70px;
+    margin-right: 3px;
+    cursor: pointer;
+  }
+
+  .user-avatar:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
 
   /* generic styling for the desktop */
   .d-display-none {
@@ -20,24 +75,24 @@
   .d-btn-pry,
   .d-btn-sec {
     background: #ffffff;
-    color: #1D48B7;
+    color: #1d48b7;
     border-radius: 5px;
     padding: 10px 35px;
     border: solid 1.2px;
   }
 
   .d-btn-pry:hover {
-    background: #1D48B7;
+    background: #1d48b7;
     color: #ffffff;
   }
 
   .d-btn-sec {
-    background: #1D48B7;
+    background: #1d48b7;
     color: #ffffff;
   }
 
   .d-btn-sec:hover {
-    color: #1D48B7;
+    color: #1d48b7;
     background: #ffffff;
   }
 
@@ -45,7 +100,6 @@
   .header {
     height: 98px;
     padding: 0 60px;
-
   }
 
   /* header ends here */
@@ -62,7 +116,6 @@
   .right-menu {
     display: flex;
     align-items: center;
-
   }
 
   .right-menu a {
@@ -70,7 +123,7 @@
   }
 
   .showcase {
-    background: url('../images/desktopbg.png') center center/cover;
+    background: url("../images/desktopbg.png") center center/cover;
     height: 729px;
   }
 
@@ -79,13 +132,10 @@
     line-height: 59px;
   }
 
-
   .small-text {
     line-height: 39px;
     font-size: 32px;
-
   }
-
 
   .form-bg {
     width: 86%;
@@ -94,8 +144,6 @@
     justify-content: space-evenly;
     align-items: center;
   }
-
-
 
   .icon-input {
     width: 205px;
@@ -111,7 +159,6 @@
   /* the filter text */
 
   /* the filter icon */
-
 
   /* navigation for the desktop */
   .desktop-nav {
@@ -135,7 +182,6 @@
   }
 
   .page-contents-img img {
-
     width: 90%;
     margin: auto;
   }
@@ -149,7 +195,7 @@
 
   /* set the active button to blue */
   .active {
-    color: #1D48B7;
+    color: #1d48b7;
   }
 
   .card-wrapper {
@@ -180,7 +226,6 @@
   .input-subscribe {
     width: 370px;
     margin: 0 10px 0 20px;
-
   }
 
   .suscribe-btn {
@@ -203,5 +248,4 @@
     flex-direction: row;
     align-items: center;
   }
-
 }
