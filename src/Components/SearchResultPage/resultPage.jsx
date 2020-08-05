@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CenterCard from "./CenterCard";
 import SelectFilterForm from "./SearchFilter";
@@ -8,85 +8,85 @@ import NewsLetter from "../landingPage/NewsLetter";
 import searchImg from "../../images/center-search.png";
 import Axios from "axios";
 import Error500 from "../../pages/Error500";
+import PageLoader from "../../pages/PageLoader";
 
-class resultPage extends Component {
-  componentDidMount = async () => {
-    try {
-      const searchParams = this.props.location.search;
-      const endPoint =
-        "https://magnitude-event-manager.herokuapp.com/api/center/search/q";
-      const getCenters = await Axios.get(`${endPoint}${searchParams}`);
-      this.setState({ ...this.state, centers: [...getCenters.data.result] });
-    } catch (error) {
-     this.setState({
-       networkErr: true
-     })
-    }
-  };
-  state = {
-    centers: "",
-    networkErr: false
-  };
-  render() {
-    
-    const centers = this.state.centers;
-    if(this.state.networkErr){
-      return <Error500 />
-    }
-    if (!centers) {
-      return "Please wait for the search to load";
-    }
-    return (
-      <div className="container">
-        <Header />
-        <div className="content-wrap">
-          <div className="search-contents">
-            <div className="search-wrapper">
-              <div className="result-body">
-                <div className="desktop-filter">
-                  <div className="page-indicator">
-                    <Link to="/" className="home">
-                      Home
-                    </Link>
-                    <i className="indicator-divider"></i>
-                    <a href="#" className="home">
-                      Search
-                    </a>
-                  </div>
-                  <SelectFilterForm />
+const ResultPage = props => {
+  const [getCenters, setCenters] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    const result = async () => {
+      try {
+        const searchParams = props.location.search;
+        const endPoint =
+          "https://magnitude-event-manager.herokuapp.com/api/center/search/q";
+        const getCenters = await Axios.get(`${endPoint}${searchParams}`);
+
+        setCenters([...getCenters.data.result]);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    result();
+  }, []);
+
+  // if(this.state.networkErr){
+  //   return <Error500 />
+  // }
+  if (isLoading) {
+    return <PageLoader />;
+  }
+  return (
+    <div className="container">
+      <Header />
+      <div className="content-wrap">
+        <div className="search-contents">
+          <div className="search-wrapper">
+            <div className="result-body">
+              <div className="desktop-filter">
+                <div className="page-indicator">
+                  <Link to="/" className="home">
+                    Home
+                  </Link>
+                  <i className="indicator-divider"></i>
+                  <a href="#" className="home">
+                    Search
+                  </a>
                 </div>
-                <div className="center-result">
-                  <form className="form-filter">
-                    <input type="text" placeholder="filter" />
-                    <i className="filter-icon"></i>
-                  </form>
-                  <div>
-                    <p className="search-count">
-                      {centers.length} Result Found
-                    </p>
-                  </div>
-                  {centers.map(center => {
-                    return (
-                      <CenterCard
-                        key={center.id}
-                        centerImg={center.images}
-                        name={center.name}
-                        located={center.location}
-                        capacity={center.capacity}
-                        price={center.price}
-                      />
-                    );
-                  })}
+                <SelectFilterForm />
+              </div>
+              <div className="center-result">
+                <form className="form-filter">
+                  <input type="text" placeholder="filter" />
+                  <i className="filter-icon"></i>
+                </form>
+                <div>
+                  <p className="search-count">
+                    {getCenters.length} Result Found
+                  </p>
                 </div>
+                {getCenters.map(center => {
+                  return (
+                    <CenterCard
+                      key={center.id}
+                      centerImg={center.images}
+                      name={center.name}
+                      located={center.location}
+                      capacity={center.capacity}
+                      price={center.price}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
-
-          <NewsLetter />
-          <Footer />
         </div>
+
+        <NewsLetter />
+        <Footer />
       </div>
-    );
-  }
-}
-export default resultPage;
+    </div>
+  );
+};
+
+export default ResultPage;

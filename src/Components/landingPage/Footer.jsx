@@ -8,9 +8,9 @@ const Footer = () => {
   if (!context.isAuthenticated) {
     adminLogin = (
       <p>
-        <a>
+      
           <Link to="/admin_sign-in">Admin Login</Link>
-        </a>
+        
       </p>
     );
   }

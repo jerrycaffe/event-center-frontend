@@ -25,7 +25,7 @@ const AuthState = (props) => {
         payload: (await res).data.profile,
       });
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data);
     }
   };
 

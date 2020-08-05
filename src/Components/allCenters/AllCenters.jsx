@@ -1,17 +1,45 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import Axios from 'axios';
+
+// Other Needed component
+import Loading from "../../pages/PageLoader";
 import CenterCard from "./../SearchResultPage/CenterCard";
 import SelectFilterForm from "./../SearchResultPage/SearchFilter";
 import Header from "../landingPage/Header";
 import NewsLetter from "../landingPage/NewsLetter";
-import Services from "../landingPage/Services";
+
 import Footer from "../landingPage/Footer";
 import allCenterBg from "../../images/viewAllCenters.png";
-import centerImg1 from "../../images/center-search.png";
-import centerImg2 from "../../images/eventCenter2.png";
-import centerImg3 from "../../images/eventCenter3.png";
+
+
 function AllCenters() {
+  const [allCenters, setCenter] = useState([])
+  const [pageLoading, setPageLoading] = useState(true) 
+ useEffect( ()=>{
+  const calling = async ()=>{
+
+    try {
+ 
+      const  url = "https://magnitude-event-manager.herokuapp.com/api/center/view_all_centers"
+      const results = await Axios.get(`${url}`)
+     setCenter([...results.data.centers])
+     setPageLoading(false)
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+  calling()
+
+ }, [])
+ 
+ if(pageLoading){
+   return <Loading/>
+ }
   return (
+    
     <div className="container">
       <Header />
       <div className="content-wrap">
@@ -20,7 +48,7 @@ function AllCenters() {
             <a className="home" href="/">
               Home
             </a>
-            <i class="indicator-divider"></i>
+            <i className="indicator-divider"></i>
             <a href="#" className="home">
               Venues
             </a>
@@ -31,9 +59,22 @@ function AllCenters() {
           </div>
           <h3 className="pd-left-20">Our Top Venues</h3>
           <div className="cardWrapper">
-            <CenterCard centerImg={centerImg1} />
-            <CenterCard centerImg={centerImg2} />
-            <CenterCard centerImg={centerImg3} />
+         {console.log(allCenters[0], "here")
+         }
+          {allCenters.map(center => {
+                    return (
+                      <CenterCard
+                        key={center.id}
+                        centerImg={center.images}
+                        name={center.name}
+                        located={center.location}
+                        capacity={center.capacity}
+                        price={center.price}
+                      />
+                    );
+                  })}
+            
+           
           </div>
           <NewsLetter />
           <Footer />
