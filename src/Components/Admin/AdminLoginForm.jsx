@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import LoginLinks from "./LoginLinks";
+import AdminLoginLinks from "./AdminLoginLinks";
 import AuthContext from "../../Context/authContext";
-import { withRouter } from "react-router-dom";
-import loadingGif from "../../images/loading.gif";
 import Axios from "axios";
+import loadingGif from "../../images/loading.gif"
+import { withRouter } from "react-router-dom";
 
-const LoginForm = (props) => {
+const AdminLoginForm = (props) => {
   const context = useContext(AuthContext);
   const [state, setState] = useState({ email: "", password: "" });
   //alerts
@@ -27,18 +27,18 @@ const LoginForm = (props) => {
     } else {
       setAlert({ ...alert, loading: true });
       Axios.post(
-        "https://magnitude-event-manager.herokuapp.com/api/auth/customer/signin",
+        "https://magnitude-event-manager.herokuapp.com/api/auth/admin/signin",
         state
       )
         .then((res) => {
           localStorage.setItem("token", res.data.token);
           Axios.defaults.headers.common["authorization"] = res.data.token; //set token to authorization header
           localStorage.setItem("isAuthenticated", true); // isAuthenticated true to localStorage
-          localStorage.setItem("account", "user");
+          localStorage.setItem("account", "admin");
           context.loginUser();
-          context.loadUser();
+          context.loadAdmin();
           setAlert({ ...alert, loading: false, message: res.data.message });
-          props.history.push("/"); //redirect to homepage
+          props.history.push("/admin_dashboard"); //redirect to homepage
         })
         .catch((err) => {
           setAlert({
@@ -55,7 +55,7 @@ const LoginForm = (props) => {
   return (
     <main className="login-main">
       <h1>
-        <span className="welcome-text">Welcome back,</span>
+        <span className="welcome-text">Welcome back Admin,</span>
         <span style={{ opacity: 0.5 }}>Log In to continue</span>
       </h1>
       <section className="form-section">
@@ -83,10 +83,10 @@ const LoginForm = (props) => {
             {alert.loading ? <img src={loadingGif} alt="loading" /> : "Sign In"}
           </button>
         </form>
-        <LoginLinks />
+        <AdminLoginLinks />
       </section>
     </main>
   );
 };
 
-export default withRouter(LoginForm);
+export default withRouter(AdminLoginForm);

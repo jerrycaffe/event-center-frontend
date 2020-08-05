@@ -209,6 +209,19 @@ a {
   flex-direction: column;
   align-items: center;
 }
+.center-img{
+  width: 230px;
+  height: 200px;
+}
+
+.center-card{
+  cursor: pointer;
+}
+.page-loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 .services {
   background: #E7F2FE;

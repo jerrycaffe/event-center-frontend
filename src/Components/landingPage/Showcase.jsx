@@ -13,8 +13,12 @@ const Showcase = () => {
           </div>
 
           <FilterSearch />
+          <div id="about-us">
+            {/* points to about us, here just to give space */}
+        </div>
         </div>
       </div>
+    
     </React.Fragment>
   );
 };

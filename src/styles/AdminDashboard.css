@@ -1,0 +1,77 @@
+.admin-dashboard {
+  display: flex;
+}
+.admin-menu {
+  background-color: #1d48b7;
+  color: white;
+  text-align: center;
+  align-items: center;
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+}
+.admin-menu div {
+  padding: 2rem 0;
+}
+.admin-menu p {
+  display: flex;
+  padding: 1rem;
+  cursor: pointer;
+}
+.admin-logout {
+  margin-top: 3rem;
+  border-top: 1px solid white;
+}
+.admin-menu p:hover,
+.admin_active {
+  color: #1d48b7;
+  background-color: white;
+}
+.admin-menu p i {
+  margin-left: 1rem;
+}
+.admin-menu p span {
+  padding-left: 1rem;
+  align-self: center;
+}
+.dashboard_icon {
+  content: url(../images/Admin/dashboard_white.svg);
+}
+.calender_icon {
+  content: url(../images/Admin/calender.svg);
+}
+.bookings_icon {
+  content: url(../images/Admin/bookings.svg);
+}
+.centers_icon {
+  content: url(../images/Admin/event_centers.svg);
+}
+.feedbacks_icon {
+  content: url(../images/Admin/feedbacks.svg);
+  background-color: #1d48b7;
+}
+.settings_icon {
+  content: url(../images/Admin/settings.svg);
+  background-color: #1d48b7;
+}
+.logout_icon {
+  content: url(../images/Admin/logout.svg);
+  background-color: #1d48b7;
+  padding: 2px;
+}
+.admin-menu p:hover .dashboard_icon,
+.admin_active .dashboard_icon {
+  content: url(../images/Admin/dashboard.svg);
+}
+.admin-menu p:hover .calender_icon,
+.admin_active .calender_icon {
+  content: url(../images/Admin/calendar_blue.svg);
+}
+.admin-menu p:hover .bookings_icon,
+.admin_active .bookings_icon {
+  content: url(../images/Admin/bookings_blue.svg);
+}
+.admin-menu p:hover .centers_icon,
+.admin_active .centers_icon {
+  content: url(../images/Admin/centers_blue.svg);
+}

@@ -19,7 +19,9 @@ import AllCenters from "./components/allCenters/AllCenters";
 
 import UserProfile from "./components/dashboard/profile/EditProile"
 import AddCenters from "./components/dashboard/admin/AddCenters";
-
+ import AdminLogin from "./components/Admin/AdminLogin";
+import AdminSignUp from "./components/Admin/AdminSignUp/AdminSignUp";
+import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
 //save token in local storage, this will set the header authorization = localStorage.token
 
 if (localStorage.token) {
@@ -37,11 +39,15 @@ function App() {
             path="/search/:date?/:location?/:guests?/:event?"
             component={CustomerResultPage}
           />
+          <Route path="/admin_sign-in" component={AdminLogin}/>
+          <Route path="/admin_sign-up" component={AdminSignUp}/>
+          <Route path="/admin_dashboard" component={AdminDashboard}/>
+
           <Route path="/all/centers" component={AllCenters} />
           <Route path="/dashboard/profile/edit" component={UserProfile} />
           <Route path="/dashboard/admin/add/centers" component={AddCenters} />
           <Route path="/" exact component={Home} />
-
+          
           <Redirect to="/" />
         </Switch>
       </div>

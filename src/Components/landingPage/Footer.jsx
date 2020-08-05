@@ -1,6 +1,19 @@
-import React from "react";
-import {Link} from 'react-router-dom';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../../Context/authContext";
+
 const Footer = () => {
+  const context = useContext(AuthContext);
+  console.log(context.user, "user");
+  console.log(context.admin, "admin");
+  let adminLogin = "";
+  if (!context.isAuthenticated) {
+    adminLogin = (
+      <p>
+        <Link to="/admin_sign-in">Admin Login</Link>
+      </p>
+    );
+  }
   return (
     <footer className="footer">
       <div className="footer-cat">
@@ -17,7 +30,6 @@ const Footer = () => {
             <a href="#">Privacy policy</a>
           </p>
           <p>
-          
             <a href="#">Terms & Conditions</a>
           </p>
         </div>
@@ -25,9 +37,7 @@ const Footer = () => {
           <p>
             <a href="#">All rights reserved.</a>
           </p>
-          <p>
-            <a href="/login">Admin Login </a>
-          </p>
+          {adminLogin}
         </div>
       </div>
       <p className="footer-copy">&copy; Magnitude. 2020</p>
