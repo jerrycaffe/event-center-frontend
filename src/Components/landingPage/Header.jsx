@@ -21,7 +21,6 @@ class LandingPageHearder extends Component {
   }
 
   render() {
-    console.log(this.context.user,"here");
     let buttons;
     if (this.context.isAuthenticated) {
       buttons = (
@@ -62,7 +61,7 @@ class LandingPageHearder extends Component {
               <Link to="/" className="nav-btn active">
                 Home
               </Link>
-              <a href="#" className="nav-btn">
+              <a href="#about-us" className="nav-btn">
                 About
               </a>
               <Link to="/all/centers" className="nav-btn">

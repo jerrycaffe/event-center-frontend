@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 import AuthContext from "./authContext";
-import { LOAD_USER, LOGIN_USER, LOGOUT_USER } from "./actions";
+import { LOAD_USER, LOGIN_USER, LOGOUT_USER, LOAD_ADMIN } from "./actions";
 import authReducer from "./authReducer";
 import Axios from "axios";
 
@@ -9,6 +9,7 @@ const AuthState = (props) => {
   const initialState = {
     isAuthenticated: localStorage.isAuthenticated,
     user: {},
+    admin: {},
   };
 
   //declare state and reducer
@@ -28,9 +29,24 @@ const AuthState = (props) => {
     }
   };
 
+  const loadAdmin = async () => {
+    try {
+      const res = Axios.get(
+        "https://magnitude-event-manager.herokuapp.com/api/auth/admin/profile"
+      );
+      dispatch({
+        type: LOAD_ADMIN,
+        payload: (await res).data.profile,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   //persist user details on reload
   useEffect(() => {
     loadUser();
+    loadAdmin();
   }, []);
 
   //declare all action functions you are dispatching in authReducer here and include it in the AuthContext.Provider value
@@ -47,9 +63,11 @@ const AuthState = (props) => {
         isAuthenticated: state.isAuthenticated,
         loading: state.loading,
         user: state.user,
+        admin: state.admin,
         loadUser,
         loginUser,
         logoutUser,
+        loadAdmin,
       }}
     >
       {props.children}

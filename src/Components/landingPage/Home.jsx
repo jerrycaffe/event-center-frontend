@@ -17,6 +17,7 @@ class Home extends Component {
         <Showcase />
         <div className="page-contents">
           <AboutUs />
+          
           <div className="page-contents-img">
             <img src={hallImage} alt="magnititude hall" />
           </div>

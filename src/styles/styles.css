@@ -32,4 +32,7 @@ html {
 
 /* Styling for the desktop */
 
-@import url(./homePageDesktop.css);
+ @import url(./homePageDesktop.css);
+
+/*admin dashboard */
+@import url(./AdminDashboard.css)
