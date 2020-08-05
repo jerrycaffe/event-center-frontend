@@ -35,7 +35,7 @@ const AdminLoginForm = (props) => {
           Axios.defaults.headers.common["authorization"] = res.data.token; //set token to authorization header
           localStorage.setItem("isAuthenticated", true); // isAuthenticated true to localStorage
           context.loginUser();
-          context.loadUser();
+          context.loadAdmin();
           setAlert({ ...alert, loading: false, message: res.data.message });
           props.history.push("/admin_dashboard"); //redirect to homepage
         })

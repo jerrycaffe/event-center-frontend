@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import white_logo from "../../../images/Admin/white_logo.svg";
+import Axios from "axios";
+import AuthContext from "../../../Context/authContext";
+import { withRouter } from "react-router-dom";
 
-const AdminDashboardMenu = ({setPage,page}) => {
+const AdminDashboardMenu = ({setPage,page,history}) => {
+  const context = useContext(AuthContext);
+  const handleLogout=()=>{
+    localStorage.clear();
+    context.logoutUser();
+    delete Axios.defaults.headers.common["authorization"];
+    history.replace("/");
+  }
+  console.log(context.admin);
   return (
     <div className="admin-menu">
       <div>
@@ -31,7 +42,7 @@ const AdminDashboardMenu = ({setPage,page}) => {
         <i className="settings_icon"></i>
         <span>Settings</span>
       </p>
-      <p className="admin-logout">
+      <p className="admin-logout" onClick={handleLogout}>
         <i className="logout_icon"></i>
         <span>Log Out</span>
       </p>
@@ -39,4 +50,4 @@ const AdminDashboardMenu = ({setPage,page}) => {
   );
 };
 
-export default AdminDashboardMenu;
+export default withRouter(AdminDashboardMenu);
