@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import LoginLinks from "./LoginLinks";
 import AuthContext from "../../Context/authContext";
 import { withRouter } from "react-router-dom";
@@ -34,6 +34,7 @@ const LoginForm = (props) => {
           localStorage.setItem("token", res.data.token);
           Axios.defaults.headers.common["authorization"] = res.data.token; //set token to authorization header
           localStorage.setItem("isAuthenticated", true); // isAuthenticated true to localStorage
+          localStorage.setItem("account", "user");
           context.loginUser();
           context.loadUser();
           setAlert({ ...alert, loading: false, message: res.data.message });

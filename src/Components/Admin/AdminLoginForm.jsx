@@ -34,6 +34,7 @@ const AdminLoginForm = (props) => {
           localStorage.setItem("token", res.data.token);
           Axios.defaults.headers.common["authorization"] = res.data.token; //set token to authorization header
           localStorage.setItem("isAuthenticated", true); // isAuthenticated true to localStorage
+          localStorage.setItem("account", "admin");
           context.loginUser();
           context.loadAdmin();
           setAlert({ ...alert, loading: false, message: res.data.message });
