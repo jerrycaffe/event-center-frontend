@@ -22,6 +22,7 @@ const SignupForm = (props) => {
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
+    setAlert({ ...alert, message: "" });//Remove error message when user is typing
   };
 
   const handleSubmit = (e) => {
@@ -32,7 +33,6 @@ const SignupForm = (props) => {
       state
     )
       .then((res) => {
-        console.log(res);
         setAlert({ ...alert, message: res.data.message }); //alert with response message
         props.history.replace("/login"); //redirect to login page
         setLoading(false);
@@ -45,7 +45,6 @@ const SignupForm = (props) => {
           message: err.response.data.message,
           color: "red",
         }); //alert with response message
-        setTimeout(() => setAlert({ ...alert, message: "" }), 3000); //remove response message after 3secs
       });
   };
   return (
@@ -122,7 +121,20 @@ const SignupForm = (props) => {
             required
             onChange={handleChange}
           />
-          <p style={{ color: alert.color, margin: "auto" }}>{alert.message}</p>
+          <p
+            style={
+              alert.message
+                ? {
+                    color: alert.color,
+                    margin: "auto",
+                    padding: "0.5rem 1rem",
+                    backgroundColor: "#f4f4f4",
+                  }
+                : {}
+            }
+          >
+            {alert.message}
+          </p>
           <button type="submit" className="btn-signIn">
             {loading ? <img src={loadingGif} alt="loading" /> : "Sign Up"}
           </button>

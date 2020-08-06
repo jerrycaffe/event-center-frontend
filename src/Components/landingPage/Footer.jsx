@@ -4,8 +4,6 @@ import AuthContext from "../../Context/authContext";
 
 const Footer = () => {
   const context = useContext(AuthContext);
-  console.log(context.user, "user");
-  console.log(context.admin, "admin");
   let adminLogin = "";
   if (!context.isAuthenticated) {
     adminLogin = (

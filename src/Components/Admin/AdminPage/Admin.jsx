@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import AdminDashboardMenu from "./AdminDashboardMenu";
 import AdminDashboardMain from "./AdminDasboardMain";
+import AdminMenu from "./AdminMenu";
+import AdminHeader from "./AdminHeader";
+import AddCenterModal from "./AddCenterModal";
 
-const AdminDashboard = () => {
+const Admin = () => {
   const [page, setPage] = useState("Dashboard");
   const handleClick = (page) => {
     setPage(page);
@@ -10,11 +12,13 @@ const AdminDashboard = () => {
   return (
     <React.Fragment>
       <div className="admin-dashboard">
-        <AdminDashboardMenu setPage = {handleClick} page={page}/>
+        <AdminMenu setPage = {handleClick} page={page}/>
+        <AdminHeader pageName={page}/>
+        <AddCenterModal/>
         <AdminDashboardMain pageName={page}/>
       </div>
     </React.Fragment>
   );
 };
 
-export default AdminDashboard;
+export default Admin;

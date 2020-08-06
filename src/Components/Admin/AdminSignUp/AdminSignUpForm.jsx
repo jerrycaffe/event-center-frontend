@@ -6,7 +6,7 @@ import AdminSignUpLinks from "./AdminSignUpLinks";
 
 const AdminSignUpForm = (props) => {
   //admin details
-//   const [date, setDate] = useState(new Date());
+  //   const [date, setDate] = useState(new Date());
   const [state, setState] = useState({
     firstName: "",
     lastName: "",
@@ -30,6 +30,7 @@ const AdminSignUpForm = (props) => {
       default:
         setState({ ...state, [e.target.name]: e.target.value });
     }
+    setAlert({ ...alert, message: "" }); //Remove error message when user is typing
   };
 
   const handleSubmit = (e) => {
@@ -47,15 +48,15 @@ const AdminSignUpForm = (props) => {
       file,
     } = state;
     let formData = new FormData();
-    formData.append('firstName', firstName);
-    formData.append('lastName', lastName);
-    formData.append('password', password);
-    formData.append('confirmPassword', confirmPassword);
-    formData.append('email', email);
-    formData.append('phoneNum', phoneNum);
-    formData.append('address', address);
-    formData.append('businessName', businessName);
-    formData.append('logo', file);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("password", password);
+    formData.append("confirmPassword", confirmPassword);
+    formData.append("email", email);
+    formData.append("phoneNum", phoneNum);
+    formData.append("address", address);
+    formData.append("businessName", businessName);
+    formData.append("logo", file);
 
     Axios.post(
       "https://magnitude-event-manager.herokuapp.com/api/auth/admin/signup",
@@ -74,7 +75,6 @@ const AdminSignUpForm = (props) => {
           message: err.response.data.message,
           color: "red",
         }); //alert with response message
-        setTimeout(() => setAlert({ ...alert, message: "" }), 3000); //remove response message after 3secs
       });
   };
   return (
@@ -172,7 +172,20 @@ const AdminSignUpForm = (props) => {
             required
             onChange={handleChange}
           />
-          <p style={{ color: alert.color, margin: "auto" }}>{alert.message}</p>
+          <p
+            style={
+              alert.message
+                ? {
+                    color: alert.color,
+                    margin: "auto",
+                    padding: "0.5rem 1rem",
+                    backgroundColor: "#f4f4f4",
+                  }
+                : {}
+            }
+          >
+            {alert.message}
+          </p>
           <button type="submit" className="btn-signIn">
             {loading ? <img src={loadingGif} alt="loading" /> : "Sign Up"}
           </button>
