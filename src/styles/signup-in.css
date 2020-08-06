@@ -51,7 +51,7 @@
     content: " *";
     color: red;
 }
-.form-section form input, .btn-signIn {
+.form-section form input, .btn-signIn{
   margin: 0.5rem 0;
   height: 2.8rem;
   width: 100%;

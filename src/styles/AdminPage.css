@@ -1,0 +1,182 @@
+.admin-dashboard {
+  display: flex;
+}
+.admin-menu {
+  background-color: #1d48b7;
+  color: white;
+  text-align: center;
+  align-items: center;
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+}
+.admin-menu div {
+  padding: 2rem 0;
+}
+.admin-menu p {
+  display: flex;
+  padding: 1rem;
+  cursor: pointer;
+}
+.admin-logout {
+  margin-top: 3rem;
+  border-top: 1px solid white;
+}
+.admin-menu p:hover,
+.admin_active {
+  color: #1d48b7;
+  background-color: #f7f7f7;
+}
+.admin-menu p i {
+  margin-left: 1rem;
+}
+.admin-menu p span {
+  padding-left: 1rem;
+  align-self: center;
+}
+.dashboard_icon {
+  content: url(../images/Admin/dashboard_white.svg);
+}
+.calender_icon {
+  content: url(../images/Admin/calender.svg);
+}
+.bookings_icon {
+  content: url(../images/Admin/bookings.svg);
+}
+.centers_icon {
+  content: url(../images/Admin/event_centers.svg);
+}
+.feedbacks_icon {
+  content: url(../images/Admin/feedbacks.svg);
+  background-color: #1d48b7;
+}
+.settings_icon {
+  content: url(../images/Admin/settings.svg);
+  background-color: #1d48b7;
+}
+.logout_icon {
+  content: url(../images/Admin/logout.svg);
+  background-color: #1d48b7;
+  padding: 2px;
+}
+.admin-menu p:hover .dashboard_icon,
+.admin_active .dashboard_icon {
+  content: url(../images/Admin/dashboard.svg);
+}
+.admin-menu p:hover .calender_icon,
+.admin_active .calender_icon {
+  content: url(../images/Admin/calendar_blue.svg);
+}
+.admin-menu p:hover .bookings_icon,
+.admin_active .bookings_icon {
+  content: url(../images/Admin/bookings_blue.svg);
+}
+.admin-menu p:hover .centers_icon,
+.admin_active .centers_icon {
+  content: url(../images/Admin/centers_blue.svg);
+}
+.admin_header-container{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: #f7f7f7;
+  top: 0;
+  left: 20%;
+  width: 80%;
+  height: 30%;
+}
+.admin_header{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.admin_header-container>*{
+  margin: 2rem 2rem 0rem 2rem;
+}
+.admin_header h2{
+  padding: 0.5rem;
+}
+.search_admin{
+ width: 30rem;
+ display: flex;
+ border-collapse: collapse;
+}
+.search_admin input,.search_admin button {
+  margin: 0.5rem 0;
+  height: 2.8rem;
+  width: 100%;
+  padding: 1rem;
+  border: 0.05rem solid #f4f4f4;
+  box-shadow: 0 0 0.1rem rgba(0,0,0,0.5);
+}
+.search_admin input{
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.search_admin button{
+  background-color: #1d48b7;
+  width: 15%;
+  border-radius: 0 0.5rem 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+}
+.search_admin button img{
+  position: absolute;
+  left: 30%;
+  bottom: 20%;
+}
+.admin_logo-container{
+  height: 3.5rem;
+  width: 3.5rem;
+}
+.admin_logo-container img{
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+.admin_logo_section{
+  display: flex;
+  max-height: 5rem;
+  align-items: center;
+}
+.admin_logo_section i,.admin_logo_section p{
+  align-self: center;
+}
+.admin_logo_section i{
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+.admin_logo_section p{
+  padding-left: 1rem;
+  text-transform: capitalize;
+}
+.add_center{
+  padding: 0 2rem;
+  height: 2.5rem;
+  color: white;
+  background-color: #1d48b7;
+  border: 0.1rem solid #1d48b7;
+  border-radius: 0.2rem;
+  margin-left: auto;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+  .admin-menu, .search_admin,.admin_logo_section i,.admin_logo_section p{
+    display: none;
+  }
+  .admin_header-container{
+    width: 100%;
+    left: 0;
+  }
+  .admin_header{
+    flex-wrap: unset;
+  }
+  .add_center{
+    margin: unset;
+    margin-left: unset;
+    display: block;
+    margin: 1rem 2rem;
+  }
+}

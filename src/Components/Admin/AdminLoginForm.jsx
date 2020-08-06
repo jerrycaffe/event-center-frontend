@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AdminLoginLinks from "./AdminLoginLinks";
 import AuthContext from "../../Context/authContext";
 import Axios from "axios";
-import loadingGif from "../../images/loading.gif"
+import loadingGif from "../../images/loading.gif";
 import { withRouter } from "react-router-dom";
 
 const AdminLoginForm = (props) => {
@@ -17,13 +17,13 @@ const AdminLoginForm = (props) => {
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
+    setAlert({ ...alert, message: "" });//Remove error message when user is typing
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     if (state.email === "" || state.password === "") {
       setAlert({ ...alert, message: "Please fill all fields" });
-      setTimeout(() => setAlert({ ...alert, message: "" }), 3000);
     } else {
       setAlert({ ...alert, loading: true });
       Axios.post(
@@ -38,7 +38,7 @@ const AdminLoginForm = (props) => {
           context.loginUser();
           context.loadAdmin();
           setAlert({ ...alert, loading: false, message: res.data.message });
-          props.history.push("/admin_dashboard"); //redirect to homepage
+          props.history.push("/admin"); //redirect to homepage
         })
         .catch((err) => {
           setAlert({
@@ -47,7 +47,6 @@ const AdminLoginForm = (props) => {
             color: "red",
             message: err.response.data.message,
           });
-          setTimeout(() => setAlert({ ...alert, message: "" }), 5000);
         });
     }
   };
@@ -78,7 +77,20 @@ const AdminLoginForm = (props) => {
             required
             onChange={handleChange}
           />
-          <p style={{ color: alert.color, margin: "auto" }}>{alert.message}</p>
+          <p
+            style={
+              alert.message
+                ? {
+                    color: alert.color,
+                    margin: "auto",
+                    padding: "0.5rem 1rem",
+                    backgroundColor: "#f4f4f4",
+                  }
+                : {}
+            }
+          >
+            {alert.message}
+          </p>
           <button type="submit" className="btn-signIn">
             {alert.loading ? <img src={loadingGif} alt="loading" /> : "Sign In"}
           </button>

@@ -4,7 +4,7 @@ import Axios from "axios";
 import AuthContext from "../../../Context/authContext";
 import { withRouter } from "react-router-dom";
 
-const AdminDashboardMenu = ({setPage,page,history}) => {
+const AdminMenu = ({setPage,page,history}) => {
   const context = useContext(AuthContext);
   const handleLogout=()=>{
     localStorage.clear();
@@ -49,4 +49,4 @@ const AdminDashboardMenu = ({setPage,page,history}) => {
   );
 };
 
-export default withRouter(AdminDashboardMenu);
+export default withRouter(AdminMenu);
