@@ -5,8 +5,6 @@ import { withRouter } from "react-router-dom";
 import AdminSignUpLinks from "./AdminSignUpLinks";
 
 const AdminSignUpForm = (props) => {
-  //admin details
-  //   const [date, setDate] = useState(new Date());
   const [state, setState] = useState({
     firstName: "",
     lastName: "",

@@ -19,21 +19,22 @@ class LandingPageHearder extends Component {
     this.context.logoutUser();
     delete Axios.defaults.headers.common["authorization"];
   };
-
+  
   render() {
     // console.log(this.context.user, "here");
-    const name = this.context.user.lastname;
+    let user =
+      localStorage.account === "user" ? this.context.user : this.context.admin;
     const avatar_url =
-      this.context.user.logo === undefined
+      user.logo === undefined
         ? "https://res.cloudinary.com/gharoro/image/upload/v1596653567/gravatar.png"
-        : this.context.user.logo;
+        : user.logo;
     let buttons;
     if (this.context.isAuthenticated) {
       buttons = (
         <React.Fragment>
           <img className="user-avatar" src={avatar_url} alt="User Avatar"></img>
           <div className="dropdown">
-            <button className="dropbtn">{name}</button>
+            <button className="dropbtn">{user.firstname}</button>
             <div className="dropdown-content">
               <Link to={`/dashboard/profile/${this.context.user.id}`}>
                 Profile
