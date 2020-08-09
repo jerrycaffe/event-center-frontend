@@ -22,6 +22,7 @@ import AddCenters from "./components/dashboard/admin/AddCenters";
 import AdminLogin from "./components/Admin/AdminLogin";
 import AdminSignUp from "./components/Admin/AdminSignUp/AdminSignUp";
 import Admin from "./components/Admin/AdminPage/Admin";
+import ViewSIngleCenter from "./components/allCenters/ViewSIngleCenter";
 //save token in local storage, this will set the header authorization = localStorage.token
 
 if (localStorage.token) {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/all/centers" component={AllCenters} />
           <Route path="/dashboard/profile/:id" exact component={UserProfile} />
           <Route path="/dashboard/admin/add/centers" component={AddCenters} />
+          <Route path="/view/center/:id" component={ViewSIngleCenter} />
           <Route path="/" exact component={Home} />
 
           <Redirect to="/" />

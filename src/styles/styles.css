@@ -14,6 +14,8 @@ html {
 
 @import url(./homePageMobile.css);
 /* All desktop screen here */
+/* View single center venet center */
+@import url(./viewSingleCenter.css);
 /* Addmin add center styles */
 @import url(./AddCenters.css);
 /* css for login and signup page */
