@@ -11,10 +11,12 @@ import NewsLetter from "../landingPage/NewsLetter";
 
 import Footer from "../landingPage/Footer";
 import allCenterBg from "../../images/viewAllCenters.png";
+import Error500 from "../../pages/Error500";
 
 function AllCenters() {
   const [allCenters, setCenter] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
+  const [networkError, setNetworkError] = useState(false);
   useEffect(() => {
     const calling = async () => {
       try {
@@ -25,14 +27,22 @@ function AllCenters() {
         setPageLoading(false);
       } catch (error) {
         console.log(error);
+        if (error) {
+          setNetworkError(true);
+        }
       }
     };
     calling();
   }, []);
+  
+  if (networkError) {
+    return <Error500 />;
+  }
 
   if (pageLoading) {
     return <Loading />;
   }
+
   return (
     <div className="container">
       <Header />
@@ -51,11 +61,11 @@ function AllCenters() {
           </div>
           <h3 className="pd-left-20">Our Top Venues</h3>
           <div className="cardWrapper">
-            {console.log(allCenters[0], "here")}
-            {allCenters.map((center) => {
+            {allCenters.map(center => {
               return (
                 <CenterCard
                   key={center.id}
+                  id={center.id}
                   centerImg={center.images}
                   name={center.name}
                   located={center.location}

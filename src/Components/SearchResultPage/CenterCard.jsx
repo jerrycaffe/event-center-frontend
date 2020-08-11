@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
+
 import centerSearch from "../../images/center-search.png";
 import homeIcon from "../../images/home-icon.png";
 
-class CenterCard extends Component {
-  render() {
-    const {centerImg, name, located, capacity, price} = this.props
+const CenterCard = (props)=>{
+
+  // /view/center/:id
+    const {centerImg, name, located, capacity, price, id} = props
     return (
       <div className="center-card">
         <div className="center-image">
@@ -51,13 +54,13 @@ class CenterCard extends Component {
             </div>
           </div>
           <div className="more-details">
-            <a href="#" className="center-details-btn">
+            <Link to={"/center/view_one_center/"+id} className="center-details-btn">
               More Details
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     );
   }
-}
+
 export default CenterCard;

@@ -47,7 +47,7 @@ function App() {
           <Route path="/all/centers" component={AllCenters} />
           <Route path="/dashboard/profile/:id" exact component={UserProfile} />
           <Route path="/dashboard/admin/add/centers" component={AddCenters} />
-          <Route path="/view/center/:id" component={ViewSIngleCenter} />
+          <Route path="/center/view_one_center/:id" component={ViewSIngleCenter} />
           <Route path="/" exact component={Home} />
 
           <Redirect to="/" />

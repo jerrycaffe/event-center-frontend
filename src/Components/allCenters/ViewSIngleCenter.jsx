@@ -1,12 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import DatePicker from 'react-datepicker';
 
 import Header from "../landingPage/Header";
 import NewsLetter from "../landingPage/NewsLetter";
 import Footer from "../landingPage/Footer";
-import centerImg from "../../images/center-search.png";
+import PageLoader from '../../pages/PageLoader';
 
-const ViewSIngleCenter = () => {
+const ViewSIngleCenter = props => {
+  const [singleCenters, setCenter] = useState({});
+ const [state, setState] = useState({
+   fromTime: "00:00",
+   toTime: "00:00",
+   date: "2020-08-11",
+   minDate: "2020-08-11"
+ })
+  const [pageLoading, setPageLoading] = useState(true);
+
+  useEffect(() => {
+    const calling = async () => {
+      try {
+        const location = props.location.pathname;
+        const url = `https://magnitude-event-manager.herokuapp.com/api${location}`;
+        const results = await Axios.get(url);
+        setCenter(results.data.center);
+        setPageLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    calling();
+  }, []);
+  const handleDateTime = e => {
+   
+    setState({ ...state, [e.target.name]: e.target.value });
+   
+  };
+  
+  
+  //  const [startDate, setStartDate] = useState(null);
+  
+
+  const isUnavailable = () => {
+    
+      return singleCenters.dates_unavailable.map(date=>{
+     return date
+      })
+    
+  
+    // return day !== 0 && day !== 6;
+  };
+ if(pageLoading){
+   return <PageLoader/>
+ }
+
+  
   return (
     <div className="container">
       <Header />
@@ -17,26 +66,28 @@ const ViewSIngleCenter = () => {
             <i className="indicator-divider"></i>
             <Link to="/all/centers">Venues</Link>
             <i className="indicator-divider"></i>
-            <Link to="">L'Oreal Event</Link>
+            <Link to="">{singleCenters.name}</Link>
           </div>
           <div className="single-center-container">
             <div className="center-one-card">
               <div className="center-image">
                 <div className="booking">
                   <p className="sm-txt">BOOKING FEE</p>
-                  <h3>N100,000.00</h3>
+                  <h3>N{singleCenters.price}</h3>
                 </div>
                 <img
                   className="center-img"
-                  src={centerImg}
+                  src={singleCenters.images}
                   alt="center search"
                 />
               </div>
               <div className="center-info">
                 <div className="center-address">
                   <div className="address-left">
-                    <h3>L’Oreal Event Center</h3>
-                    <p>No 2 pami kinku street lagos</p>
+                    <h3>
+                      {singleCenters.name}, {singleCenters.location}{" "}
+                    </h3>
+                    <p>{singleCenters.description}</p>
                   </div>
                 </div>
                 <div className="capacity-rating">
@@ -44,7 +95,7 @@ const ViewSIngleCenter = () => {
                     <div className="m-display">
                       <i className="city-hall-icon"></i>
                       <p>
-                        5000000
+                        {singleCenters.capacity}
                         <br />
                         Capacity
                       </p>
@@ -57,21 +108,7 @@ const ViewSIngleCenter = () => {
                   </div>
                 </div>
                 <h4 className="title pd-top-10">Amenities</h4>
-                <div className="facilities">
-                  <div className="facilities-icons">
-                    <div className="top-icons">
-                      <i className="police-icon"></i>Security
-                      <i className="wireless-icon mg-left"></i>Wireless
-                      <i className="air-condition-icon mg-left"></i>Air
-                      Conditional
-                    </div>
-                    <div className="bottom-icons">
-                      <i className="parking-icon"></i>Parking Space
-                      <i className="generator-icon mg-left"></i>Generator
-                      <i className="toilet-icon mg-left"></i>Toilet
-                    </div>
-                  </div>
-                </div>
+                <div className="facilities">{singleCenters.facilities}</div>
               </div>
             </div>
             <div className="book-center-container">
@@ -80,22 +117,47 @@ const ViewSIngleCenter = () => {
                 <form action="" className="booking-form">
                   <label htmlFor="date-time">Date & Time*</label>
                   <div className="lg-width">
-                    <select name="date" id="">
-                      <option value="Saturdate">Saturday Nove 20</option>
-                    </select>
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      value={state.date}
+                      min={state.minDate}
+                      // max="2021-12-31"
+                      
+                      onChange={handleDateTime}
+                    />
                   </div>
                   <div className="md-width">
-                    <select name="from-time" id="from-time">
-                      <option value="from">From 10am</option>
-                    </select>
-                    <select name="to-time" id="to-time">
-                      <option value="12">To 12pm</option>
-                    </select>
+                  <input
+                      type="time"
+                      id="fromTime"
+                      name="fromTime"
+                      value={state.fromTime}
+                      // min={fullDate}
+                      // max="2021-12-31"
+                      onChange={handleDateTime}
+                    />
+                
+                <input
+                      type="time"
+                      id="toTime"
+                      name="toTime"
+                      value={state.toTime}
+                      // min={fullDate}
+                      // max="2021-12-31"
+                      onChange={handleDateTime}
+                    />
+                
                   </div>
+                  
                   <button type="submit">Book Now</button>
                 </form>
               </div>
-              <div className="map">calling google map here</div>
+              <div className="map">
+                {isUnavailable()}
+                calling google map here
+                </div>
             </div>
           </div>
         </div>

@@ -13,6 +13,7 @@ import PageLoader from "../../pages/PageLoader";
 const ResultPage = props => {
   const [getCenters, setCenters] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [getNetworkError, setNetworkError] = useState(false)
   useEffect(() => {
     const result = async () => {
       try {
@@ -25,14 +26,18 @@ const ResultPage = props => {
         setLoading(false);
       } catch (error) {
         console.log(error);
+        if(error){
+          return setNetworkError(true)
+        }
+        
       }
     };
     result();
   }, []);
 
-  // if(this.state.networkErr){
-  //   return <Error500 />
-  // }
+  if(getNetworkError){
+    return <Error500 />
+  }
   if (isLoading) {
     return <PageLoader />;
   }
@@ -69,6 +74,7 @@ const ResultPage = props => {
                   return (
                     <CenterCard
                       key={center.id}
+                      id={center.id}
                       centerImg={center.images}
                       name={center.name}
                       located={center.location}

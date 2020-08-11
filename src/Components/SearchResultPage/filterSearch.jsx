@@ -38,22 +38,15 @@ const FilterSearch = props => {
     e.preventDefault();
 
     const {location: locate, guests: guestss, event: eventing} = filter
-    console.log(
-      locate, date, eventing, guestss
-    );
+    
     props.history.push(`/search/q?location=${locate}`);
   };
   return (
     <form className="form-bg" onSubmit={handleSubmit}>
       <div className="icon-input">
         {/* <i className="carlender-icon"></i> */}
-        {/* <input className="border-none" type="text" placeholder="Date" /> */}
-        <Flatpickr
-          options={{ minDate: date }}
-          date-enabe-time="true"
-          value={date.toString()}
-          onChange={changeDate}
-        />
+        <input className="border-none" type="date" placeholder="Date" />
+       
         {/* <i className="drop-down"></i> */}
       </div>
 
