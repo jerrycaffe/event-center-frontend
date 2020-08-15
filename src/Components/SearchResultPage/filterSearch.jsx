@@ -51,7 +51,7 @@ const FilterSearch = props => {
       </div>
 
       <div className="icon-input">
-        <i className="location-icon"></i>
+        {/* <i className="location-icon"></i> */}
         <input
           name="location"
           className="border-none text-input"
