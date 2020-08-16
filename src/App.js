@@ -13,6 +13,7 @@ import NewsLetter from "./components/landingPage/NewsLetter";
 import Login from "./components/login/Login";
 import SignUp from "./components/SignUp";
 import Footer from "./components/landingPage/Footer";
+import BookingPage from "./components/Booking/BookingPage";
 
 import resultPage from "./components/SearchResultPage/resultPage";
 import AllCenters from "./components/allCenters/AllCenters";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/dashboard/profile/:id" exact component={UserProfile} />
           <Route path="/dashboard/admin/add/centers" component={AddCenters} />
           <Route path="/center/view_one_center/:id" component={ViewSIngleCenter} />
+          <Route path="/center/:id/book" component={BookingPage} />
           <Route path="/" exact component={Home} />
 
           <Redirect to="/" />

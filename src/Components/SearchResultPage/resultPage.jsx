@@ -14,6 +14,7 @@ const ResultPage = props => {
   const [getCenters, setCenters] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [getNetworkError, setNetworkError] = useState(false)
+  const [getErrorMessage, setErrorMessage] = useState('')
   useEffect(() => {
     const result = async () => {
       try {
@@ -25,10 +26,10 @@ const ResultPage = props => {
         setCenters([...getCenters.data.result]);
         setLoading(false);
       } catch (error) {
-        console.log(error);
-        if(error){
-          return setNetworkError(true)
-        }
+        console.log('Error: ', error.response);
+        // if(error){
+        //  return setNetworkError(true)
+        // }
         
       }
     };

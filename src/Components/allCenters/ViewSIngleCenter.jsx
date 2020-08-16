@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SweetAlert from "react-bootstrap-sweetalert";
+import jwt_decode from "jwt-decode";
 
 import Header from "../landingPage/Header";
 import NewsLetter from "../landingPage/NewsLetter";
 import Footer from "../landingPage/Footer";
 import PageLoader from "../../pages/PageLoader";
+import BookingModal from "../Booking/BookingModal";
 
-const ViewSIngleCenter = props => {
+const ViewSIngleCenter = (props) => {
   const [singleCenters, setCenter] = useState({});
   const [state, setState] = useState({
     fromTime: "00:00",
-    toTime: "00:00"
+    toTime: "00:00",
   });
   const [getDate, setDate] = useState(new Date());
   const [pageLoading, setPageLoading] = useState(true);
@@ -36,17 +38,43 @@ const ViewSIngleCenter = props => {
     };
     calling();
   }, []);
-  const handleDate = date => {
+  //my code
+  function formatDate(date_val) {
+    var d = new Date(date_val),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return [year, month, day].join("-");
+  }
+  const handleDate = (date) => {
     setDate(date);
   };
-  const handleTime = event => {
+  const handleTime = (event) => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const isUserAuth = window.localStorage.getItem("isAuthenticated");
     if (isUserAuth) {
-      console.log("show modal you are correct");
+      //  console.log("show modal you are correct");
+      const token = localStorage.getItem("token");
+      const decoded = jwt_decode(token);
+      const d = formatDate(getDate);
+      sessionStorage.setItem("customer_id", decoded.id);
+      sessionStorage.setItem("center_id", singleCenters.id);
+      sessionStorage.setItem("from", state.fromTime);
+      sessionStorage.setItem("to", state.toTime);
+      // sessionStorage.setItem("date", getDate.toDateString());
+      sessionStorage.setItem("date", d);
+      // console.log(state.fromTime)
+      // console.log(state.toTime)
+      // console.log(getDate.toDateString())
+      // return <Redirect to="/center/2/book" />
+      return props.history.push(`/center/${singleCenters.id}/book`);
     } else setModal(!getModalState);
   };
   const setModal = () => {
@@ -137,15 +165,17 @@ const ViewSIngleCenter = props => {
                         selected={getDate}
                         minDate={getDate}
                         onChange={handleDate}
+                        name="eve_date"
+                        value={getDate}
                         excludeDates={getUnavailable.map(
-                          date => new Date(date)
+                          (date) => new Date(date)
                         )}
                       >
                         <div
                           style={{
                             color: "red",
                             textAlign: "center",
-                            fontSize: "15px"
+                            fontSize: "15px",
                           }}
                         >
                           Mark out date are not available
