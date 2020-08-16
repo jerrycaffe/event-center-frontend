@@ -9,7 +9,7 @@ import AuthContext from "../../../Context/authContext";
 
 const EditProile = () => {
  const context = useContext(AuthContext);
- console.log(context.user,"dffgg");
+ console.log(context.user,"This is the user profile");
   return (
     <React.Fragment>
       <div className="container">
