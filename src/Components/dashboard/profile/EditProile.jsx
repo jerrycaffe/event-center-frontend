@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Header from "../../landingPage/Header";
 import Footer from "../../landingPage/Footer";
 import NewsLetter from "../../landingPage/NewsLetter";
 import UserProfileImg from "../../../images/userProfileImg.png";
+import AuthContext from "../../../Context/authContext";
 
 const EditProile = () => {
+ const context = useContext(AuthContext);
+ console.log(context.user,"This is the user profile");
   return (
     <React.Fragment>
       <div className="container">
