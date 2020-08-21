@@ -16,8 +16,9 @@ html {
 /* All desktop screen here */
 /* View single center venet center */
 @import url(./viewSingleCenter.css);
-/* All booking modal */
-
+/* All booking styles*/
+@import url(./customerBooking.css);
+@import url(./bookingModal.css);
 /* Addmin add center styles */
 @import url(./AddCenters.css);
 /* css for login and signup page */

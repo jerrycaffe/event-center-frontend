@@ -45,7 +45,7 @@
   padding: 30px;
 }
 
-.booking-form select, input {
+.booking-form .select, .input {
   height: 40px;
   border: 1px solid #4E4E4E;
   border-radius: 5px;

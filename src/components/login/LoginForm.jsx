@@ -5,22 +5,22 @@ import { withRouter } from "react-router-dom";
 import loadingGif from "../../images/loading.gif";
 import Axios from "axios";
 
-const LoginForm = (props) => {
+const LoginForm = props => {
   const context = useContext(AuthContext);
   const [state, setState] = useState({ email: "", password: "" });
   //alerts
   const [alert, setAlert] = useState({
     message: "",
     color: "#1d48b7",
-    loading: false,
+    loading: false
   });
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value });
-    setAlert({ ...alert, message: "" });//Remove error message when user is typing
+    setAlert({ ...alert, message: "" }); //Remove error message when user is typing
   };
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     e.preventDefault();
     if (state.email === "" || state.password === "") {
       setAlert({ ...alert, message: "Please fill all fields" });
@@ -30,7 +30,7 @@ const LoginForm = (props) => {
         "https://magnitude-event-manager.herokuapp.com/api/auth/customer/signin",
         state
       )
-        .then((res) => {
+        .then(res => {
           localStorage.setItem("token", res.data.token);
           Axios.defaults.headers.common["authorization"] = res.data.token; //set token to authorization header
           localStorage.setItem("isAuthenticated", true); // isAuthenticated true to localStorage
@@ -40,12 +40,15 @@ const LoginForm = (props) => {
           setAlert({ ...alert, loading: false, message: res.data.message });
           props.history.push("/"); //redirect to homepage
         })
-        .catch((err) => {
+        .catch(err => {
+          
+          let message = err.response === undefined?
+          "Something went wrong please check your network": err.response.data.message;
           setAlert({
             ...alert,
             loading: false,
             color: "red",
-            message: err.response.data.message,
+            message
           });
         });
     }
@@ -84,7 +87,7 @@ const LoginForm = (props) => {
                     color: alert.color,
                     margin: "auto",
                     padding: "0.5rem 1rem",
-                    backgroundColor: "#f4f4f4",
+                    backgroundColor: "#f4f4f4"
                   }
                 : {}
             }

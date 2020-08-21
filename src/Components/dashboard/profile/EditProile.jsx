@@ -8,8 +8,9 @@ import UserProfileImg from "../../../images/userProfileImg.png";
 import AuthContext from "../../../Context/authContext";
 
 const EditProile = () => {
- const context = useContext(AuthContext);
- console.log(context.user,"This is the user profile");
+  const context = useContext(AuthContext);
+  console.log(context, "This is the user profile");
+  const { id, email, firstname, lastname, gender } = context.user;
   return (
     <React.Fragment>
       <div className="container">
@@ -26,12 +27,18 @@ const EditProile = () => {
               </a>
             </div>
             <div className="profile-area">
-            <div className="dashboard-nav">
-                  <button className="nav-btn active">Your Profile</button>
-                  <button className="nav-btn">Your Booking</button>
-                </div>
+              <div className="dashboard-nav">
+                <Link
+                  to={`/dashboard/profile/${id}`}
+                  className="nav-btn active"
+                >
+                  Your Profile
+                </Link>
+                <Link to="/dashboard/bookings" className="nav-btn">
+                  Your Booking
+                </Link>
+              </div>
               <div className="edit-profile">
-                
                 <div className="edit-form">
                   <form className="user-edit-profile">
                     <h3 className="title">Edit Profile Information</h3>
@@ -53,20 +60,20 @@ const EditProile = () => {
                     <div className="fullname">
                       <div className="left">
                         <label htmlFor="firstname">First Name</label>
-                        <input type="text" placeholder="Bunmi" />
+                        <input type="text" defaultValue={firstname} />
                       </div>
                       <div className="right">
                         <label htmlFor="firstname">Last Name</label>
-                        <input type="text" placeholder="Daniels" />
+                        <input type="text" defaultValue={lastname} />
                       </div>
                     </div>
                     <div className="email-address">
                       <label htmlFor="email">Email address</label>
-                      <input type="email" placeholder="Bunmi_d@gmail.com" />
+                      <input type="email" defaultValue={email} />
                     </div>
                     <div className="phone-number">
-                      <label htmlFor="phone-number">Phone Number</label>
-                      <input type="text" placeholder="08088492993" />
+                      <label htmlFor="phone-number">Gender </label>
+                      <input type="text" defaultValue={gender} />
                     </div>
                     <button className="update" type="submit">
                       Update
@@ -79,7 +86,10 @@ const EditProile = () => {
 
                     <div>
                       <label htmlFor="current-password">Current Password</label>
-                      <input type="password" placeholder="Enter Current Password" />
+                      <input
+                        type="password"
+                        placeholder="Enter Current Password"
+                      />
                     </div>
                     <div>
                       <label htmlFor="new-password">New Password</label>

@@ -1,9 +1,9 @@
 import React from "react";
-import LOGO from "../../../images/LOGO.svg";
-import UserImage from "../../../images/user-img.png";
-import ConfrenceImg from "../../../images/conference-room-17 1.png";
-import BanquetImg from "../../../images/Banquet hall 1.png";
-import Center3 from "../../../images/event-space-rental-3 1.png";
+import LOGO from "../../images/LOGO.svg";
+import UserImage from "../../images/user-img.png";
+import ConfrenceImg from "../../images/conference-room-17 1.png";
+import BanquetImg from "../../images/Banquet hall 1.png";
+import Center3 from "../../images/event-space-rental-3 1.png";
 const AddCenters = () => {
   return (
     <div className="add-center-wrapper">

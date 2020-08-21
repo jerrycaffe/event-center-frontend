@@ -3,7 +3,7 @@ import SignupForm from "./SignupForm";
 import LoginHeader from "./login/LoginHeader";
 import Footer from "./landingPage/Footer";
 
-const Signup = () => {
+const SignUp = () => {
   return (
     <React.Fragment >
       <div className="signin-up-body">
@@ -15,4 +15,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

@@ -10,13 +10,11 @@ import Header from "../landingPage/Header";
 import NewsLetter from "../landingPage/NewsLetter";
 import Footer from "../landingPage/Footer";
 import PageLoader from "../../pages/PageLoader";
-import BookingModal from "../Booking/BookingModal";
-
-const ViewSIngleCenter = (props) => {
+const ViewSIngleCenter = props => {
   const [singleCenters, setCenter] = useState({});
   const [state, setState] = useState({
     fromTime: "00:00",
-    toTime: "00:00",
+    toTime: "00:00"
   });
   const [getDate, setDate] = useState(new Date());
   const [pageLoading, setPageLoading] = useState(true);
@@ -50,13 +48,13 @@ const ViewSIngleCenter = (props) => {
 
     return [year, month, day].join("-");
   }
-  const handleDate = (date) => {
+  const handleDate = date => {
     setDate(date);
   };
-  const handleTime = (event) => {
+  const handleTime = event => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     const isUserAuth = window.localStorage.getItem("isAuthenticated");
     if (isUserAuth) {
@@ -68,6 +66,10 @@ const ViewSIngleCenter = (props) => {
       sessionStorage.setItem("center_id", singleCenters.id);
       sessionStorage.setItem("from", state.fromTime);
       sessionStorage.setItem("to", state.toTime);
+      sessionStorage.setItem("center_name", singleCenters.name);
+      sessionStorage.setItem("price", singleCenters.price);
+      sessionStorage.setItem("capacity", singleCenters.capacity);
+      sessionStorage.setItem("location", singleCenters.location);
       // sessionStorage.setItem("date", getDate.toDateString());
       sessionStorage.setItem("date", d);
       // console.log(state.fromTime)
@@ -101,6 +103,7 @@ const ViewSIngleCenter = (props) => {
       >
         You have to Login before you can book an event
       </SweetAlert>
+
       <div className="container">
         <Header />
         <div className="content-wrap">
@@ -168,14 +171,14 @@ const ViewSIngleCenter = (props) => {
                         name="eve_date"
                         value={getDate}
                         excludeDates={getUnavailable.map(
-                          (date) => new Date(date)
+                          date => new Date(date)
                         )}
                       >
                         <div
                           style={{
                             color: "red",
                             textAlign: "center",
-                            fontSize: "15px",
+                            fontSize: "15px"
                           }}
                         >
                           Mark out date are not available
@@ -184,6 +187,7 @@ const ViewSIngleCenter = (props) => {
                     </div>
                     <div className="md-width">
                       <input
+                        className="input"
                         type="time"
                         id="fromTime"
                         name="fromTime"
@@ -194,6 +198,7 @@ const ViewSIngleCenter = (props) => {
                       />
 
                       <input
+                        className="input"
                         type="time"
                         id="toTime"
                         name="toTime"
