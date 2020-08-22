@@ -18,6 +18,8 @@ html {
 @import url(./viewSingleCenter.css);
 /* All booking styles*/
 @import url(./customerBooking.css);
+
+@import url(./loginModal.css);
 @import url(./bookingModal.css);
 /* Addmin add center styles */
 @import url(./AddCenters.css);

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
+
+import AuthContext from "../../Context/authContext";
 import SweetAlert from "react-bootstrap-sweetalert";
 import jwt_decode from "jwt-decode";
 
@@ -10,6 +10,11 @@ import Header from "../landingPage/Header";
 import NewsLetter from "../landingPage/NewsLetter";
 import Footer from "../landingPage/Footer";
 import PageLoader from "../../pages/PageLoader";
+import SingleCenterRight from "./SingleCenterRight";
+import SingleCenterIndicator from "./SingleCenterIndicator";
+import EventCenterOne from "./EventCenterOne";
+import BookingEventModal from "./BookingEventModal";
+import ConfirmLoginModal from "./ConfirmLoginModal";
 const ViewSIngleCenter = props => {
   const [singleCenters, setCenter] = useState({});
   const [state, setState] = useState({
@@ -20,6 +25,11 @@ const ViewSIngleCenter = props => {
   const [pageLoading, setPageLoading] = useState(true);
   const [getUnavailable, setUnavailable] = useState([]);
   const [getModalState, setModalState] = useState(false);
+  const [getToggleBookEvent, setToggleBookEvent] = useState(false);
+  const [getIsLoginModal, setIsLogginModal] = useState(false);
+  
+  const context = useContext(AuthContext);
+  const { user} = context;
 
   useEffect(() => {
     const calling = async () => {
@@ -62,39 +72,34 @@ const ViewSIngleCenter = props => {
       const token = localStorage.getItem("token");
       const decoded = jwt_decode(token);
       const d = formatDate(getDate);
-      sessionStorage.setItem("customer_id", decoded.id);
-      sessionStorage.setItem("center_id", singleCenters.id);
-      sessionStorage.setItem("from", state.fromTime);
-      sessionStorage.setItem("to", state.toTime);
-      sessionStorage.setItem("center_name", singleCenters.name);
-      sessionStorage.setItem("price", singleCenters.price);
-      sessionStorage.setItem("capacity", singleCenters.capacity);
-      sessionStorage.setItem("location", singleCenters.location);
-      // sessionStorage.setItem("date", getDate.toDateString());
-      sessionStorage.setItem("date", d);
-      // console.log(state.fromTime)
-      // console.log(state.toTime)
-      // console.log(getDate.toDateString())
-      // return <Redirect to="/center/2/book" />
-      return props.history.push(`/center/${singleCenters.id}/book`);
-    } else setModal(!getModalState);
+      // sessionStorage.setItem("customer_id", decoded.id);
+      // sessionStorage.setItem("center_id", singleCenters.id);
+      // sessionStorage.setItem("from", state.fromTime);
+      // sessionStorage.setItem("to", state.toTime);
+      // sessionStorage.setItem("center_name", singleCenters.name);
+      // sessionStorage.setItem("price", singleCenters.price);
+      // sessionStorage.setItem("capacity", singleCenters.capacity);
+      // sessionStorage.setItem("location", singleCenters.location);
+      // // sessionStorage.setItem("date", getDate.toDateString());
+      // sessionStorage.setItem("date", d);
+      setToggleBookEvent(true)
+      // return props.history.push(`/center/${singleCenters.id}/book`);
+    } else setIsLogginModal(true);
   };
-  const setModal = () => {
-    return setModalState(!getModalState);
+  const isLoginExit = () => {
+    return setIsLogginModal(false);
   };
-  const onConfirm = () => {
-    return;
+  const toggleBookEvent = () => {
+    setToggleBookEvent(!getToggleBookEvent);
   };
-  const onCancel = () => {
-    return;
-  };
+
   if (pageLoading) {
     return <PageLoader />;
   }
 
   return (
     <React.Fragment>
-      <SweetAlert
+      {/* <SweetAlert
         warning
         show={getModalState}
         title="Login before booking!"
@@ -102,120 +107,44 @@ const ViewSIngleCenter = props => {
         onCancel={setModal}
       >
         You have to Login before you can book an event
-      </SweetAlert>
+      </SweetAlert> */}
 
       <div className="container">
         <Header />
+        <BookingEventModal
+          isBookEventToggled={getToggleBookEvent}
+          toggleBookEvent={toggleBookEvent}
+          getDate={getDate}
+          fromTime={state.fromTime}
+          toTime={state.toTime}
+          user={user}
+          amount = {singleCenters.price}
+         
+          
+        />
+        <ConfirmLoginModal isLoginModal={getIsLoginModal} isLoginExit={isLoginExit}/>
         <div className="content-wrap">
           <div className="center-wrapper">
-            <div className="special-indicator pd-left-20 ">
-              <Link to="/">Home</Link>
-              <i className="indicator-divider"></i>
-              <Link to="/all/centers">Venues</Link>
-              <i className="indicator-divider"></i>
-              <Link to="">{singleCenters.name}</Link>
-            </div>
-            <div className="single-center-container">
-              <div className="center-one-card">
-                <div className="center-image">
-                  <div className="booking">
-                    <p className="sm-txt">BOOKING FEE</p>
-                    <h3>N{singleCenters.price}</h3>
-                  </div>
-                  <img
-                    className="center-img"
-                    src={singleCenters.images}
-                    alt="center search"
-                  />
-                </div>
-                <div className="center-info">
-                  <div className="center-address">
-                    <div className="address-left">
-                      <h3>
-                        {singleCenters.name}, {singleCenters.location}{" "}
-                      </h3>
-                      <p>{singleCenters.description}</p>
-                    </div>
-                  </div>
-                  <div className="capacity-rating">
-                    <div className="rating-capacity">
-                      <div className="m-display">
-                        <i className="city-hall-icon"></i>
-                        <p>
-                          {singleCenters.capacity}
-                          <br />
-                          Capacity
-                        </p>
-                      </div>
-                      <div className="ratings">
-                        <div className="rating-right">
-                          <p>1.0</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h4 className="title pd-top-10">Amenities</h4>
-                  <div className="facilities">{singleCenters.facilities}</div>
-                </div>
-              </div>
-              <div className="book-center-container">
-                <div className="book-center">
-                  <h4 className="title">Check a availability</h4>
-                  <form onSubmit={handleSubmit} className="booking-form">
-                    <label htmlFor="date-time">Date &amp; Time*</label>
-                    <div className="lg-width">
-                      <DatePicker
-                        selected={getDate}
-                        minDate={getDate}
-                        onChange={handleDate}
-                        name="eve_date"
-                        value={getDate}
-                        excludeDates={getUnavailable.map(
-                          date => new Date(date)
-                        )}
-                      >
-                        <div
-                          style={{
-                            color: "red",
-                            textAlign: "center",
-                            fontSize: "15px"
-                          }}
-                        >
-                          Mark out date are not available
-                        </div>
-                      </DatePicker>
-                    </div>
-                    <div className="md-width">
-                      <input
-                        className="input"
-                        type="time"
-                        id="fromTime"
-                        name="fromTime"
-                        value={state.fromTime}
-                        // min={fullDate}
-                        // max="2021-12-31"
-                        onChange={handleTime}
-                      />
-
-                      <input
-                        className="input"
-                        type="time"
-                        id="toTime"
-                        name="toTime"
-                        value={state.toTime}
-                        // min={fullDate}
-                        // max="2021-12-31"
-                        onChange={handleTime}
-                      />
-                    </div>
-
-                    <button type="submit" className="book-btn">
-                      Book Now
-                    </button>
-                  </form>
-                </div>
-                <div className="map">calling google map here</div>
-              </div>
+            <SingleCenterIndicator name={singleCenters.name} />
+            <div className="single-center-container" >
+              <EventCenterOne
+                price={singleCenters.price}
+                images={singleCenters.images}
+                location={singleCenters.location}
+                description={singleCenters.description}
+                capacity={singleCenters.capacity}
+                facilities={singleCenters.facilities}
+                name={singleCenters.name}
+              />
+              <SingleCenterRight
+                handleSubmit={handleSubmit}
+                getDate={getDate}
+                handleDate={handleDate}
+                getUnavailable={getUnavailable}
+                fromTime={state.fromTime}
+                handleTime={handleTime}
+                toTime={state.toTime}
+              />
             </div>
           </div>
           <NewsLetter />

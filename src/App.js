@@ -25,7 +25,6 @@ import AdminSignUp from "./components/Admin/AdminSignUp/AdminSignUp";
 import Admin from "./components/Admin/AdminPage/Admin";
 import ViewSIngleCenter from "./components/allCenters/ViewSIngleCenter";
 import CustomerBookings from "./components/dashboard/profile/CustomerViewBooking";
-import BookingEvent from "./components/Booking/BookingEvent";
 //save token in local storage, this will set the header authorization = localStorage.token
 
 if (localStorage.token) {
@@ -53,7 +52,7 @@ function App() {
           <Route path="/center/view_one_center/:id" component={ViewSIngleCenter} />
           <Route path="/dashboard/bookings" component={CustomerBookings} />
           <Route path="/center/:id/book" component={BookingPage} />
-          <Route path="/book/center/1" component={BookingEvent} />
+         
           <Route path="/" exact component={Home} />
 
           <Redirect to="/" />
