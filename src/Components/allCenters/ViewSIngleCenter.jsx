@@ -100,7 +100,7 @@ const ViewSIngleCenter = props => {
     <React.Fragment>
       <div className="container">
         <Header />
-        <CardPaymentModal isCardPaymentToggled={true} 
+        <CardPaymentModal isCardPaymentToggled={getToggleCardPayment} 
         closeAllModal={closeAllModal}
         />
         <BookingEventModal
