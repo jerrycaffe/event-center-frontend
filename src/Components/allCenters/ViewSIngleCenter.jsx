@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
 
-
 import AuthContext from "../../Context/authContext";
 import SweetAlert from "react-bootstrap-sweetalert";
 import jwt_decode from "jwt-decode";
@@ -15,6 +14,7 @@ import SingleCenterIndicator from "./SingleCenterIndicator";
 import EventCenterOne from "./EventCenterOne";
 import BookingEventModal from "./BookingEventModal";
 import ConfirmLoginModal from "./ConfirmLoginModal";
+import CardPaymentModal from "./CardPaymentModal";
 const ViewSIngleCenter = props => {
   const [singleCenters, setCenter] = useState({});
   const [state, setState] = useState({
@@ -27,9 +27,10 @@ const ViewSIngleCenter = props => {
   const [getModalState, setModalState] = useState(false);
   const [getToggleBookEvent, setToggleBookEvent] = useState(false);
   const [getIsLoginModal, setIsLogginModal] = useState(false);
-  
+  const [getToggleCardPayment, setToggleCardPayment] = useState(false);
+
   const context = useContext(AuthContext);
-  const { user} = context;
+  const { user } = context;
 
   useEffect(() => {
     const calling = async () => {
@@ -72,18 +73,8 @@ const ViewSIngleCenter = props => {
       const token = localStorage.getItem("token");
       const decoded = jwt_decode(token);
       const d = formatDate(getDate);
-      // sessionStorage.setItem("customer_id", decoded.id);
-      // sessionStorage.setItem("center_id", singleCenters.id);
-      // sessionStorage.setItem("from", state.fromTime);
-      // sessionStorage.setItem("to", state.toTime);
-      // sessionStorage.setItem("center_name", singleCenters.name);
-      // sessionStorage.setItem("price", singleCenters.price);
-      // sessionStorage.setItem("capacity", singleCenters.capacity);
-      // sessionStorage.setItem("location", singleCenters.location);
-      // // sessionStorage.setItem("date", getDate.toDateString());
-      // sessionStorage.setItem("date", d);
-      setToggleBookEvent(true)
-      // return props.history.push(`/center/${singleCenters.id}/book`);
+
+      setToggleBookEvent(true);
     } else setIsLogginModal(true);
   };
   const isLoginExit = () => {
@@ -92,6 +83,14 @@ const ViewSIngleCenter = props => {
   const toggleBookEvent = () => {
     setToggleBookEvent(!getToggleBookEvent);
   };
+  const toggleCardPayment = () => {
+    setToggleBookEvent();
+    setToggleCardPayment(!getToggleCardPayment);
+  };
+  const closeAllModal = () => {
+    setToggleBookEvent(false);
+    setToggleCardPayment(false);
+  };
 
   if (pageLoading) {
     return <PageLoader />;
@@ -99,34 +98,30 @@ const ViewSIngleCenter = props => {
 
   return (
     <React.Fragment>
-      {/* <SweetAlert
-        warning
-        show={getModalState}
-        title="Login before booking!"
-        onConfirm={setModal}
-        onCancel={setModal}
-      >
-        You have to Login before you can book an event
-      </SweetAlert> */}
-
       <div className="container">
         <Header />
+        <CardPaymentModal isCardPaymentToggled={true} 
+        closeAllModal={closeAllModal}
+        />
         <BookingEventModal
           isBookEventToggled={getToggleBookEvent}
+          toggleCardPayment={toggleCardPayment}
+          closeAllModal={closeAllModal}
           toggleBookEvent={toggleBookEvent}
-          getDate={getDate}
+          getDate={formatDate(getDate)}
           fromTime={state.fromTime}
           toTime={state.toTime}
           user={user}
-          amount = {singleCenters.price}
-         
-          
+          amount={singleCenters.price}
         />
-        <ConfirmLoginModal isLoginModal={getIsLoginModal} isLoginExit={isLoginExit}/>
+        <ConfirmLoginModal
+          isLoginModal={getIsLoginModal}
+          isLoginExit={isLoginExit}
+        />
         <div className="content-wrap">
           <div className="center-wrapper">
             <SingleCenterIndicator name={singleCenters.name} />
-            <div className="single-center-container" >
+            <div className="single-center-container">
               <EventCenterOne
                 price={singleCenters.price}
                 images={singleCenters.images}

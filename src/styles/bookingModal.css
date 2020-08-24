@@ -128,6 +128,51 @@
   border: 1.5px solid #1D48B7;
 }
 
+.payment-section {
+  padding: 40px 0;
+}
+
+.payment-section-title {
+  color: #1D48B7;
+}
+
+.payment-options {
+  margin: 40px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 24px;
+  align-items: center;
+}
+.card-payment {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.img-sm-width {
+  width: 16px;
+  margin-right: 10px;
+}
+
+.card-service {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+}
+.atm-card {
+  border: 1px solid #4E4E4E;
+  border-radius: 5px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+.atm-card img{
+  width: 75px;
+}
+
 @media only screen and (min-width: 768px) {
   .booking-modal {
 
@@ -196,19 +241,23 @@
   .book-name-email .group-list {
     width: 45%;
   }
+
   .booking-info {
     display: flex;
     justify-content: space-between;
     margin: 15px 0;
-}
-.note{
-  width: 50%;
-}
-.payment-btn{
-  flex-direction: row;
-  margin: 40px 0;
-}
-.pay-now-btn{
-  margin-left: 15px;
-}
+  }
+
+  .note {
+    width: 50%;
+  }
+
+  .payment-btn {
+    flex-direction: row;
+    margin: 40px 0;
+  }
+
+  .pay-now-btn {
+    margin-left: 15px;
+  }
 }

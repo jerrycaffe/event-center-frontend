@@ -2,13 +2,27 @@ import React from "react";
 
 import bookingIcon from "../../images/bookingIcon.png";
 import closeBtn from "../../images/closeBtn.png";
-import horizontalNavigator from "../../images/horizontal-indicator.png";
+import horizontalNavCardPay from "../../images/horizontalNavCardPay.png";
+import activeCircle from "../../images/activeCircle.png";
+import inActiveCircle from "../../images/inactiveCirlcle.png";
+import verve from "../../images/verve.png";
+import masterCard from "../../images/masterCard.png";
+import visa from "../../images/visa.png";
+
 import verticalNavigator from "../../images/verticalNavigator.jpg";
 
-const BookingEventModal = props => {
-  
-  const { getDate,fromTime, toTime, user, amount, isBookEventToggled, toggleBookEvent, toggleCardPayment, closeAllModal } = props;
-  if (isBookEventToggled) {
+const CardPaymentModal = props => {
+  const {
+    getDate,
+    fromTime,
+    toTime,
+    user,
+    amount,
+    isCardPaymentToggled,
+    toggleBookEvent,
+    closeAllModal
+  } = props;
+  if (isCardPaymentToggled) {
     return (
       <div className="booking-container">
         <div className="booking-modal">
@@ -33,7 +47,6 @@ const BookingEventModal = props => {
                 <p>Payment</p>
               </div>
               <div className="nav-indicator">
-                
                 {/* <img
                   className="m-display-none d-flex"
                   src={verticalNavigator}
@@ -41,37 +54,61 @@ const BookingEventModal = props => {
                 /> */}
                 <img
                   className="d-display-none"
-                  src={horizontalNavigator}
+                  src={horizontalNavCardPay}
                   alt="horizontal navigation"
                 />
               </div>
             </div>
             <div>
+              <div className="payment-section">
+                <p className="payment-section-title">PAYMENT METHOD</p>
+                <div className="payment-options">
+                  <div className="card-payment">
+                    <img
+                      className="img-sm-width"
+                      src={activeCircle}
+                      alt="card payment option"
+                    />
+                    Card Payment
+                  </div>
+                  <div className="bank-payment">
+                    <img
+                      className="img-sm-width"
+                      src={inActiveCircle}
+                      alt="bank payment option"
+                    />
+                    Bank Payment
+                  </div>
+                </div>
+                <div className="card-service">
+                  <div className="atm-card">
+                    <img src={visa} alt="visa atm card" />
+                  </div>
+                  <div className="atm-card">
+                    <img src={masterCard} alt="master card atm" />
+                  </div>
+                  <div className="atm-card">
+                    <img src={verve} alt="verve atm card" />
+                  </div>
+                </div>
+              </div>
+
               <form className="book-event">
                 <div className="label-date">
                   <label htmlFor="date-time">Date &amp; Time *</label>
                 </div>
                 <div className="group-list book-date-time">
-                  <input
-                    className="booking-date"
-                    type="text"
-                   value={getDate} 
-                   readOnly
-                  />
+                  <input className="booking-date" type="text" />
                   <div className="booking-time">
                     <input
                       className="booking-from"
                       type="text"
                       placeholder="booking-from"
-                      value={fromTime}
-                      readOnly
                     />
                     <input
                       className="booking-to"
                       type="text"
                       placeholder="booking-to"
-                      value={toTime}
-                      readOnly
                     />
                   </div>
                 </div>
@@ -80,13 +117,13 @@ const BookingEventModal = props => {
                     <div>
                       <label htmlFor="fullname">Full Name *</label>
                     </div>
-                    <input type="text"value={`${user.firstname} ${user.lastname}`} readOnly/>
+                    <input type="text" />
                   </div>
                   <div className="group-list">
                     <div>
                       <label htmlFor="email">Email *</label>
                     </div>
-                    <input type="email" value={user.email} readOnly/>
+                    <input type="email" />
                   </div>
                 </div>
                 <div className="group-list">
@@ -104,7 +141,7 @@ const BookingEventModal = props => {
                   <input type="textarea" placeholder="Type here" />
                 </div>
               </form>
-              <div className="booking-info">
+              {/* <div className="booking-info">
                 <div className="booking-fee">
                   <p>BOOKING FEE</p>
                   <p className="booking-amount">N{amount}</p>
@@ -117,10 +154,11 @@ const BookingEventModal = props => {
                     before it will be DELETED.
                   </p>
                 </div>
-              </div>
+              </div> */}
+
               <div className="payment-btn">
-                <button className="pay-later-btn pointer" onClick={toggleBookEvent}>Pay Later</button>
-                <button className="pay-now-btn pointer" onClick={toggleCardPayment}>Pay Now</button>
+                <button className="pay-later-btn pointer">Pay Later</button>
+                <button className="pay-now-btn pointer">Pay Now</button>
               </div>
             </div>
           </div>
@@ -130,4 +168,4 @@ const BookingEventModal = props => {
   } else return null;
 };
 
-export default BookingEventModal;
+export default CardPaymentModal;
