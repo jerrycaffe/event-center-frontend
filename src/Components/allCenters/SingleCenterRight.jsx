@@ -21,11 +21,13 @@ const SingleCenterRight = props => {
           <label htmlFor="date-time">Date &amp; Time*</label>
           <div className="lg-width">
             <DatePicker
-              selected={getDate}
+              // selected={getDate}
               minDate={getDate}
               onChange={handleDate}
               name="eve_date"
-              value={getDate}
+              placeholderText={getDate.toDateString()}
+              // value={getDate}
+              autoComplete="off"
               excludeDates={getUnavailable.map(date => new Date(date))}
             >
               <div
