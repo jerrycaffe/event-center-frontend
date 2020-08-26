@@ -1,13 +1,55 @@
 import React from "react";
-
+import axios from "axios";
 import bookingIcon from "../../images/bookingIcon.png";
 import closeBtn from "../../images/closeBtn.png";
 import horizontalNavigator from "../../images/horizontal-indicator.png";
 import verticalNavigator from "../../images/verticalNavigator.jpg";
 
-const BookingEventModal = props => {
-  
-  const { getDate,fromTime, toTime, user, amount, isBookEventToggled, toggleBookEvent, toggleCardPayment, closeAllModal } = props;
+const handlePayment = (getDate, fromTime, toTime) => {
+  // create booking
+  const centerId = sessionStorage.getItem("centerId");
+  const token = localStorage.getItem("token");
+  console.log("TOKEN:", token);
+  axios
+    .post(
+      `https://magnitude-event-manager.herokuapp.com/api/booking/${centerId}/book`,
+      {
+        data: {
+          event_date: getDate,
+          from_time: fromTime,
+          to_time: toTime,
+          purpose: "General",
+        },
+      },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    )
+    .then(function (response) {
+      console.log("RESPONSE: ", JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log("ERROR: ", error.response);
+    });
+
+  // redirect to link to make payment
+};
+
+const BookingEventModal = (props) => {
+  const {
+    getDate,
+    fromTime,
+    toTime,
+    user,
+    amount,
+    isBookEventToggled,
+    toggleBookEvent,
+    toggleCardPayment,
+    closeAllModal,
+  } = props;
+
   if (isBookEventToggled) {
     return (
       <div className="booking-container">
@@ -33,7 +75,6 @@ const BookingEventModal = props => {
                 <p>Payment</p>
               </div>
               <div className="nav-indicator">
-                
                 {/* <img
                   className="m-display-none d-flex"
                   src={verticalNavigator}
@@ -55,8 +96,8 @@ const BookingEventModal = props => {
                   <input
                     className="booking-date"
                     type="text"
-                   value={getDate} 
-                   readOnly
+                    value={getDate}
+                    readOnly
                   />
                   <div className="booking-time">
                     <input
@@ -80,13 +121,17 @@ const BookingEventModal = props => {
                     <div>
                       <label htmlFor="fullname">Full Name *</label>
                     </div>
-                    <input type="text"value={`${user.firstname} ${user.lastname}`} readOnly/>
+                    <input
+                      type="text"
+                      value={`${user.firstname} ${user.lastname}`}
+                      readOnly
+                    />
                   </div>
                   <div className="group-list">
                     <div>
                       <label htmlFor="email">Email *</label>
                     </div>
-                    <input type="email" value={user.email} readOnly/>
+                    <input type="email" value={user.email} readOnly />
                   </div>
                 </div>
                 <div className="group-list">
@@ -119,8 +164,18 @@ const BookingEventModal = props => {
                 </div>
               </div>
               <div className="payment-btn">
-                <button className="pay-later-btn pointer" onClick={toggleBookEvent}>Pay Later</button>
-                <button className="pay-now-btn pointer" onClick={toggleCardPayment}>Pay Now</button>
+                <button
+                  className="pay-later-btn pointer"
+                  onClick={toggleBookEvent}
+                >
+                  Pay Later
+                </button>
+                <button
+                  className="pay-now-btn pointer"
+                  onClick={() => handlePayment(getDate, fromTime, toTime)}
+                >
+                  Pay Now
+                </button>
               </div>
             </div>
           </div>
