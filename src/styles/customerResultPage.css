@@ -66,8 +66,8 @@
 /* .center-result {} */
 
 .center-result .center-img {
-  width: 300px;
-  height: 248px;
+  width: 235px;
+  height: 100%;
 }
 
 
@@ -234,6 +234,10 @@
     border-radius: 5px;
     border: solid 1px;
     border: 1px solid #242424;
+  }
+  .center-result .center-img {
+    width: 300px;
+    height: 248px;
   }
 
 }

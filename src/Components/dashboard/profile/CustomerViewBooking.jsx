@@ -12,19 +12,19 @@ const CustomerViewBooking = () => {
   const context = useContext(AuthContext);
   console.log(context.user, "This is the user profile");
   const { id } = context.user;
-  useEffect(()=>{
-const requestBookings = async()=>{
-  try {
-   const userBookings = await Axios.get("https://magnitude-event-manager.herokuapp.com/api/auth/customer/bookings")
-   console.log(userBookings);
-   
-  } catch (error) {
-    console.log(error);
-    
-  }
-}
-requestBookings()
-  }, [])
+  useEffect(() => {
+    const requestBookings = async () => {
+      try {
+        const userBookings = await Axios.get(
+          "https://magnitude-event-manager.herokuapp.com/api/auth/customer/bookings"
+        );
+        console.log(userBookings);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    requestBookings();
+  }, []);
   return (
     <React.Fragment>
       <div className="container">
@@ -37,15 +37,12 @@ requestBookings()
               </Link>
               <i className="indicator-divider"></i>
               <a href="#" className="home">
-                Search
+                Profile
               </a>
             </div>
             <div className="profile-area">
               <div className="dashboard-nav">
-                <Link
-                  to={`/dashboard/profile/${id}`}
-                  className="nav-btn"
-                >
+                <Link to={`/dashboard/profile/${id}`} className="nav-btn">
                   Your Profile
                 </Link>
                 <Link to="/dashboard/bookings" className="nav-btn active">
@@ -54,9 +51,19 @@ requestBookings()
               </div>
               <div className="edit-profile">
                 <div className="edit-form">
-                 List all bookings here
+                  <table id="customers" className="customer-bookings-table">
+                    <tr>
+                      <th>Event Center</th>
+                      <th>Booking Date</th>
+                      <th>Status</th>
+                    </tr>
+                    <tr>
+                      <td>Alfreds Futterkiste</td>
+                      <td>Maria Anders</td>
+                      <td>Germany</td>
+                    </tr>
+                  </table>
                 </div>
-               
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@ const EditProile = () => {
               </Link>
               <i className="indicator-divider"></i>
               <a href="#" className="home">
-                Search
+                Profile
               </a>
             </div>
             <div className="profile-area">
