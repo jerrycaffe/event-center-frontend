@@ -4,8 +4,8 @@ import Axios from "axios";
 
 // Other Needed component
 import Loading from "../../pages/PageLoader";
-import CenterCard from "./../SearchResultPage/CenterCard";
-import SelectFilterForm from "./../SearchResultPage/SearchFilter";
+import CenterCard from "../SearchResultPage/CenterCard";
+import SelectFilterForm from "../SearchResultPage/SearchFilter";
 import Header from "../landingPage/Header";
 import NewsLetter from "../landingPage/NewsLetter";
 

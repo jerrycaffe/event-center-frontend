@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import Header from '../landingPage/Header';
+import Header from './Header';
 import Showcase from "./Showcase";
 import AboutUs from "./About";
 import hallImage from "../../images/hallimage.png";
 import Services from "./Services";
-import NewsLetter from '../landingPage/NewsLetter';
-import Footer from '../landingPage/Footer';
+import NewsLetter from './NewsLetter';
+import Footer from './Footer';
 
 class Home extends Component {
   render() {
