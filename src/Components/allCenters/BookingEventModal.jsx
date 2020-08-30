@@ -2,12 +2,22 @@ import React from "react";
 
 import bookingIcon from "../../images/bookingIcon.png";
 import closeBtn from "../../images/closeBtn.png";
+import loadingIcon from "../../images/loading.gif";
 import horizontalNavigator from "../../images/horizontal-indicator.png";
-import verticalNavigator from "../../images/verticalNavigator.jpg";
 
 const BookingEventModal = props => {
-  
-  const { getDate,fromTime, toTime, user, amount, isBookEventToggled, toggleBookEvent, toggleCardPayment, closeAllModal } = props;
+  const {
+    getDate,
+    fromTime,
+    toTime,
+    user,
+    amount,
+    isBookEventToggled,
+    toggleCardPayment,
+    closeAllModal,
+    makeBooking,
+    loading
+  } = props;
   if (isBookEventToggled) {
     return (
       <div className="booking-container">
@@ -33,7 +43,6 @@ const BookingEventModal = props => {
                 <p>Payment</p>
               </div>
               <div className="nav-indicator">
-                
                 {/* <img
                   className="m-display-none d-flex"
                   src={verticalNavigator}
@@ -55,8 +64,8 @@ const BookingEventModal = props => {
                   <input
                     className="booking-date"
                     type="text"
-                   value={getDate} 
-                   readOnly
+                    value={getDate}
+                    readOnly
                   />
                   <div className="booking-time">
                     <input
@@ -80,13 +89,17 @@ const BookingEventModal = props => {
                     <div>
                       <label htmlFor="fullname">Full Name *</label>
                     </div>
-                    <input type="text"value={`${user.firstname} ${user.lastname}`} readOnly/>
+                    <input
+                      type="text"
+                      value={`${user.firstname} ${user.lastname}`}
+                      readOnly
+                    />
                   </div>
                   <div className="group-list">
                     <div>
                       <label htmlFor="email">Email *</label>
                     </div>
-                    <input type="email" value={user.email} readOnly/>
+                    <input type="email" value={user.email} readOnly />
                   </div>
                 </div>
                 <div className="group-list">
@@ -119,8 +132,23 @@ const BookingEventModal = props => {
                 </div>
               </div>
               <div className="payment-btn">
-                <button className="pay-later-btn pointer" onClick={toggleBookEvent}>Pay Later</button>
-                <button className="pay-now-btn pointer" onClick={toggleCardPayment}>Pay Now</button>
+                {loading ? (
+                  <button className="pay-later-btn">
+                    <img src={loadingIcon} alt="loading" />
+                  </button>
+                ) : (
+                  <button
+                    className="pay-later-btn pointer"
+                    onClick={makeBooking}
+                  >Pay Later</button>
+                )}
+
+                <button
+                  className="pay-now-btn pointer"
+                  onClick={toggleCardPayment}
+                >
+                  Pay Now
+                </button>
               </div>
             </div>
           </div>

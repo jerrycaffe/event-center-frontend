@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
+import DatePicker from "react-datepicker";
 
 const FilterSearch = props => {
   const [date, setDate] = useState(new Date());
@@ -37,21 +38,32 @@ const FilterSearch = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const {location: locate, guests: guestss, event: eventing} = filter
-    
+    const { location: locate, guests: guestss, event: eventing } = filter;
+
     props.history.push(`/search/q?location=${locate}`);
   };
+
   return (
     <form className="form-bg" onSubmit={handleSubmit}>
       <div className="icon-input">
+        <div className="carlender-icon"></div>
         {/* <i className="carlender-icon"></i> */}
-        <input className="border-none" type="date" placeholder="Date" />
-       
+        <div>
+          <DatePicker
+            // selected={getDate}
+            minDate={date}
+            onChange={changeDate}
+            name="eve_date"
+            placeholderText="Date"
+            autoComplete="off"
+          />
+        </div>
+
         {/* <i className="drop-down"></i> */}
       </div>
 
       <div className="icon-input">
-        {/* <i className="location-icon"></i> */}
+        <i className="location-icon"></i>
         <input
           name="location"
           className="border-none text-input"
@@ -67,7 +79,7 @@ const FilterSearch = props => {
           className="border-none text-input"
           onChange={changeFilter}
         >
-          <option>Purpose</option>
+          <option>No of guests </option>
           {eventList.map((lists, i) => {
             return (
               <option value={lists} key={i}>
@@ -84,7 +96,7 @@ const FilterSearch = props => {
           className="border-none text-input"
           onChange={changeFilter}
         >
-          <option>No of guests</option>
+          <option>Type of Event</option>
           {noOfGuest.map((guest, i) => {
             return (
               <option value={guest} key={i}>

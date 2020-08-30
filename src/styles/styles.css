@@ -21,6 +21,7 @@ html {
 
 @import url(./loginModal.css);
 @import url(./bookingModal.css);
+@import url(./CompletedBookingModal.css);
 /* Addmin add center styles */
 @import url(./AddCenters.css);
 /* css for login and signup page */

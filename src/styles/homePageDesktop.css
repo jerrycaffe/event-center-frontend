@@ -151,10 +151,15 @@
   }
 
   .icon-input {
-    width: 205px;
+    display: flex;
     height: 40px;
-    /* margin: 0 5px; */
-  }
+    padding: 0;
+    margin: 0 10px;
+}
+
+.icon-input .react-datepicker__input-container input{
+  border: none;
+}
 
   .icon-input input {
     /* width: 60%; */

@@ -5,7 +5,6 @@ import SelectFilterForm from "./SearchFilter";
 import Header from "../landingPage/Header";
 import Footer from "../landingPage/Footer";
 import NewsLetter from "../landingPage/NewsLetter";
-import searchImg from "../../images/center-search.png";
 import Axios from "axios";
 import Error500 from "../../pages/Error500";
 import PageLoader from "../../pages/PageLoader";
@@ -14,7 +13,6 @@ const ResultPage = props => {
   const [getCenters, setCenters] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [getNetworkError, setNetworkError] = useState(false)
-  const [getErrorMessage, setErrorMessage] = useState('')
   useEffect(() => {
     const result = async () => {
       try {

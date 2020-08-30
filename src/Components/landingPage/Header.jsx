@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Logo from "../../images/LOGO.svg";
 import MobileMenu from "./MobileMenu";
 import AuthContext from "../../Context/authContext";
-import Axios from "axios";
+
 
 class LandingPageHearder extends Component {
   state = {
-    isMenuOpen: false,
+    isMenuOpen: false
   };
   toggleMobileMenu = () => {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
@@ -17,9 +17,10 @@ class LandingPageHearder extends Component {
   handleLogout = () => {
     localStorage.clear();
     this.context.logoutUser();
-    delete Axios.defaults.headers.common["authorization"];
+
+    // delete Axios.defaults.headers.common["authorization"];
   };
-  
+
   render() {
     // console.log(this.context.user, "here");
     let user =

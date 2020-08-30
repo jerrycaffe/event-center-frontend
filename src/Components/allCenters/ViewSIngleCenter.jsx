@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
 
 import AuthContext from "../../Context/authContext";
-import SweetAlert from "react-bootstrap-sweetalert";
 import jwt_decode from "jwt-decode";
 
 import Header from "../landingPage/Header";
@@ -15,6 +14,8 @@ import EventCenterOne from "./EventCenterOne";
 import BookingEventModal from "./BookingEventModal";
 import ConfirmLoginModal from "./ConfirmLoginModal";
 import CardPaymentModal from "./CardPaymentModal";
+import BookingCompletedModal from "./BookingCompletedModal";
+
 const ViewSIngleCenter = props => {
   const [singleCenters, setCenter] = useState({});
   const [state, setState] = useState({
@@ -24,10 +25,12 @@ const ViewSIngleCenter = props => {
   const [getDate, setDate] = useState(new Date());
   const [pageLoading, setPageLoading] = useState(true);
   const [getUnavailable, setUnavailable] = useState([]);
-  const [getModalState, setModalState] = useState(false);
   const [getToggleBookEvent, setToggleBookEvent] = useState(false);
   const [getIsLoginModal, setIsLogginModal] = useState(false);
   const [getToggleCardPayment, setToggleCardPayment] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [isCompletedBooking, setBookingComplete] = useState(false);
+  const [message, setMessage] = useState("");
 
   const context = useContext(AuthContext);
   const { user } = context;
@@ -70,26 +73,57 @@ const ViewSIngleCenter = props => {
     const isUserAuth = window.localStorage.getItem("isAuthenticated");
     if (isUserAuth) {
       //  console.log("show modal you are correct");
-      const token = localStorage.getItem("token");
-      const decoded = jwt_decode(token);
-      const d = formatDate(getDate);
+
+      // const d = formatDate(getDate);
 
       setToggleBookEvent(true);
-    } else setIsLogginModal(true);
+    } else {
+      const bookingHistory = props.history.location.pathname;
+      window.localStorage.setItem("activeBooking", bookingHistory);
+
+      setIsLogginModal(true);
+    }
   };
   const isLoginExit = () => {
     return setIsLogginModal(false);
   };
   const toggleBookEvent = () => {
-    setToggleBookEvent(!getToggleBookEvent);
+    setToggleBookEvent(true);
   };
   const toggleCardPayment = () => {
-    setToggleBookEvent();
-    setToggleCardPayment(!getToggleCardPayment);
+    setToggleBookEvent(false);
+    setToggleCardPayment(true);
   };
   const closeAllModal = () => {
     setToggleBookEvent(false);
-    setToggleCardPayment(false);
+    setMessage("");
+    setBookingComplete(false);
+    setIsLogginModal(false);
+  };
+
+  const handleBooking = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem("token");
+      const decoded = jwt_decode(token);
+      const url = `https://magnitude-event-manager.herokuapp.com/api/booking/${singleCenters.id}/book`;
+      const makeBooking = await Axios.post(url, {
+        event_date: formatDate(getDate),
+        from_time: state.fromTime,
+        to_time: state.toTime,
+        customerId: decoded.id,
+        centerId: singleCenters.id,
+        purpose: "Wedding reception"
+      });
+      if (makeBooking) {
+        setLoading(false);
+        setBookingComplete(true);
+        setMessage(makeBooking.data.success);
+      }
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   if (pageLoading) {
@@ -100,13 +134,24 @@ const ViewSIngleCenter = props => {
     <React.Fragment>
       <div className="container">
         <Header />
-        <CardPaymentModal isCardPaymentToggled={getToggleCardPayment} 
-        closeAllModal={closeAllModal}
+        {/* when a user clicks on pay later this modal should pop up let the user know that the booking is completed successfully */}
+        <BookingCompletedModal
+          isBookingCompleted={isCompletedBooking}
+          message={message}
+          closeAllModal={closeAllModal}
         />
+        {/* the modal below pops up when user wants to pay immediately */}
+        <CardPaymentModal
+          isCardPaymentToggled={getToggleCardPayment}
+          closeAllModal={closeAllModal}
+        />
+        {/* once the user has been logged in, the user see some informtaion filled as regarding the booking about to be made */}
         <BookingEventModal
+          loading={loading}
           isBookEventToggled={getToggleBookEvent}
           toggleCardPayment={toggleCardPayment}
           closeAllModal={closeAllModal}
+          makeBooking={handleBooking}
           toggleBookEvent={toggleBookEvent}
           getDate={formatDate(getDate)}
           fromTime={state.fromTime}
@@ -114,6 +159,7 @@ const ViewSIngleCenter = props => {
           user={user}
           amount={singleCenters.price}
         />
+        {/* this modal pops up when a user is not logged and it instructs the user to log in or sign up */}
         <ConfirmLoginModal
           isLoginModal={getIsLoginModal}
           isLoginExit={isLoginExit}
@@ -122,6 +168,7 @@ const ViewSIngleCenter = props => {
           <div className="center-wrapper">
             <SingleCenterIndicator name={singleCenters.name} />
             <div className="single-center-container">
+              {/* the left side of the single event center showing the information about the center the user is ready to book*/}
               <EventCenterOne
                 price={singleCenters.price}
                 images={singleCenters.images}
@@ -131,6 +178,7 @@ const ViewSIngleCenter = props => {
                 facilities={singleCenters.facilities}
                 name={singleCenters.name}
               />
+              {/* the right side of the single event center */}
               <SingleCenterRight
                 handleSubmit={handleSubmit}
                 getDate={getDate}

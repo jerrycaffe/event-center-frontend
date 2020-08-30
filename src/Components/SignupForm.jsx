@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 
 const SignupForm = (props) => {
   //customer details
-  const [date, setDate] = useState(new Date());
+ 
   const [state, setState] = useState({
     firstname: "",
     lastname: "",

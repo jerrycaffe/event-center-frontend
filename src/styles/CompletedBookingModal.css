@@ -1,0 +1,49 @@
+.completed-booking-container {
+  background: rgba(96, 96, 97, 0.384);
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 600;
+  top: 0;
+  bottom: 0;
+}
+
+.completed-booking-body {
+  width: auto;
+text-align: center;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.completed-booking-content {
+  background: #ffffff;
+  padding: 5%;
+  width: 30%;
+}
+
+.success {
+  content: url("../images/succes.svg");
+  margin: 40px 0;
+}
+
+.booking-modal-title{
+  font-size: 24px;
+  color: #176438;
+}
+.hr-success {
+
+  border: 1px solid #176438;
+  margin: 25px 0;
+  width: 60%;
+}
+.confirm-message{
+  margin: 40px 0;
+  font-weight: 500;
+  color: "#000000"
+}

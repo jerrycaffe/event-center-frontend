@@ -1,21 +1,15 @@
 import React from "react";
 import Axios from "axios";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import {  Route, Redirect, Switch } from "react-router-dom";
 import "../src/styles/styles.css";
 import "./App.css";
 import AuthState from "./Context/authState";
 
 import CustomerResultPage from "./components/SearchResultPage/resultPage";
 import Home from "./components/landingPage/Home";
-import ResultPage from "./components/SearchResultPage/resultPage";
-import AboutUs from "./components/landingPage/About";
-import NewsLetter from "./components/landingPage/NewsLetter";
 import Login from "./components/login/Login";
 import SignUp from "./components/SignUp";
-import Footer from "./components/landingPage/Footer";
 import BookingPage from "./components/Booking/BookingPage";
-
-import resultPage from "./components/SearchResultPage/resultPage";
 import AllCenters from "./components/allCenters/AllCenters";
 
 import UserProfile from "./components/dashboard/profile/EditProile";

@@ -1,30 +1,38 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 
 import Header from "../../landingPage/Header";
 import Footer from "../../landingPage/Footer";
 import NewsLetter from "../../landingPage/NewsLetter";
-import UserProfileImg from "../../../images/userProfileImg.png";
 import AuthContext from "../../../Context/authContext";
+import CustomerBookingTable from "./CustomerBookingTable";
 
 const CustomerViewBooking = () => {
+  const [getBookings, setBookings] = useState([]);
+  const [getLoading, setLoading] =  useState(true)
   const context = useContext(AuthContext);
-  console.log(context.user, "This is the user profile");
+  // console.log(context.user, "This is the user profile");
   const { id } = context.user;
   useEffect(() => {
     const requestBookings = async () => {
       try {
+      
         const userBookings = await Axios.get(
-          "https://magnitude-event-manager.herokuapp.com/api/auth/customer/bookings"
+          "https://magnitude-event-manager.herokuapp.com/api/booking/customer/viewall"
         );
-        console.log(userBookings);
+       
+        setBookings(userBookings.data.message)
+        setLoading(false)
       } catch (error) {
         console.log(error);
+        setLoading(false)
       }
     };
     requestBookings();
   }, []);
+  console.log(getBookings);
+  
   return (
     <React.Fragment>
       <div className="container">
@@ -51,18 +59,7 @@ const CustomerViewBooking = () => {
               </div>
               <div className="edit-profile">
                 <div className="edit-form">
-                  <table id="customers" className="customer-bookings-table">
-                    <tr>
-                      <th>Event Center</th>
-                      <th>Booking Date</th>
-                      <th>Status</th>
-                    </tr>
-                    <tr>
-                      <td>Alfreds Futterkiste</td>
-                      <td>Maria Anders</td>
-                      <td>Germany</td>
-                    </tr>
-                  </table>
+                  <CustomerBookingTable bookings = {getBookings} loading ={getLoading}/>
                 </div>
               </div>
             </div>

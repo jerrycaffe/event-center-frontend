@@ -65,7 +65,7 @@ const SingleCenterRight = props => {
             />
           </div>
 
-          <button type="submit" className="book-btn">
+          <button type="submit" className="book-btn pointer">
             Book Now
           </button>
         </form>

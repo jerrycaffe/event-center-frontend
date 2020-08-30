@@ -54,7 +54,7 @@ class MobileMenu extends Component {
         <Link to="/all/centers" className="">
           Venues
         </Link>
-        <a href="#" className="">
+        <a href="" className="">
           Contact
         </a>
         {buttons}

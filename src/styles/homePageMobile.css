@@ -167,6 +167,11 @@ a {
   display: flex;
   justify-content: space-evenly;
 }
+.react-datepicker-wrapper input[type="text"i] {
+    width: 100%;
+    height: 48px;
+    border: none;
+}
 
 .carlender-icon {
   content: url('../images/calendar.svg')

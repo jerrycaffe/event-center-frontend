@@ -9,17 +9,11 @@ import verve from "../../images/verve.png";
 import masterCard from "../../images/masterCard.png";
 import visa from "../../images/visa.png";
 
-import verticalNavigator from "../../images/verticalNavigator.jpg";
-
 const CardPaymentModal = props => {
   const {
-    getDate,
-    fromTime,
-    toTime,
-    user,
-    amount,
+  
     isCardPaymentToggled,
-    toggleBookEvent,
+
     closeAllModal
   } = props;
   if (isCardPaymentToggled) {
