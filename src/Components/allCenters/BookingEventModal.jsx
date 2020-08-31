@@ -1,11 +1,14 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import Axios from "axios";
 
 import bookingIcon from "../../images/bookingIcon.png";
 import closeBtn from "../../images/closeBtn.png";
 import loadingIcon from "../../images/loading.gif";
 import horizontalNavigator from "../../images/horizontal-indicator.png";
 
-const BookingEventModal = props => {
+const BookingEventModal = (props) => {
   const {
     getDate,
     state,
@@ -15,8 +18,50 @@ const BookingEventModal = props => {
     toggleCardPayment,
     closeAllModal,
     handlePayLater,
-    loading
+    loading,
   } = props;
+
+  function formatDate(date_val) {
+    var d = new Date(date_val),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return [year, month, day].join("-");
+  }
+
+  const handlePayNow = async () => {
+    try {
+      //setLoading(true);
+      const token = localStorage.getItem("token");
+      const decoded = jwt_decode(token);
+      const url = `https://magnitude-event-manager.herokuapp.com/api/booking/${singleCenters.id}/book`;
+      const makeBooking = await Axios.post(url, {
+        event_date: formatDate(getDate),
+        from_time: state.fromTime,
+        to_time: state.toTime,
+        customerId: decoded.id,
+        centerId: singleCenters.id,
+        purpose: "Wedding reception",
+      });
+      if (makeBooking) {
+        //initialize payment and redirect to paystack payment page
+        const url = `https://magnitude-event-manager.herokuapp.com/api/booking/${makeBooking.data.bookingId}/pay`;
+        const response = await Axios.post(url);
+        if (response) {
+          const PAYMENT_URL = response.data.response.data.authorization_url;
+          window.open(PAYMENT_URL, "_blank");
+        }
+      }
+    } catch (error) {
+      // setLoading(false);
+      console.log("ERROR:", error);
+    }
+  };
+
   if (isBookEventToggled) {
     return (
       <div className="booking-container">
@@ -156,7 +201,7 @@ const BookingEventModal = props => {
                   </button>
                   <button
                     className="pay-now-btn pointer"
-                    onClick={toggleCardPayment}
+                    onClick={handlePayNow}
                   >
                     Pay Now
                   </button>
