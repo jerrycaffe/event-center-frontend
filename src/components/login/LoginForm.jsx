@@ -38,7 +38,14 @@ const LoginForm = props => {
           context.loginUser();
           context.loadUser();
           setAlert({ ...alert, loading: false, message: res.data.message });
-          props.history.push("/"); //redirect to homepage
+
+          const activeBooking = window.localStorage.getItem("activeBooking");
+          if (activeBooking) {
+            return props.history.replace(activeBooking) //redirect to booking
+            
+          }
+         
+          return props.history.replace("/"); //redirect to homepage
         })
         .catch(err => {
           

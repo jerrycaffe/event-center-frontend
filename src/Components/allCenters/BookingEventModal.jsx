@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+
 import bookingIcon from "../../images/bookingIcon.png";
 import closeBtn from "../../images/closeBtn.png";
 import loadingIcon from "../../images/loading.gif";
@@ -8,14 +8,13 @@ import horizontalNavigator from "../../images/horizontal-indicator.png";
 const BookingEventModal = props => {
   const {
     getDate,
-    fromTime,
-    toTime,
+    state,
     user,
-    amount,
+    singleCenters,
     isBookEventToggled,
     toggleCardPayment,
     closeAllModal,
-    makeBooking,
+    handlePayLater,
     loading
   } = props;
   if (isBookEventToggled) {
@@ -72,14 +71,14 @@ const BookingEventModal = props => {
                       className="booking-from"
                       type="text"
                       placeholder="booking-from"
-                      value={fromTime}
+                      value={state.fromTime}
                       readOnly
                     />
                     <input
                       className="booking-to"
                       type="text"
                       placeholder="booking-to"
-                      value={toTime}
+                      value={state.toTime}
                       readOnly
                     />
                   </div>
@@ -120,7 +119,7 @@ const BookingEventModal = props => {
               <div className="booking-info">
                 <div className="booking-fee">
                   <p>BOOKING FEE</p>
-                  <p className="booking-amount">N{amount}</p>
+                  <p className="booking-amount">N{singleCenters.price}</p>
                 </div>
                 <div className="note">
                   <p>NOTE</p>
@@ -131,25 +130,38 @@ const BookingEventModal = props => {
                   </p>
                 </div>
               </div>
-              <div className="payment-btn">
-                {loading ? (
-                  <button className="pay-later-btn">
-                    <img src={loadingIcon} alt="loading" />
+              {/* if loading is true, return both buttons loading icon else let them be pure buttons */}
+              {loading ? (
+                <div className="payment-btn">
+                  <button className="pay-later-btn pointer">
+                    <img
+                      src={loadingIcon}
+                      alt="please waiting booking is loading"
+                    />
                   </button>
-                ) : (
+                  <button className="pay-later-btn pointer">
+                    <img
+                      src={loadingIcon}
+                      alt="please waiting booking is loading"
+                    />
+                  </button>
+                </div>
+              ) : (
+                <div className="payment-btn">
                   <button
                     className="pay-later-btn pointer"
-                    onClick={makeBooking}
-                  >Pay Later</button>
-                )}
-
-                <button
-                  className="pay-now-btn pointer"
-                  onClick={toggleCardPayment}
-                >
-                  Pay Now
-                </button>
-              </div>
+                    onClick={handlePayLater}
+                  >
+                    Pay Later
+                  </button>
+                  <button
+                    className="pay-now-btn pointer"
+                    onClick={toggleCardPayment}
+                  >
+                    Pay Now
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

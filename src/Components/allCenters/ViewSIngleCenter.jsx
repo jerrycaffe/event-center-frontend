@@ -101,7 +101,7 @@ const ViewSIngleCenter = props => {
     setIsLogginModal(false);
   };
 
-  const handleBooking = async () => {
+  const handlePayLater = async () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
@@ -151,13 +151,12 @@ const ViewSIngleCenter = props => {
           isBookEventToggled={getToggleBookEvent}
           toggleCardPayment={toggleCardPayment}
           closeAllModal={closeAllModal}
-          makeBooking={handleBooking}
+          handlePayLater={handlePayLater}
           toggleBookEvent={toggleBookEvent}
           getDate={formatDate(getDate)}
-          fromTime={state.fromTime}
-          toTime={state.toTime}
+          state={state}
           user={user}
-          amount={singleCenters.price}
+          singleCenters={singleCenters}
         />
         {/* this modal pops up when a user is not logged and it instructs the user to log in or sign up */}
         <ConfirmLoginModal
