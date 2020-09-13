@@ -178,7 +178,7 @@
 
    
       width: 78%;
-      position: fixed;
+      position: absolute
       top: 35px;
       bottom: 0;
       height: fit-content;
