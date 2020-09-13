@@ -41,7 +41,7 @@ const EditProile = () => {
               <div className="edit-profile">
                 <div className="edit-form">
                   <form className="user-edit-profile">
-                    <h3 className="title">Edit Profile Information</h3>
+                    <h3>Edit Profile Information</h3>
 
                     <div className="form-category">
                       <div>
@@ -82,7 +82,7 @@ const EditProile = () => {
                 </div>
                 <div className="edit-form">
                   <form className="user-edit-profile">
-                    <p className="title">Edit Profile Information</p>
+                    <p>Edit Profile Information</p>
 
                     <div>
                       <label htmlFor="current-password">Current Password</label>
@@ -98,6 +98,18 @@ const EditProile = () => {
                     <button className="password" type="submit">
                       Change Password
                     </button>
+                  </form>
+                </div>
+                <div className="edit-form">
+                  <form className="user-edit-profile">
+                    <p className="">Delete Account</p>
+
+                   
+                  
+                    <button className="delete" type="submit">
+                      Delete
+                    </button>
+                    <p>This action cannot be undone</p>
                   </form>
                 </div>
               </div>

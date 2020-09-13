@@ -176,11 +176,13 @@
 @media only screen and (min-width: 768px) {
   .booking-modal {
 
-    width: 85%;
-    position: absolute;
-    top: 0px;
-    bottom: 0;
-    height: fit-content;
+   
+      width: 78%;
+      position: fixed;
+      top: 35px;
+      bottom: 0;
+      height: fit-content;
+  
   }
 
   .booking-body {
@@ -198,7 +200,7 @@
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-end;
   }
 
@@ -255,6 +257,9 @@
   .payment-btn {
     flex-direction: row;
     margin: 40px 0;
+  }
+  .payment-btn img{
+    width: 25px;
   }
 
   .pay-now-btn {

@@ -31,7 +31,7 @@
 }
 
 .user-edit-profile {
-  padding: 32px 20px;
+  padding: 32px 104px;
   font-size: 18px;
 }
 
@@ -71,13 +71,15 @@
 }
 
 .user-edit-profile button {
-  width: 100%;
+  width: 142px;
+  height: 48px;
   padding: 10px 0;
-  font-size: 25px;
-  margin: 20px 0;
+  font-weight: bold;
+  margin-top: 56px;
   border-radius: 5px;
   border: 1px;
   color: #ffffff;
+  line-height: 20px;
 
 }
 
@@ -88,6 +90,12 @@
 
 .user-edit-profile .password {
   background: #176438;
+  width: 189px
+}
+.user-edit-profile .delete {
+  background: #B30404;
+  margin-bottom: 30px;
+  
 }
 
 .edit-form {

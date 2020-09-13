@@ -35,7 +35,7 @@ class LandingPageHearder extends Component {
         <React.Fragment>
           <img className="user-avatar" src={avatar_url} alt="User Avatar"></img>
           <div className="dropdown">
-            <button className="dropbtn">{user.firstname}</button>
+            <div className="dropbtn">{user.firstname+" "+user.lastname}</div>
             <div className="dropdown-content">
               <Link to={`/dashboard/profile/${this.context.user.id}`}>
                 Profile

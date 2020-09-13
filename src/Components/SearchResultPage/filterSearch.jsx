@@ -66,7 +66,7 @@ const FilterSearch = props => {
         <i className="location-icon"></i>
         <input
           name="location"
-          className="border-none text-input"
+          className="border-none text-input width-90"
           type="text"
           placeholder="Lagos"
           onChange={changeFilter}
@@ -76,11 +76,11 @@ const FilterSearch = props => {
         <i className="group-icon"></i>
         <select
           name="event"
-          className="border-none text-input"
+          className="border-none text-input width-90"
           onChange={changeFilter}
         >
-          <option>No of guests </option>
-          {eventList.map((lists, i) => {
+          <option>Number of guests </option>
+          {noOfGuest.map((lists, i) => {
             return (
               <option value={lists} key={i}>
                 {lists}
@@ -93,11 +93,11 @@ const FilterSearch = props => {
         <i className="confetti-icon"></i>
         <select
           name="guests"
-          className="border-none text-input"
+          className="border-none text-input width-90"
           onChange={changeFilter}
         >
           <option>Type of Event</option>
-          {noOfGuest.map((guest, i) => {
+          {eventList.map((guest, i) => {
             return (
               <option value={guest} key={i}>
                 {guest}

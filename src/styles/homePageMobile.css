@@ -32,7 +32,7 @@
 /* this removes underline and blue color from anchor tag */
 a {
   text-decoration: none;
-  
+
 }
 
 .mt-3 {
@@ -57,10 +57,12 @@ a {
   position: relative;
   top: 60px;
 }
-.pd-left-20{
+
+.pd-left-20 {
   padding-left: 20px;
 }
-.pd-top-10{
+
+.pd-top-10 {
   padding-top: 10px;
 }
 
@@ -143,7 +145,7 @@ a {
 .small-text {
   padding: 10px 30px;
   font-size: 18px;
-  
+
 }
 
 
@@ -167,11 +169,12 @@ a {
   display: flex;
   justify-content: space-evenly;
 }
+
 .react-datepicker-wrapper input[type="text"i] {
-    width: 100%;
-    height: 48px;
-    border: none;
+  width: 100% !important;
+  border: none !important;
 }
+
 
 .carlender-icon {
   content: url('../images/calendar.svg')
@@ -217,14 +220,16 @@ a {
   flex-direction: column;
   align-items: center;
 }
-.center-img{
+
+.center-img {
   width: 230px;
   height: 200px;
 }
 
-.center-card{
+.center-card {
   cursor: pointer;
 }
+
 .page-loader {
   width: 100%;
   display: flex;
@@ -269,7 +274,7 @@ a {
   padding: 10px;
   margin-top: 50px;
   text-align: center;
-  
+
 }
 
 .input-subscribe {
@@ -293,7 +298,7 @@ a {
   justify-content: center;
   color: #ffffff;
   font-size: 12px;
-  
+
 }
 
 .footer-copy {
@@ -304,6 +309,7 @@ a {
   display: flex;
   justify-content: space-around;
 }
+
 .footer a {
   padding: 10px 0;
   color: #ffffff;

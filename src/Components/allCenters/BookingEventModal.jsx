@@ -7,6 +7,7 @@ import bookingIcon from "../../images/bookingIcon.png";
 import closeBtn from "../../images/closeBtn.png";
 import loadingIcon from "../../images/loading.gif";
 import horizontalNavigator from "../../images/horizontal-indicator.png";
+import verticalNavigator from "../../images/verticalIndicator.png";
 
 const BookingEventModal = (props) => {
   const {
@@ -87,11 +88,11 @@ const BookingEventModal = (props) => {
                 <p>Payment</p>
               </div>
               <div className="nav-indicator">
-                {/* <img
+                <img
                   className="m-display-none d-flex"
                   src={verticalNavigator}
                   alt="vertical navigation"
-                /> */}
+                />
                 <img
                   className="d-display-none"
                   src={horizontalNavigator}
